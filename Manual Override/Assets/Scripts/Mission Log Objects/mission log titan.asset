@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b180ddc65d40240958bf94ab1d0ee1, type: 3}
+  m_Name: mission log titan
+  m_EditorClassIdentifier: 
+  missionDescription: 'mission log: titan'
+  missionText: "Titan is Saturn\u2019s largest moon. Like Earth, it has liquid lakes
+    and rivers. Unlike Earth, these lakes and rivers are made up of liquid hydrocarbons.
+    The Huygens lander visited the surface of Titan briefly as part of Cassini\u2019s
+    main mission to the Saturnian system"

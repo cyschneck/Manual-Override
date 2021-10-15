@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
+  m_Name: micrometeorite breaks through wall in the engineering room
+  m_EditorClassIdentifier: 
+  eventDescription: micrometeorite breaks through wall in the engineering room
+  eventText: 'a meteorite barely as big as a quarter punches through the metal of
+    the engineering room, leaving behind a loud hiss and a crash as you struggle
+    contain the damage, you seal the hole, but the engineering room will need time
+    to fix '
+  eventType: 0
+  popUpMenuOption: 0
+  baseProbabilityOfOccuring: 0.4
+  heatCost: 0
+  energyCellCost: 0
+  waterCost: 0
+  robotCost: 0
+  plantCost: 0
+  seedsCost: 0
+  nitrogenCost: -5
+  oxygenCost: -5
+  carbonDioxdeCost: -5
+  hydrogenCost: -10
+  chemicalsCost: -3
+  copperWireCost: -2
+  metalCost: -1
+  deadBatteryCost: 0
+  turnEngineOff: 0

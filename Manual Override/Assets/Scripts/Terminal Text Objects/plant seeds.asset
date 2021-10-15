@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0d38af82d441449abcea9896aaa766, type: 3}
+  m_Name: plant seeds
+  m_EditorClassIdentifier: 
+  description: plant seeds
+  text: the smell of moist soil fills the small cabin as you plant the freshly-sprouted
+    seeds
+  cooldownTime: 15
+  eventType: 
+  heatCost: 0
+  energyCellCost: 2
+  waterCost: 3
+  robotCost: 4
+  plantCost: 5
+  seedsCost: 6
+  nitrogenCost: 7
+  oxygenCost: 8
+  carbonDioxdeCost: 9
+  hydrogenCost: 10
+  chemicalsCost: 11
+  copperWireCost: 12
+  metalCost: 13
+  deadBatteryCost: 14
+  turnEngineOff: 0

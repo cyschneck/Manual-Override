@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b180ddc65d40240958bf94ab1d0ee1, type: 3}
+  m_Name: mission log mars
+  m_EditorClassIdentifier: 
+  missionDescription: 'mission log: mars'
+  missionText: "Mars is the fourth planet from the sun. The red surface is due to
+    oxidation (\u2018rusting\u2019) of the sediment. Mars is also the only planet
+    humans have working machines on, the latest of these being the Perseverance rover,
+    which landed in 2020"

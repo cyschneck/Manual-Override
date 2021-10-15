@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b180ddc65d40240958bf94ab1d0ee1, type: 3}
+  m_Name: mission log plants
+  m_EditorClassIdentifier: 
+  missionDescription: 'mission log: plants'
+  missionText: 'Plants provide comfort and serve to recycle carbon dioxide into oxygen
+    on-board a manned spaceflight. Flowers and food have been grown on the International
+    Space Station (ISS). Previously this has included plants that are excellent oxygen
+    produces like: English ivy, Spider plant, Devil''s ivy/Pothos plant, Peace lily.
+    Chinese evergreen. Bamboo palm, Variegated Sanseviera,Heartleaf philodendron,
+    Selloum philodendron, Elephant ear philodendron, , Red-edged dracaena, Cornstalk
+    dracaena, Weeping fig, Barberton daisy, Florist''s chrysanthemum, Aloe vera,
+    Janet Craig, Warneckei, Banana'

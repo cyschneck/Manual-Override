@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0d38af82d441449abcea9896aaa766, type: 3}
+  m_Name: deploy mining robots
+  m_EditorClassIdentifier: 
+  description: deploy mining robots
+  text: through the tiny window you can see the swarm of mining robots detach from
+    the ship and jet off to the neighboring asteroid
+  cooldownTime: 120
+  eventType: 
+  heatCost: 0
+  energyCellCost: 0
+  waterCost: 0
+  robotCost: 0
+  plantCost: 0
+  seedsCost: 0
+  nitrogenCost: 0
+  oxygenCost: -10
+  carbonDioxdeCost: 0
+  hydrogenCost: 0
+  chemicalsCost: -5
+  copperWireCost: 0
+  metalCost: -1
+  deadBatteryCost: 0
+  turnEngineOff: 0

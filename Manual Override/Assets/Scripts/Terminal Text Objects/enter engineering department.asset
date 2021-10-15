@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0d38af82d441449abcea9896aaa766, type: 3}
+  m_Name: enter engineering department
+  m_EditorClassIdentifier: 
+  description: enter engineering department
+  text: the engineering department crackles to life as the doors open
+  eventType: 
+  heatCost: 0
+  heatCostReoccuringPerSecond: 0
+  energyCellCost: 0
+  energyCellCostReoccuringPerSecond: 0
+  waterCost: 0
+  waterCostReocurringPerSecond: 0
+  robotCost: 0
+  robotCostReoccuringPerSecond: 0
+  plantCost: 0
+  plantCostReoccuringPerSecond: 0
+  seedsCost: 0
+  nitrogenCost: 0
+  nitrogenCostReoccuringPerSecond: 0
+  oxygenCost: 0
+  oxygenCostReoccuringPerSecond: 0
+  carbonDioxdeCost: 0
+  carbonDioxdeCostReoccuringPerSecond: 0
+  hydrogenCost: 0
+  hydrogenCostReoccuringPerSecond: 0
+  chemicalsCost: 0
+  copperWireCost: 0
+  metalCost: 0
+  deadBatteryCost: 0
+  turnEngineOff: 0

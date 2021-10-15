@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b180ddc65d40240958bf94ab1d0ee1, type: 3}
+  m_Name: mission log jupiters moons
+  m_EditorClassIdentifier: 
+  missionDescription: "mission log: jupiter\u2019s moons"
+  missionText: "The Galilean moons (Io, Europa, Ganymede, and Callisto) are Jupiter\u2019s
+    four largest moons. The inner three moons (Io, Europa, and Ganymede) orbit Jupiter
+    in a resonance pattern (for every 1 orbit around Jupiter that Ganymede undergoes,
+    Europa undergoes 2 orbits, and Io undergoes 4). Io is an active volcanic world.
+    Europa and Ganymede are believed to have a large liquid ocean below their surface.
+    NASA is sending a spacecraft (Europa Clipper) to Europa to look for evidence
+    of life in the subsurface ocean"

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
+  m_Name: plants get sick
+  m_EditorClassIdentifier: 
+  eventDescription: plants get sick
+  eventText: You notice a white fuzz spreading over the once healthy leaves of your
+    plants. A fungal infection has taken hold across the nursery
+  eventType: 0
+  popUpMenuOption: 0
+  baseProbabilityOfOccuring: 0.3
+  heatCost: 0
+  energyCellCost: 0
+  waterCost: 0
+  robotCost: 0
+  plantCost: -3
+  seedsCost: -1
+  nitrogenCost: -2
+  oxygenCost: 0
+  carbonDioxdeCost: 0
+  hydrogenCost: 0
+  chemicalsCost: 0
+  copperWireCost: 0
+  metalCost: 0
+  deadBatteryCost: 0
+  turnEngineOff: 0
