@@ -11,7 +11,6 @@ public class TerminalTextManager : MonoBehaviour
 
     public void startWriteText(string textToWrite)
     {
-        //string existingTextToOverwrite = "> " + new string('*', textToWrite.Length) + "\n\n>" + existingText;
         string currentText = terminalTextUI.text;
         terminalTextUI.text = "> " + textToWrite + "\n\n" + currentText;
     }

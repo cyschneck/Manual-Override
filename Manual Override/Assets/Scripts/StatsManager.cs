@@ -52,6 +52,7 @@ public class StatsManager : MonoBehaviour
     public TextMeshProUGUI deadBatteriesStats;
 
     private Dictionary<string, string> textDictionary = new Dictionary<string, string>();
+    private bool engineChangingSpeed;
 
 
     private void Awake()
@@ -103,10 +104,12 @@ public class StatsManager : MonoBehaviour
             if (timeBetweenDelay >= distanceChangeDelay)
             {
                 // update every x seconds
-                //Debug.Log("Displayed every " + distanceChangeDelay + " seconds");
-                ReduceRemainingDistanceToTitan();
-                RandomlyIncreaseDecreaseEngineSpeed();
-                timeBetweenDelay = 0.0f;
+                if (!engineChangingSpeed) // only change speed when not currently building up/losing speed (changes randomly during idle)
+                {
+                    ReduceRemainingDistanceToTitan();
+                    RandomlyIncreaseDecreaseEngineSpeed();
+                    timeBetweenDelay = 0.0f;
+                }
             }
         }
         if (!gameManager.isEngineOn)
@@ -267,6 +270,7 @@ public class StatsManager : MonoBehaviour
 
     public IEnumerator SetEngineSpeed(bool engineIsOn)
     {
+        engineChangingSpeed = false;
         // speed of ship when engine is on ( 3 km/s)
         float buildUpTime = gameManager.engineCooldown; // build up to target speed over engine cooldown time
 
@@ -274,7 +278,7 @@ public class StatsManager : MonoBehaviour
         // if engine is on: build up
         if (engineIsOn)
         {
-            Debug.Log("slowly build up speed to max speed");
+            //slowly build up speed to max speed
             while (elapsedTime < buildUpTime)
             {
                 elapsedTime += Time.deltaTime;
@@ -283,7 +287,7 @@ public class StatsManager : MonoBehaviour
             }
         } else // if engine is off: slow downs
         {
-            Debug.Log("slowly slow down speed to stop");
+            //slowly slow down speed to stop
             float currentEngineSpeed = engineSpeedValue;
             while (elapsedTime < buildUpTime)
             {
@@ -292,6 +296,6 @@ public class StatsManager : MonoBehaviour
                 yield return null;
             }
         }
-
+        engineChangingSpeed = false; // engine in the process of gaining/losing speed
     }
 }
