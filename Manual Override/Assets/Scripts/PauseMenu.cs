@@ -147,22 +147,6 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        // pause menu on esc
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (gameManager.gameIsPaused && !referenceOpened)
-            {
-            }
-            if (gameManager.gameIsPaused && referenceOpened)
-            {
-                CloseReferenceMenu();
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
-
         // unlock mission logs as time progresses
         UnlockMissionLog(isPlantUnlocked, plantButton, plantName);
         UnlockMissionLog(isCMEUnlocked, cmeButton, cmeName);
