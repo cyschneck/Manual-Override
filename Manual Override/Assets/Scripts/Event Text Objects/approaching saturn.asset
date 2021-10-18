@@ -15,10 +15,11 @@ MonoBehaviour:
   eventDescription: apporaching saturn
   eventText: "Saturn\u2019s rings reflect the distant sunlight into a shimmering
     halo. Its alien beauty stuns you"
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   baseProbabilityOfOccuring: 0
-  distanceToTitanInKm: 0
+  distanceToTitanInKmTrigger: 1164179
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

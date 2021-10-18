@@ -16,27 +16,21 @@ MonoBehaviour:
   eventText: "As you look out, the red planet Mars grows larger through the window.
     Across its face, you can see the scars of canyons. Only now do you realize how
     far away from home you\u2019ve come"
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
+  baseProbabilityOfOccuring: 0
+  distanceToTitanInKmTrigger: 20000
   heatCost: 0
-  heatCostReoccuringPerSecond: 0
   energyCellCost: 0
-  energyCellCostReoccuringPerSecond: 0
   waterCost: 0
-  waterCostReocurringPerSecond: 0
   robotCost: 0
-  robotCostReoccuringPerSecond: 0
   plantCost: 0
-  plantCostReoccuringPerSecond: 0
   seedsCost: 0
   nitrogenCost: 0
-  nitrogenCostReoccuringPerSecond: 0
   oxygenCost: 0
-  oxygenCostReoccuringPerSecond: 0
   carbonDioxdeCost: 0
-  carbonDioxdeCostReoccuringPerSecond: 0
   hydrogenCost: 0
-  hydrogenCostReoccuringPerSecond: 0
   chemicalsCost: 0
   copperWireCost: 0
   metalCost: 0

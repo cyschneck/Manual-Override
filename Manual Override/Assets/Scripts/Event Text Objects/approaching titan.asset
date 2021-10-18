@@ -15,10 +15,11 @@ MonoBehaviour:
   eventDescription: approaching titan
   eventText: "A small yellow sphere hanging delicately in space before the giant
     face of Saturn. You\u2019ve nearly made it!"
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   baseProbabilityOfOccuring: 0
-  distanceToTitanInKm: 0
+  distanceToTitanInKmTrigger: 1200000
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

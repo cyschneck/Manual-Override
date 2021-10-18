@@ -16814,6 +16814,7 @@ MonoBehaviour:
     type: 2}
   lowWaterKillsPlants: {fileID: 11400000, guid: 0fd7b5ba0c232b443a293692efe5a9ad,
     type: 2}
+  approachingMoon: {fileID: 11400000, guid: b56995931380b5741a92bbb38bf68493, type: 2}
   approachingMars: {fileID: 11400000, guid: cac66b0bcfe2d084990e50fe55eeb9d2, type: 2}
   apporoachingAsteroidBelt: {fileID: 11400000, guid: 498065d28d894434c8777f5a26e90bf1,
     type: 2}
@@ -16825,6 +16826,7 @@ MonoBehaviour:
   randomFireInEngineering: {fileID: 11400000, guid: 01dbfced0e2ccf9479036c8289c01e0e,
     type: 2}
   allEvents: []
+  allDistanceEvents: []
   allRandomEvents: []
 --- !u!1 &1029806259
 GameObject:
@@ -29168,6 +29170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720581050}
   - component: {fileID: 1720581049}
+  - component: {fileID: 1720581051}
   m_Layer: 0
   m_Name: PopupEventManager
   m_TagString: Untagged
@@ -29195,7 +29198,8 @@ MonoBehaviour:
   eventManager: {fileID: 1027662605}
   isPopUpActive: 0
   testingToRemovePopupToBeRemoved: 0
-  eventToDisplayInPopup: {fileID: 11400000, guid: d9837ffd4de3a7749a323340fc925c0a,
+  eventToDisplayInPopupList: []
+  testingEventToDisplayInPopup: {fileID: 11400000, guid: 5502e18945deee44da5fcce52b1d2d79,
     type: 2}
 --- !u!4 &1720581050
 Transform:
@@ -29211,6 +29215,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720581051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720581048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5075e4a533db847ab52b2a32e5a3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceTravelled: 0
 --- !u!1 &1721548958
 GameObject:
   m_ObjectHideFlags: 0
@@ -32481,6 +32498,7 @@ MonoBehaviour:
   distanceToTitanAmount: 0
   distanceChangeDelay: 0
   timeBetweenDelay: 0
+  titanTotalDistance: 1200000
   energyCellStats: {fileID: 2094851255}
   waterStats: {fileID: 460976598}
   robotsStats: {fileID: 128731265}

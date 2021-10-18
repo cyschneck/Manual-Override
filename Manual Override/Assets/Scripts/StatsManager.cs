@@ -32,6 +32,7 @@ public class StatsManager : MonoBehaviour
     public float timeBetweenDelay; // how often to update distance
     private bool notEnoughResourcesTriggered; // trigger a text value if any values in the list are zero
     private int idleEngineSpeed = 3000;
+    public float titanTotalDistance = 1200000.0f;
 
     [Header("Ship Main Stats")]
     public TextMeshProUGUI energyCellStats;
@@ -145,8 +146,8 @@ public class StatsManager : MonoBehaviour
         deadBatteryAmount = 0;
         SetEngineSpeed(0.0f);
         engineSpeedValue = 0.0f;
-        SetTitanDistance(1200000.0f); // 1200000.0f
-        distanceToTitanAmount = 1200000.0f;
+        SetTitanDistance(titanTotalDistance); // 1200000.0f
+        distanceToTitanAmount = titanTotalDistance;
         SetAirComp(0.0f, 0.0f, 0.0f, 0.0f);
         nitrogenValue = 0;
         oxygenValue = 0;

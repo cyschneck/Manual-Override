@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
     public TextToDisplayEvents fireInEngineeringFromOxygen;
     public TextToDisplayEvents poorNitrogenSoilKillsPlants;
     public TextToDisplayEvents lowWaterKillsPlants;
+    public TextToDisplayEvents approachingMoon;
     public TextToDisplayEvents approachingMars;
     public TextToDisplayEvents apporoachingAsteroidBelt;
     public TextToDisplayEvents approachingJupiter;
@@ -21,6 +22,7 @@ public class EventManager : MonoBehaviour
     public TextToDisplayEvents approachingTitan;
     public TextToDisplayEvents randomFireInEngineering;
     public List<TextToDisplayEvents> allEvents = new List<TextToDisplayEvents>();
+    public List<TextToDisplayEvents> allDistanceEvents = new List<TextToDisplayEvents>();
     public List<TextToDisplayEvents> allRandomEvents = new List<TextToDisplayEvents>();
 
     private void Awake()
@@ -34,6 +36,8 @@ public class EventManager : MonoBehaviour
         allEvents.Add(fireInEngineeringFromOxygen);
         allEvents.Add(poorNitrogenSoilKillsPlants);
         allEvents.Add(lowWaterKillsPlants);
+        allEvents.Add(approachingMoon);
+        allEvents.Add(approachingMars);
         allEvents.Add(apporoachingAsteroidBelt);
         allEvents.Add(approachingJupiter);
         allEvents.Add(approachingJupitersMoons);
@@ -47,13 +51,11 @@ public class EventManager : MonoBehaviour
             {
                 allRandomEvents.Add(eventObject);
             }
+            if (eventObject.eventType == eventType.distanceFromTitan)
+            {
+                allDistanceEvents.Add(eventObject);
+            }
         }
-
-    }
-
-    public void TriggerRandomEvent()
-    {
-        // trigger a random event
 
     }
 }

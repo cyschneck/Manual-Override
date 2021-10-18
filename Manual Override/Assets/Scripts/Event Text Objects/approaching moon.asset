@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventDescription: approaching moon
   eventText: approaching moon text
+  eventHasBeenTriggered: 1
   eventType: 1
   popUpMenuOption: 0
   baseProbabilityOfOccuring: 0
-  distanceToTitanInKm: 0
+  distanceToTitanInKmTrigger: 10000
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

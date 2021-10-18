@@ -20,14 +20,15 @@ public class PopupEventManager : MonoBehaviour
     public bool isPopUpActive = false;
     public bool testingToRemovePopupToBeRemoved = false;
 
-    public TextToDisplayEvents eventToDisplayInPopup; // TESTING FUNCTIONALITY TO BE REMOVED
+    public TextToDisplayEvents[] eventToDisplayInPopupList;
+    public TextToDisplayEvents testingEventToDisplayInPopup; // TESTING FUNCTIONALITY TO BE REMOVED
 
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
 
-        Debug.Log("TESTING POPUP ON: " + eventToDisplayInPopup + " is" + eventToDisplayInPopup.popUpMenuOption);
+        Debug.Log("TESTING POPUP ON: " + testingEventToDisplayInPopup + " is" + testingEventToDisplayInPopup.popUpMenuOption);
         Debug.Log("TODO TO DO : display tooltip on the contine/yes/no button to info about changes when relevant (when there are any costs)");
     }
 
@@ -36,7 +37,7 @@ public class PopupEventManager : MonoBehaviour
         // for testing purposes triggers an event after 10 seconds (TO BE REMOVED)
         if (gameManager.currentTime >= 10.0f && !isPopUpActive && !testingToRemovePopupToBeRemoved)
         {
-            SetUpPopup(eventToDisplayInPopup);
+            SetUpPopup(testingEventToDisplayInPopup);
             testingToRemovePopupToBeRemoved = true;
         }
 
@@ -48,7 +49,7 @@ public class PopupEventManager : MonoBehaviour
         }
     }
 
-    private void SetUpPopup(TextToDisplayEvents displayValue)
+    public void SetUpPopup(TextToDisplayEvents displayValue)
     {
         eventTextBox.GetComponent<TextMeshProUGUI>().text = displayValue.eventText;
         if (displayValue.popUpMenuOption == popUpMenuOptions.continueOnly)
@@ -106,6 +107,6 @@ public class PopupEventManager : MonoBehaviour
 
         popUpMenu.SetActive(false);
         isPopUpActive = false;
-        statsManager.UpdateEventValues(eventToDisplayInPopup);
+        statsManager.UpdateEventValues(testingEventToDisplayInPopup);
     }
 }

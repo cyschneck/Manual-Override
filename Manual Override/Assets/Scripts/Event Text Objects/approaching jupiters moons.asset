@@ -15,9 +15,11 @@ MonoBehaviour:
   eventDescription: apporaching jupiter's moons
   eventText: 'You find yourself suddenly in the audience of four dancers, trapped
     in an endless ballet. Io, Europa, Ganymede, Callisto: Fire, Ice, Cold, Desolate'
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   baseProbabilityOfOccuring: 0
+  distanceToTitanInKmTrigger: 967164
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

@@ -15,9 +15,11 @@ MonoBehaviour:
   eventDescription: apporaching jupiter
   eventText: "The enormous solemnity of Jupter\u2019s one-eye gaze freezes you in
     place. No human has ever felt so small"
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   baseProbabilityOfOccuring: 0
+  distanceToTitanInKmTrigger: 967164
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

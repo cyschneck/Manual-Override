@@ -14,7 +14,6 @@ public class StatsForStringValues : MonoBehaviour
     private GameManager gameManager;
     private TerminalTextManager terminalTextManager;
 
-
     [Header("String Stats")]
     public TextMeshProUGUI heatStats;
     public TextMeshProUGUI soilHealthStats;
