@@ -16801,19 +16801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ac27fa9058b2f428cea95e71c17702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cmeBreaksElectronics: {fileID: 11400000, guid: 50fd1e9e8575cb5469c5e55233fa8c5c,
-    type: 2}
-  enteredGravityWell: {fileID: 11400000, guid: 5ae976417bc29ec4d96a01444fb0fc33, type: 2}
-  escapeGravityWell: {fileID: 11400000, guid: 893a320c5d758824cb8b9d40be1f8c30, type: 2}
-  micrometeoriteBreaksEngineering: {fileID: 11400000, guid: 7fb80272f7ea7c040ae56907d7917d55,
-    type: 2}
-  plantsGetSick: {fileID: 11400000, guid: 182b77071d61dd1488603b8a030858dd, type: 2}
-  fireInEngineeringFromOxygen: {fileID: 11400000, guid: db99bfe3c317bc848984c802146a2398,
-    type: 2}
-  poorNitrogenSoilKillsPlants: {fileID: 11400000, guid: 906bc2974ea4cb848b3407d4a8ce63bb,
-    type: 2}
-  lowWaterKillsPlants: {fileID: 11400000, guid: 0fd7b5ba0c232b443a293692efe5a9ad,
-    type: 2}
   approachingMoon: {fileID: 11400000, guid: b56995931380b5741a92bbb38bf68493, type: 2}
   approachingMars: {fileID: 11400000, guid: cac66b0bcfe2d084990e50fe55eeb9d2, type: 2}
   apporoachingAsteroidBelt: {fileID: 11400000, guid: 498065d28d894434c8777f5a26e90bf1,
@@ -16823,6 +16810,28 @@ MonoBehaviour:
     type: 2}
   approachingSaturn: {fileID: 11400000, guid: 763eb96b944e7bc4b92c2e29b2f9ac07, type: 2}
   approachingTitan: {fileID: 11400000, guid: d8ad462ebda953443867b136d73e3740, type: 2}
+  brokenRobotPiece: {fileID: 11400000, guid: d7b06c4d048c4d7458b2f7f9bcd60d7b, type: 2}
+  computerError: {fileID: 11400000, guid: 5502e18945deee44da5fcce52b1d2d79, type: 2}
+  computerVirus: {fileID: 11400000, guid: 1fe80cfa6da30524ba2e02ef06de0370, type: 2}
+  cmeBreaksElectronics: {fileID: 11400000, guid: 50fd1e9e8575cb5469c5e55233fa8c5c,
+    type: 2}
+  dirtInFilters: {fileID: 11400000, guid: 2c244f8b57947234386456001a273165, type: 2}
+  engineOverheating: {fileID: 11400000, guid: a19ec30fa6a40e547a2554387013e4f0, type: 2}
+  enteredGravityWell: {fileID: 11400000, guid: 5ae976417bc29ec4d96a01444fb0fc33, type: 2}
+  escapeGravityWell: {fileID: 11400000, guid: 893a320c5d758824cb8b9d40be1f8c30, type: 2}
+  fireInEngineeringFromOxygen: {fileID: 11400000, guid: db99bfe3c317bc848984c802146a2398,
+    type: 2}
+  heatFailsHot: {fileID: 11400000, guid: 6d1e4bd419e48944da1c671adef1978b, type: 2}
+  heatFailsCold: {fileID: 11400000, guid: c232b1d366b1f3c43afb959f363881de, type: 2}
+  lowWaterKillsPlants: {fileID: 11400000, guid: 0fd7b5ba0c232b443a293692efe5a9ad,
+    type: 2}
+  micrometeoriteBreaksEngineering: {fileID: 11400000, guid: 7fb80272f7ea7c040ae56907d7917d55,
+    type: 2}
+  oxygenLeak: {fileID: 11400000, guid: d9837ffd4de3a7749a323340fc925c0a, type: 2}
+  plantsGetSick: {fileID: 11400000, guid: 182b77071d61dd1488603b8a030858dd, type: 2}
+  poorNitrogenSoilKillsPlants: {fileID: 11400000, guid: 906bc2974ea4cb848b3407d4a8ce63bb,
+    type: 2}
+  radiationShield: {fileID: 11400000, guid: 2581a5e84f8c74142aa1873f81914007, type: 2}
   randomFireInEngineering: {fileID: 11400000, guid: 01dbfced0e2ccf9479036c8289c01e0e,
     type: 2}
   allEvents: []
@@ -29171,6 +29180,7 @@ GameObject:
   - component: {fileID: 1720581050}
   - component: {fileID: 1720581049}
   - component: {fileID: 1720581051}
+  - component: {fileID: 1720581052}
   m_Layer: 0
   m_Name: PopupEventManager
   m_TagString: Untagged
@@ -29228,6 +29238,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceTravelled: 0
+--- !u!114 &1720581052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720581048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ac971d13461a94093400073a941a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1721548958
 GameObject:
   m_ObjectHideFlags: 0

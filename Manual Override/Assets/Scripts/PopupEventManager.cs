@@ -20,7 +20,6 @@ public class PopupEventManager : MonoBehaviour
     public bool isPopUpActive = false;
     public bool testingToRemovePopupToBeRemoved = false;
 
-    public TextToDisplayEvents[] eventToDisplayInPopupList;
     public TextToDisplayEvents testingEventToDisplayInPopup; // TESTING FUNCTIONALITY TO BE REMOVED
 
     private void Awake()
@@ -35,11 +34,11 @@ public class PopupEventManager : MonoBehaviour
     private void Update()
     {
         // for testing purposes triggers an event after 10 seconds (TO BE REMOVED)
-        if (gameManager.currentTime >= 10.0f && !isPopUpActive && !testingToRemovePopupToBeRemoved)
+        /*if (gameManager.currentTime >= 10.0f && !isPopUpActive && !testingToRemovePopupToBeRemoved)
         {
             SetUpPopup(testingEventToDisplayInPopup);
             testingToRemovePopupToBeRemoved = true;
-        }
+        }*/
 
         if (isPopUpActive)
         {
