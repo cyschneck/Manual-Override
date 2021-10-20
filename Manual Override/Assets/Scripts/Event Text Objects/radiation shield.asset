@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventDescription: radiation shield
   eventText: radiation shield text
+  eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 1
-  baseProbabilityOfOccuring: 0
+  weightOfOccuring: 58
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

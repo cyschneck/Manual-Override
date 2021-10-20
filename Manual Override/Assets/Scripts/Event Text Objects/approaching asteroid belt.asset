@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: approaching asteroid belt
   m_EditorClassIdentifier: 
   eventDescription: approaching asteroid belt
-  eventText: The proximity alert is your first clue that you have entered the asteroid
-    belt. Chunks of planets never-to-be mark the entrance to the world of Gas Giants
-    that await you
-  eventHasBeenTriggered: 0
+  eventText: "Mission Log: \nThe proximity alert is your first clue that you have
+    entered the asteroid belt. Chunks of planets never-to-be mark the entrance to
+    the world of Gas Giants that await you"
+  eventHasBeenTriggered: 1
   eventType: 1
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0
-  distanceToTitanInKmTrigger: 591045
+  weightOfOccuring: 0
+  distanceToTitanInKmTrigger: 179500000
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

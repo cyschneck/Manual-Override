@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: approaching jupiters moons
   m_EditorClassIdentifier: 
   eventDescription: apporaching jupiter's moons
-  eventText: 'You find yourself suddenly in the audience of four dancers, trapped
-    in an endless ballet. Io, Europa, Ganymede, Callisto: Fire, Ice, Cold, Desolate'
-  eventHasBeenTriggered: 0
+  eventText: "Mission Log: \nYou find yourself suddenly in the audience of four dancers,
+    trapped in an endless ballet. Io, Europa, Ganymede, Callisto: Fire, Ice, Cold,
+    Desolate"
+  eventHasBeenTriggered: 1
   eventType: 1
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0
-  distanceToTitanInKmTrigger: 967164
+  weightOfOccuring: 0
+  distanceToTitanInKmTrigger: 628300000
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

@@ -15,9 +15,11 @@ MonoBehaviour:
   eventDescription: fire in engineering
   eventText: a fire breaks out in the oxygen rich engineering department, you can
     only salvage a few robots
+  eventHasBeenTriggered: 0
   eventType: 2
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0.7
+  weightOfOccuring: 61
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: -4

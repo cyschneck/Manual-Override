@@ -16,9 +16,11 @@ MonoBehaviour:
   eventText: Some of the soil from the plants has gotten caught in the air filters,
     reducing its efficiency. You clean it but it will take time before the air is
     back up to standards
+  eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0.5
+  weightOfOccuring: 60
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

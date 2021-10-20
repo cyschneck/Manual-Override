@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: approaching saturn
   m_EditorClassIdentifier: 
   eventDescription: apporaching saturn
-  eventText: "Saturn\u2019s rings reflect the distant sunlight into a shimmering
-    halo. Its alien beauty stuns you"
-  eventHasBeenTriggered: 0
+  eventText: "Mission Log: \nSaturn\u2019s rings reflect the distant sunlight into
+    a shimmering halo. Its alien beauty stuns you"
+  eventHasBeenTriggered: 1
   eventType: 1
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0
-  distanceToTitanInKmTrigger: 1164179
+  weightOfOccuring: 0
+  distanceToTitanInKmTrigger: 1.2e+9
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

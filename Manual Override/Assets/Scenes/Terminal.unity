@@ -29207,10 +29207,6 @@ MonoBehaviour:
   noButton: {fileID: 7385336588046527563}
   eventManager: {fileID: 1027662605}
   isPopUpActive: 0
-  testingToRemovePopupToBeRemoved: 0
-  eventToDisplayInPopupList: []
-  testingEventToDisplayInPopup: {fileID: 11400000, guid: 5502e18945deee44da5fcce52b1d2d79,
-    type: 2}
 --- !u!4 &1720581050
 Transform:
   m_ObjectHideFlags: 0
@@ -29250,6 +29246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ac971d13461a94093400073a941a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeSinceRandomEvent: 0
+  triggerTime: 0
 --- !u!1 &1721548958
 GameObject:
   m_ObjectHideFlags: 0
@@ -32520,7 +32518,7 @@ MonoBehaviour:
   distanceToTitanAmount: 0
   distanceChangeDelay: 0
   timeBetweenDelay: 0
-  titanTotalDistance: 1200000
+  titanTotalDistance: 1.277e+9
   energyCellStats: {fileID: 2094851255}
   waterStats: {fileID: 460976598}
   robotsStats: {fileID: 128731265}

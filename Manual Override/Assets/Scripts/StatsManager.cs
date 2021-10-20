@@ -31,8 +31,8 @@ public class StatsManager : MonoBehaviour
     public float distanceChangeDelay;
     public float timeBetweenDelay; // how often to update distance
     private bool notEnoughResourcesTriggered; // trigger a text value if any values in the list are zero
-    private int idleEngineSpeed = 3000;
-    public float titanTotalDistance = 1200000.0f;
+    private int idleEngineSpeed = 56327; // km/s (voyager speed)
+    public float titanTotalDistance = 1277000000.0f; // distance to Titan from Earth (km)
 
     [Header("Ship Main Stats")]
     public TextMeshProUGUI energyCellStats;
@@ -174,7 +174,7 @@ public class StatsManager : MonoBehaviour
 
     public void SetEngineSpeed(float engineSpeed)
     {
-        engineSpeedStats.text = "> Engine Speed: " + engineSpeed + " m/s";
+        engineSpeedStats.text = "> Engine Speed: " + engineSpeed + " km/s";
     }
 
     public void RandomlyIncreaseDecreaseEngineSpeed()
@@ -187,13 +187,18 @@ public class StatsManager : MonoBehaviour
 
     public void SetTitanDistance(float titanDistance)
     {
-        float displayValue = Mathf.Round(titanDistance / 1000);
+        float displayValue = Mathf.Round(titanDistance / 1000000); // divided by a million
         if (displayValue >= 1000)
         {
-            distanceToTitanStats.text = "> Distance to Titan: " + displayValue + "k km"; // add suffix for thousand
-        } else
+            distanceToTitanStats.text = "> Distance to Titan: " + displayValue + "mk km"; // add suffix for million and thousand
+        }
+        if (displayValue < 1000 && displayValue >= 100)
         {
-            distanceToTitanStats.text = "> Distance to Titan: " + displayValue + " km";
+            distanceToTitanStats.text = "> Distance to Titan: " + displayValue + "k km"; // remove M suffix
+        }
+        if (displayValue < 100)
+        {
+            distanceToTitanStats.text = "> Distance to Titan: " + displayValue + " km"; // remove K suffix
         }
     }
 
@@ -272,7 +277,7 @@ public class StatsManager : MonoBehaviour
     public IEnumerator SetEngineSpeed(bool engineIsOn)
     {
         engineChangingSpeed = false;
-        // speed of ship when engine is on ( 3 km/s)
+        // speed of ship when engine is on ( x km/s)
         float buildUpTime = gameManager.engineCooldown; // build up to target speed over engine cooldown time
 
         float elapsedTime = 0.0f;

@@ -15,9 +15,11 @@ MonoBehaviour:
   eventDescription: broken robot piece
   eventText: While doing inventory, the latch of an assembly piece of the robots
     breaks. You can glue it back but it will take time before you can use it again
+  eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0.2
+  weightOfOccuring: 12
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

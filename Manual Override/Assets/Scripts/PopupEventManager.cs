@@ -18,28 +18,17 @@ public class PopupEventManager : MonoBehaviour
     public GameObject noButton;
     public EventManager eventManager;
     public bool isPopUpActive = false;
-    public bool testingToRemovePopupToBeRemoved = false;
-
-    public TextToDisplayEvents testingEventToDisplayInPopup; // TESTING FUNCTIONALITY TO BE REMOVED
 
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
 
-        Debug.Log("TESTING POPUP ON: " + testingEventToDisplayInPopup + " is" + testingEventToDisplayInPopup.popUpMenuOption);
         Debug.Log("TODO TO DO : display tooltip on the contine/yes/no button to info about changes when relevant (when there are any costs)");
     }
 
     private void Update()
     {
-        // for testing purposes triggers an event after 10 seconds (TO BE REMOVED)
-        /*if (gameManager.currentTime >= 10.0f && !isPopUpActive && !testingToRemovePopupToBeRemoved)
-        {
-            SetUpPopup(testingEventToDisplayInPopup);
-            testingToRemovePopupToBeRemoved = true;
-        }*/
-
         if (isPopUpActive)
         {
             // pause game when popup is active
@@ -106,6 +95,6 @@ public class PopupEventManager : MonoBehaviour
 
         popUpMenu.SetActive(false);
         isPopUpActive = false;
-        statsManager.UpdateEventValues(testingEventToDisplayInPopup);
+        //statsManager.UpdateEventValues();
     }
 }

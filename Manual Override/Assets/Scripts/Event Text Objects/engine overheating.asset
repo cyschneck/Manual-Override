@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventDescription: engine overheating
   eventText: engine overheating, cooling with water
+  eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0
+  weightOfOccuring: 50
+  distanceToTitanInKmTrigger: 0
   heatCost: -20
   energyCellCost: 0
   waterCost: -20

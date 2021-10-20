@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: approaching mars
   m_EditorClassIdentifier: 
   eventDescription: approaching mars
-  eventText: "As you look out, the red planet Mars grows larger through the window.
-    Across its face, you can see the scars of canyons. Only now do you realize how
-    far away from home you\u2019ve come"
-  eventHasBeenTriggered: 0
+  eventText: "Mission Log: \nAs you look out, the red planet Mars grows larger through
+    the window. Across its face, you can see the scars of canyons. Only now do you
+    realize how far away from home you\u2019ve come"
+  eventHasBeenTriggered: 1
   eventType: 1
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0
-  distanceToTitanInKmTrigger: 20000
+  weightOfOccuring: 0
+  distanceToTitanInKmTrigger: 54600000
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

@@ -15,9 +15,11 @@ MonoBehaviour:
   eventDescription: poor nitrogen rich soil kills plants
   eventText: The soil monitor registers a deficit in nitrogen. Without more nitrogen,
     the roots of the plants wither
+  eventHasBeenTriggered: 0
   eventType: 2
   popUpMenuOption: 1
-  baseProbabilityOfOccuring: 0.7
+  weightOfOccuring: 49
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

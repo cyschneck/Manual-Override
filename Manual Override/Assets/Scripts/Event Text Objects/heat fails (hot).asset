@@ -17,9 +17,11 @@ MonoBehaviour:
     suddenly gotten. The heating unit has glitched into overdrive. You have to flush
     the system with cool water to cool off the ship. You feel just like your wilted
     plants
+  eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0.3
+  weightOfOccuring: 42
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

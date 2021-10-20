@@ -16,7 +16,7 @@ public class TextToDisplayEvents : ScriptableObject
     public popUpMenuOptions popUpMenuOption;
     [Range(1, 100)]
     public int weightOfOccuring;
-    [Range(0.0f, 1200000.0f)] // 1200000.0f km
+    [Range(0.0f, 1277000000.0f)] // 1277000000.0f km (1 billion 277 million from Earth)
     public float distanceToTitanInKmTrigger;
     public float heatCost;
     public float energyCellCost;

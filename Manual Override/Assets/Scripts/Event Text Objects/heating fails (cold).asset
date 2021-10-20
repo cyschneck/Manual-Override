@@ -16,9 +16,11 @@ MonoBehaviour:
   eventText: You wake up to your breath clouding the windows. The heating unit has
     started to fail. You reroute the engine system and reestablish life support,
     but many of your plants could not survive the freeze
+  eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0.3
+  weightOfOccuring: 30
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

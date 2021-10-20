@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventDescription: computer virus scrambles text for x seconds
   eventText: <computer virus scrambles text for x seconds>
+  eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  baseProbabilityOfOccuring: 0.1
+  weightOfOccuring: 4
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0

@@ -15,25 +15,21 @@ MonoBehaviour:
   eventDescription: escape gravity well
   eventText: you crank up the engine slowly, the items in the cabin shifting under
     the new acceleration as you climb back into your correct trajectory
+  eventHasBeenTriggered: 0
+  eventType: 0
+  popUpMenuOption: 0
+  weightOfOccuring: 45
+  distanceToTitanInKmTrigger: 0
   heatCost: 0
-  heatCostReoccuringPerSecond: 0
   energyCellCost: -4
-  energyCellCostReoccuringPerSecond: 0
   waterCost: 0
-  waterCostReocurringPerSecond: 0
   robotCost: 0
-  robotCostReoccuringPerSecond: 0
   plantCost: 0
-  plantCostReoccuringPerSecond: 0
   seedsCost: 0
   nitrogenCost: 0
-  nitrogenCostReoccuringPerSecond: 0
   oxygenCost: 0
-  oxygenCostReoccuringPerSecond: 0
   carbonDioxdeCost: 0
-  carbonDioxdeCostReoccuringPerSecond: 0
   hydrogenCost: 0
-  hydrogenCostReoccuringPerSecond: 0
   chemicalsCost: 0
   copperWireCost: 0
   metalCost: 0
