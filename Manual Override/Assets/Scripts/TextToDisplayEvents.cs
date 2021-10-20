@@ -9,6 +9,7 @@ public enum popUpMenuOptions { continueOnly, yesOrNo}
 public class TextToDisplayEvents : ScriptableObject
 {
     public string eventDescription;
+    [TextArea]
     public string eventText;
     public bool eventHasBeenTriggered;
     public eventType eventType;

@@ -11,13 +11,13 @@ public class PopupRandomEventManager : MonoBehaviour
 
     [Header("Timing for Random Events")]
     public float timeSinceRandomEvent;
+    public float triggerTime;
     private float minTimeBetweenEvents = 10.0f; // seconds (waits this long before attempting to trigger a new event)
     private float maxTimeBetweenEvents = 30.0f; // seconds (sets up the random above min time that will be added: min + random value up to max)
     private float randomFloatOne;
     private float randomFloatTwo;
-    public float triggerTime;
-    public bool waitingToTriggerEvent = false;
-    public int randomWeight;
+    private bool waitingToTriggerEvent = false;
+    private int randomWeight;
 
     private void Start()
     {
