@@ -11,12 +11,13 @@ public class PopupRandomEventManager : MonoBehaviour
 
     [Header("Timing for Random Events")]
     public float timeSinceRandomEvent;
-    private float minTimeBetweenEvents = 15.0f; // seconds
-    private float maxTimeBetweenEvents = 20.0f; // seconds
+    private float minTimeBetweenEvents = 10.0f; // seconds (waits this long before attempting to trigger a new event)
+    private float maxTimeBetweenEvents = 30.0f; // seconds (sets up the random above min time that will be added: min + random value up to max)
     private float randomFloatOne;
     private float randomFloatTwo;
     public float triggerTime;
     public bool waitingToTriggerEvent = false;
+    public int randomWeight;
 
     private void Start()
     {
@@ -44,9 +45,9 @@ public class PopupRandomEventManager : MonoBehaviour
 
             if (waitingToTriggerEvent)
             {
+                // if an event has been triggered, wait until the time to trigger is less than the time since the last trigger
                 if (triggerTime < timeSinceRandomEvent) 
                 {
-                    Debug.Log("triggering random event at : " + triggerTime);
                     TriggerRandomEvent();
                     waitingToTriggerEvent = false;
                 }
@@ -57,12 +58,31 @@ public class PopupRandomEventManager : MonoBehaviour
     private void TriggerRandomEvent()
     {
         // trigger a random event from a list of possible events
+
+        // collect the sum of all the weights
+        int sum_weights = 0;
         foreach (TextToDisplayEvents eventRandomObject in eventManager.allRandomEvents)
         {
-            Debug.Log(eventRandomObject.eventText);
+            sum_weights += eventRandomObject.weightOfOccuring;
         }
 
-        // reset time elapsed
-        timeSinceRandomEvent = 0.0f;
+        // choose a random number between 0 and the total sum
+        randomWeight = (Random.Range(0, sum_weights) + Random.Range(0, sum_weights)) / 2; // random event is the average between two points (better distribution)
+        foreach (TextToDisplayEvents eventRandomObject in eventManager.allRandomEvents)
+        {
+            if (randomWeight > eventRandomObject.weightOfOccuring)
+            {
+                // iterate through and reduce the random value by the weight if random number is not less than object's weight
+                randomWeight -= eventRandomObject.weightOfOccuring;
+            } else
+            {
+                // trigger event and reset timer
+                popupEventManager.SetUpPopup(eventRandomObject);
+                // reset time elapsed
+                timeSinceRandomEvent = 0.0f;
+                return;
+            }
+        }
+
     }
 }

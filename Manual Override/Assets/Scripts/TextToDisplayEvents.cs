@@ -13,8 +13,8 @@ public class TextToDisplayEvents : ScriptableObject
     public bool eventHasBeenTriggered;
     public eventType eventType;
     public popUpMenuOptions popUpMenuOption;
-    [Range(0.0f, 1.0f)]
-    public float baseProbabilityOfOccuring;
+    [Range(1, 100)]
+    public int weightOfOccuring;
     [Range(0.0f, 1200000.0f)] // 1200000.0f km
     public float distanceToTitanInKmTrigger;
     public float heatCost;
