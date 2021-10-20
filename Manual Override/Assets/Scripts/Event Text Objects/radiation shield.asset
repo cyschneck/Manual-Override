@@ -19,7 +19,7 @@ MonoBehaviour:
   popUpMenuOption: 1
   weightOfOccuring: 58
   distanceToTitanInKmTrigger: 0
-  heatCost: 0
+  heatCost: -60
   energyCellCost: 0
   waterCost: 0
   robotCost: 0
@@ -31,6 +31,6 @@ MonoBehaviour:
   hydrogenCost: 0
   chemicalsCost: 0
   copperWireCost: 0
-  metalCost: 0
+  metalCost: -4
   deadBatteryCost: 0
   turnEngineOff: 0

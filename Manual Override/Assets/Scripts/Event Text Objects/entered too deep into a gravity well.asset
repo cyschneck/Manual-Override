@@ -18,7 +18,7 @@ MonoBehaviour:
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 1
-  weightOfOccuring: 25
+  weightOfOccuring: 1
   distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0

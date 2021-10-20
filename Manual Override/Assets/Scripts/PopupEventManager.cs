@@ -95,6 +95,5 @@ public class PopupEventManager : MonoBehaviour
 
         popUpMenu.SetActive(false);
         isPopUpActive = false;
-        //statsManager.UpdateEventValues();
     }
 }

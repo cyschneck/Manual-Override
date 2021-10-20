@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     [Header("Menus")]
     public bool referenceOpened = false;
     private GameManager gameManager;
+    private EventManager eventManager;
     public GameObject pauseMenuUI;
     public GameObject referenceMenuUI;
     public GameObject referenceMenuImagesUI;
@@ -26,12 +27,6 @@ public class PauseMenu : MonoBehaviour
     public bool isGravityAssitUnlocked;
     public bool isAirCompUnlocked;
     public bool isMiningUnlocked;
-    public bool isMarsUnlocked;
-    public bool isAsteroidBeltUnlocked;
-    public bool isJupiterUnlocked;
-    public bool isJupiterMoonsUnlocked;
-    public bool isSaturnUnlocked;
-    public bool isTitanUnlocked;
     private string plantName;
     private string cmeName;
     private string dwarfPlanetName;
@@ -39,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     private string gravityAsistName;
     private string airCompName;
     private string miningName;
+    private string moonName;
     private string marsName;
     private string asteroidBeltName;
     private string jupiterName;
@@ -51,9 +47,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject cmeButton;
     public GameObject dwarfPlanetButton;
     public GameObject cryovolcansimButton;
-    public GameObject gravityAssitButton;
+    public GameObject gravityAssistButton;
     public GameObject miningButton;
     public GameObject airCompButton;
+    public GameObject moonButton;
     public GameObject marsButton;
     public GameObject asteroidBeltButton;
     public GameObject jupiterButton;
@@ -67,9 +64,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject cmeText;
     public GameObject dwarfPlanetText;
     public GameObject cryovolcanismText;
-    public GameObject gravityAssitText;
+    public GameObject gravityAssistText;
+    public GameObject AirCompositionText;
     public GameObject miningText;
-    public GameObject airCompText;
+    public GameObject moonText;
     public GameObject marsText;
     public GameObject asteroidBeltText;
     public GameObject jupiterText;
@@ -86,6 +84,7 @@ public class PauseMenu : MonoBehaviour
     public TextToDisplayMissionLog gravityAssitMissionText;
     public TextToDisplayMissionLog airCompMissionText;
     public TextToDisplayMissionLog miningMissionText;
+    public TextToDisplayMissionLog moonMissionText;
     public TextToDisplayMissionLog marsMissionText;
     public TextToDisplayMissionLog asteroidBeltMissionText;
     public TextToDisplayMissionLog jupiterMissionText;
@@ -96,6 +95,7 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
 
         // mission log reference items
         plantName = "Plants";
@@ -105,6 +105,7 @@ public class PauseMenu : MonoBehaviour
         gravityAsistName = "Gravity Assit";
         airCompName = "Air Composition";
         miningName = "Mining";
+        moonName = "Moon";
         marsName = "Mars";
         asteroidBeltName = "Asteroid Belt";
         jupiterName = "Jupiter";
@@ -112,30 +113,24 @@ public class PauseMenu : MonoBehaviour
         saturnName = "Saturn";
         titanName = "Titan";
 
-        // FOR TESTING PURPOSES SET TO TRUE AT BEGINNING
-        isPlantUnlocked = true;
+        // set mission logs visibilty at the start
+        isPlantUnlocked = false;
         isCMEUnlocked = true;
         isDwarfPlanetUnlocked = true;
         isCryovolcanismUnlocked = true;
         isGravityAssitUnlocked = true;
-        isAirCompUnlocked = true;
-        isMiningUnlocked = true;
-        isMarsUnlocked = true;
-        isAsteroidBeltUnlocked = true;
-        isJupiterUnlocked = true;
-        isJupiterMoonsUnlocked = true;
-        isSaturnUnlocked = true;
-        isSaturnUnlocked = true;
-        isTitanUnlocked = true;
+        isAirCompUnlocked = false;
+        isMiningUnlocked = false;
 
         // set display text from the scriptable file
         plantText.GetComponent<TextMeshProUGUI>().text = plantMissionText.missionText;
         cmeText.GetComponent<TextMeshProUGUI>().text = cmeMissionText.missionText;
         dwarfPlanetText.GetComponent<TextMeshProUGUI>().text = dwarfPlanetMissionText.missionText;
         cryovolcanismText.GetComponent<TextMeshProUGUI>().text = cryovolcanismMissionText.missionText;
-        gravityAssitText.GetComponent<TextMeshProUGUI>().text = gravityAssitMissionText.missionText;
-        airCompText.GetComponent<TextMeshProUGUI>().text = airCompMissionText.missionText;
+        gravityAssistText.GetComponent<TextMeshProUGUI>().text = gravityAssitMissionText.missionText;
+        AirCompositionText.GetComponent<TextMeshProUGUI>().text = airCompMissionText.missionText;
         miningText.GetComponent<TextMeshProUGUI>().text = miningMissionText.missionText;
+        moonText.GetComponent<TextMeshProUGUI>().text = moonMissionText.missionText;
         marsText.GetComponent<TextMeshProUGUI>().text = marsMissionText.missionText;
         asteroidBeltText.GetComponent<TextMeshProUGUI>().text = asteroidBeltMissionText.missionText;
         jupiterText.GetComponent<TextMeshProUGUI>().text = jupiterMissionText.missionText;
@@ -152,15 +147,18 @@ public class PauseMenu : MonoBehaviour
         UnlockMissionLog(isCMEUnlocked, cmeButton, cmeName);
         UnlockMissionLog(isDwarfPlanetUnlocked, dwarfPlanetButton, dwarfPlanetName);
         UnlockMissionLog(isCryovolcanismUnlocked, cryovolcansimButton, cryovolcanismName);
-        UnlockMissionLog(isGravityAssitUnlocked, gravityAssitButton, gravityAsistName);
+        UnlockMissionLog(isGravityAssitUnlocked, gravityAssistButton, gravityAsistName);
         UnlockMissionLog(isAirCompUnlocked, airCompButton, airCompName);
         UnlockMissionLog(isMiningUnlocked, miningButton, miningName);
-        UnlockMissionLog(isMarsUnlocked, marsButton, marsName);
-        UnlockMissionLog(isAsteroidBeltUnlocked, asteroidBeltButton, asteroidBeltName);
-        UnlockMissionLog(isJupiterUnlocked, jupiterButton, jupiterName);
-        UnlockMissionLog(isJupiterMoonsUnlocked, jupiterMoonsButton, jupiterMoonsName);
-        UnlockMissionLog(isSaturnUnlocked, saturnButton, saturnName);
-        UnlockMissionLog(isTitanUnlocked, titanButton, titanName);
+
+        // mission lgos for distance events occur when distance reached
+        UnlockMissionLog(eventManager.approachingMoon.eventHasBeenTriggered, moonButton, moonName);
+        UnlockMissionLog(eventManager.approachingMars.eventHasBeenTriggered, marsButton, marsName);
+        UnlockMissionLog(eventManager.apporoachingAsteroidBelt.eventHasBeenTriggered, asteroidBeltButton, asteroidBeltName);
+        UnlockMissionLog(eventManager.approachingJupiter.eventHasBeenTriggered, jupiterButton, jupiterName);
+        UnlockMissionLog(eventManager.approachingJupitersMoons.eventHasBeenTriggered, jupiterMoonsButton, jupiterMoonsName);
+        UnlockMissionLog(eventManager.approachingSaturn.eventHasBeenTriggered, saturnButton, saturnName);
+        UnlockMissionLog(eventManager.approachingTitan.eventHasBeenTriggered, titanButton, titanName);
     }
 
     public void UnlockMissionLog(bool isLogUnlocked, GameObject logButton, string logName)
@@ -220,9 +218,10 @@ public class PauseMenu : MonoBehaviour
         cmeText.SetActive(false);
         dwarfPlanetText.SetActive(false);
         cryovolcanismText.SetActive(false);
-        gravityAssitText.SetActive(false);
-        airCompText.SetActive(false);
+        gravityAssistText.SetActive(false);
+        AirCompositionText.SetActive(false);
         miningText.SetActive(false);
+        moonText.SetActive(false);
         marsText.SetActive(false);
         asteroidBeltText.SetActive(false);
         jupiterText.SetActive(false);
@@ -241,15 +240,11 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        Debug.Log("TODO: RESTARTING GAME");
-        Debug.Log("TODO: POPUOP WARNING ABOUT PROGRESS");
         SceneManager.LoadScene("MainMenu");
     }
 
     public void ExitToMainMenu()
     {
-        Debug.Log("EXIT GAME TO MAIN MENU");
-        Debug.Log("TODO: POPUP WARNING ABOUT PROGRESS");
         SceneManager.LoadScene("MainMenu");
     }
 }

@@ -6,5 +6,6 @@ using UnityEngine;
 public class TextToDisplayMissionLog : ScriptableObject
 {
     public string missionDescription;
+    [TextArea]
     public string missionText;
 }

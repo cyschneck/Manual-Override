@@ -23,7 +23,7 @@ MonoBehaviour:
   heatCost: 0
   energyCellCost: 0
   waterCost: 0
-  robotCost: -1
+  robotCost: -5
   plantCost: 0
   seedsCost: 0
   nitrogenCost: 0

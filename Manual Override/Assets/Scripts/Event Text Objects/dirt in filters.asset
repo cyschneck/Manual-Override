@@ -25,13 +25,13 @@ MonoBehaviour:
   energyCellCost: 0
   waterCost: 0
   robotCost: 0
-  plantCost: 0
+  plantCost: -1
   seedsCost: 0
   nitrogenCost: 0
   oxygenCost: 0
   carbonDioxdeCost: 0
   hydrogenCost: 0
-  chemicalsCost: 0
+  chemicalsCost: -8
   copperWireCost: 0
   metalCost: 0
   deadBatteryCost: 0

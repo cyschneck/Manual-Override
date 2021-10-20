@@ -30,7 +30,7 @@ MonoBehaviour:
   carbonDioxdeCost: 0
   hydrogenCost: 0
   chemicalsCost: 0
-  copperWireCost: 0
-  metalCost: 0
+  copperWireCost: -1
+  metalCost: -2
   deadBatteryCost: 0
   turnEngineOff: 0
