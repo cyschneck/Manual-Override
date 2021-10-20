@@ -16,7 +16,9 @@ MonoBehaviour:
   eventText: "Mission Log: \nThe proximity alert is your first clue that you have
     entered the asteroid belt. Chunks of planets never-to-be mark the entrance to
     the world of Gas Giants that await you"
-  eventHasBeenTriggered: 1
+  eventTerminalText: The asteroid belt looks dangerous up close, the ship's sensors
+    are tripped by so many close rocks
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   weightOfOccuring: 0

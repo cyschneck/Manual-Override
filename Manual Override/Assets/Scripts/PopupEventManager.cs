@@ -8,7 +8,8 @@ public class PopupEventManager : MonoBehaviour
 {
     [Header("Reference")]
     private GameManager gameManager;
-    private StatsManager statsManager;
+    private TerminalTextManager terminalTextManager;
+
 
     [Header("Popup Menu and Options")]
     public GameObject popUpMenu;
@@ -22,7 +23,7 @@ public class PopupEventManager : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
+        terminalTextManager = GameObject.Find("TerminalTextManager").GetComponent<TerminalTextManager>();
 
         Debug.Log("TODO TO DO : display tooltip on the contine/yes/no button to info about changes when relevant (when there are any costs)");
     }

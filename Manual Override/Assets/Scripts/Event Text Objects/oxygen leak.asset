@@ -15,6 +15,7 @@ MonoBehaviour:
   eventDescription: oxygen leak
   eventText: a leak springs in the oxygen reserves. You seal it quickly, but it will
     take time to recover
+  eventTerminalText: oxygen leak triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0

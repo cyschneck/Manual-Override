@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventDescription: approaching moon
   eventText: "Mission Log: \napproaching moon text"
+  eventTerminalText: You leave the moon, and the Earth, far behind
   eventHasBeenTriggered: 1
   eventType: 1
   popUpMenuOption: 0

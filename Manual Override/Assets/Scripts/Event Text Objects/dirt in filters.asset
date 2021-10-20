@@ -16,6 +16,7 @@ MonoBehaviour:
   eventText: Some of the soil from the plants has gotten caught in the air filters,
     reducing its efficiency. You clean it but it will take time before the air is
     back up to standards
+  eventTerminalText: Dirt in tihe filteres triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0

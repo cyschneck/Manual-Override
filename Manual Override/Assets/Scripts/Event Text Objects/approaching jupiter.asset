@@ -15,7 +15,8 @@ MonoBehaviour:
   eventDescription: apporaching jupiter
   eventText: "Mission Log: \nThe enormous solemnity of Jupter\u2019s one-eye gaze
     freezes you in place. No human has ever felt so small"
-  eventHasBeenTriggered: 1
+  eventTerminalText: You travel for several days before Jupiter looks any smaller
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   weightOfOccuring: 0

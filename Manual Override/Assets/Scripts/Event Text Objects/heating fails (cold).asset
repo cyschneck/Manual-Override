@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
   m_Name: heating fails (cold)
   m_EditorClassIdentifier: 
-  eventDescription: heating fails (cold)
+  eventDescription: heat fails (cold)
   eventText: You wake up to your breath clouding the windows. The heating unit has
     started to fail. You reroute the engine system and reestablish life support,
     but many of your plants could not survive the freeze
+  eventTerminalText: heat fails (cold) triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0

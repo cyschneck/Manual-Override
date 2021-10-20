@@ -15,6 +15,7 @@ MonoBehaviour:
   eventDescription: entered too deep into a gravity well
   eventText: " a proximity alarm blares in your ear. The ship has drifted too far
     into Jupiter\u2019s gravity well, and you are losing altitude quickly"
+  eventTerminalText: entered too deep into a gravity well triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 1

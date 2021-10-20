@@ -16,6 +16,7 @@ MonoBehaviour:
   eventText: the dashboard lights die suddenly. All the electronics have shut off.
     The radiation sensor releases a shrill warning. A large cloud of charged-plasma
     has collided with the ship, killing the main circuitry
+  eventTerminalText: CME triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 1

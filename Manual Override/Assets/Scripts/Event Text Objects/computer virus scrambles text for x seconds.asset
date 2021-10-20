@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventDescription: computer virus scrambles text for x seconds
   eventText: <computer virus scrambles text for x seconds>
+  eventTerminalText: computer virus triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0

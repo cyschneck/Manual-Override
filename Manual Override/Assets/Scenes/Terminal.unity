@@ -12962,7 +12962,7 @@ PrefabInstance:
     - target: {fileID: 4930145512471414747, guid: c43b7e398ba478b4ba0276ce14de4ec8,
         type: 3}
       propertyPath: m_Name
-      value: Gravity Assist
+      value: Gravity Assist Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c43b7e398ba478b4ba0276ce14de4ec8, type: 3}
@@ -19143,6 +19143,7 @@ MonoBehaviour:
     type: 2}
   airCompMissionText: {fileID: 11400000, guid: d8cd5d9b1fdca7944aedeb2376975aed, type: 2}
   miningMissionText: {fileID: 11400000, guid: c9ff012b3ff735c4bacd4936f98e81e1, type: 2}
+  moonMissionText: {fileID: 11400000, guid: 90474d5e711fe984b9e6fc2e78e36f03, type: 2}
   marsMissionText: {fileID: 11400000, guid: 05a6c282dfa1cb549856ecacc04c083d, type: 2}
   asteroidBeltMissionText: {fileID: 11400000, guid: 596f6fd8ba8d7af489770b97a0e522d8,
     type: 2}

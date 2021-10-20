@@ -15,6 +15,7 @@ MonoBehaviour:
   eventDescription: escape gravity well
   eventText: you crank up the engine slowly, the items in the cabin shifting under
     the new acceleration as you climb back into your correct trajectory
+  eventTerminalText: escape gravity well triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0

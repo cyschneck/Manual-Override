@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventDescription: radiation shield
   eventText: radiation shield text
+  eventTerminalText: radiation shield text triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 1

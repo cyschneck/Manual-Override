@@ -17,6 +17,7 @@ MonoBehaviour:
     suddenly gotten. The heating unit has glitched into overdrive. You have to flush
     the system with cool water to cool off the ship. You feel just like your wilted
     plants
+  eventTerminalText: heat fails (hot) triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0

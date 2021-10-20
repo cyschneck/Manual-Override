@@ -15,6 +15,7 @@ MonoBehaviour:
   eventDescription: fire in engineering from oxygen
   eventText: a fire breaks out in the oxygen rich engineering department, you can
     only salvage a few robots
+  eventTerminalText: fire in engineering from oxygen triggered
   eventHasBeenTriggered: 0
   eventType: 2
   popUpMenuOption: 0

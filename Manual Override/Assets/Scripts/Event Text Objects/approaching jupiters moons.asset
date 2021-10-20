@@ -16,7 +16,8 @@ MonoBehaviour:
   eventText: "Mission Log: \nYou find yourself suddenly in the audience of four dancers,
     trapped in an endless ballet. Io, Europa, Ganymede, Callisto: Fire, Ice, Cold,
     Desolate"
-  eventHasBeenTriggered: 1
+  eventTerminalText: Jupiter's moons float like a halo around the giant gas planet
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   weightOfOccuring: 0

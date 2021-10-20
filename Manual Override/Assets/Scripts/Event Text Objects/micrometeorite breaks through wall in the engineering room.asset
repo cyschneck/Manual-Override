@@ -17,6 +17,7 @@ MonoBehaviour:
     the engineering room, leaving behind a loud hiss and a crash as you struggle
     contain the damage, you seal the hole, but the engineering room will need time
     to fix '
+  eventTerminalText: micrometeorite event triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0

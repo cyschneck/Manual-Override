@@ -15,6 +15,7 @@ MonoBehaviour:
   eventDescription: ' low water kills plants'
   eventText: The soil monitor shows too little water. The leaves are  limp and rubbery
     to the touch, many of the plants are too far gone to save
+  eventTerminalText: Low water kilsl plants triggered
   eventHasBeenTriggered: 0
   eventType: 2
   popUpMenuOption: 0

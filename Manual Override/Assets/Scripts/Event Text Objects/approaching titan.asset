@@ -15,7 +15,8 @@ MonoBehaviour:
   eventDescription: approaching titan
   eventText: "Mission Log: \nA small yellow sphere hanging delicately in space before
     the giant face of Saturn. You\u2019ve nearly made it!"
-  eventHasBeenTriggered: 1
+  eventTerminalText: The small moon hangs in space like a diamond
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   weightOfOccuring: 0

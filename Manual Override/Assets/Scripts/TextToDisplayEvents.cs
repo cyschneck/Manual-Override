@@ -11,6 +11,8 @@ public class TextToDisplayEvents : ScriptableObject
     public string eventDescription;
     [TextArea]
     public string eventText;
+    [TextArea]
+    public string eventTerminalText;
     public bool eventHasBeenTriggered;
     public eventType eventType;
     public popUpMenuOptions popUpMenuOption;

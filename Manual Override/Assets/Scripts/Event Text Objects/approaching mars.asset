@@ -16,7 +16,8 @@ MonoBehaviour:
   eventText: "Mission Log: \nAs you look out, the red planet Mars grows larger through
     the window. Across its face, you can see the scars of canyons. Only now do you
     realize how far away from home you\u2019ve come"
-  eventHasBeenTriggered: 1
+  eventTerminalText: Mars becomes a small red dot in the window
+  eventHasBeenTriggered: 0
   eventType: 1
   popUpMenuOption: 0
   weightOfOccuring: 0

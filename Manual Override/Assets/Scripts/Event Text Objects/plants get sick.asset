@@ -15,6 +15,7 @@ MonoBehaviour:
   eventDescription: plants get sick
   eventText: You notice a white fuzz spreading over the once healthy leaves of your
     plants. A fungal infection has taken hold across the nursery
+  eventTerminalText: plants get sick triggered
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
