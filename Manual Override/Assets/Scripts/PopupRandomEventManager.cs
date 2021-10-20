@@ -6,10 +6,8 @@ public class PopupRandomEventManager : MonoBehaviour
 {
     [Header("Reference")]
     private EventManager eventManager;
-    private StatsManager statsManager;
     private PopupEventManager popupEventManager;
     private GameManager gameManager;
-    private TerminalTextManager terminalTextManager;
 
     [Header("Timing for Random Events")]
     public float timeSinceRandomEvent;
@@ -24,10 +22,8 @@ public class PopupRandomEventManager : MonoBehaviour
     private void Start()
     {
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
-        statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         popupEventManager = GameObject.Find("PopupEventManager").GetComponent<PopupEventManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        terminalTextManager = GameObject.Find("TerminalTextManager").GetComponent<TerminalTextManager>();
 
         timeSinceRandomEvent = 0.0f;
     }
@@ -83,8 +79,6 @@ public class PopupRandomEventManager : MonoBehaviour
                 // trigger event and reset timer and set stats based on the object
                 popupEventManager.SetUpPopup(eventRandomObject);
                 //Debug.Log("Random event triggered = " + eventRandomObject.eventDescription);
-                statsManager.UpdateEventValues(eventRandomObject);
-                terminalTextManager.startWriteText(eventRandomObject.eventTerminalText); // write a summary to terminal for records
 
                 // reset time elapsed
                 timeSinceRandomEvent = 0.0f;

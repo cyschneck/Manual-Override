@@ -8,7 +8,6 @@ public class PopupDistanceEventManager : MonoBehaviour
     private EventManager eventManager;
     private StatsManager statsManager;
     private PopupEventManager popupEventManager;
-    private TerminalTextManager terminalTextManager;
 
     public float distanceTravelled;
 
@@ -17,7 +16,6 @@ public class PopupDistanceEventManager : MonoBehaviour
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         popupEventManager = GameObject.Find("PopupEventManager").GetComponent<PopupEventManager>();
-        terminalTextManager = GameObject.Find("TerminalTextManager").GetComponent<TerminalTextManager>();
 
         // set all events triggered to false when starting
         foreach (TextToDisplayEvents eventDistanceObject in eventManager.allDistanceEvents)
@@ -41,7 +39,6 @@ public class PopupDistanceEventManager : MonoBehaviour
                 {
                     popupEventManager.SetUpPopup(eventDistanceObject);
                     eventDistanceObject.eventHasBeenTriggered = true;
-                    terminalTextManager.startWriteText(eventDistanceObject.eventTerminalText); // write a summary to terminal for records
                 }
             }
         }
