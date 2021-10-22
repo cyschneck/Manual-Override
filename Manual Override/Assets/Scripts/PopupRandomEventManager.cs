@@ -18,6 +18,7 @@ public class PopupRandomEventManager : MonoBehaviour
     private float randomFloatTwo;
     private bool waitingToTriggerEvent = false;
     private int randomWeight;
+    public List<TextToDisplayEvents> mostRecentRandomEvents = new List<TextToDisplayEvents>();
 
     private void Start()
     {
@@ -63,7 +64,10 @@ public class PopupRandomEventManager : MonoBehaviour
         int sum_weights = 0;
         foreach (TextToDisplayEvents eventRandomObject in eventManager.allRandomEvents)
         {
-            sum_weights += eventRandomObject.weightOfOccuring;
+            if (!mostRecentRandomEvents.Contains(eventRandomObject)) // prevent repeating events (tracks the last x)
+            {
+                sum_weights += eventRandomObject.weightOfOccuring;
+            }
         }
 
         // choose a random number between 0 and the total sum
@@ -77,8 +81,9 @@ public class PopupRandomEventManager : MonoBehaviour
             } else
             {
                 // trigger event and reset timer and set stats based on the object
-                popupEventManager.SetUpPopup(eventRandomObject);
                 //Debug.Log("Random event triggered = " + eventRandomObject.eventDescription);
+                popupEventManager.SetUpPopup(eventRandomObject);
+                KeepTrackOfRandomEvents(eventRandomObject);
 
                 // reset time elapsed
                 timeSinceRandomEvent = 0.0f;
@@ -86,5 +91,16 @@ public class PopupRandomEventManager : MonoBehaviour
             }
         }
 
+    }
+
+   private void KeepTrackOfRandomEvents(TextToDisplayEvents recentRandomObject)
+    {
+        // keep track of x most recent events to prevent the same event from being triggered too often
+        mostRecentRandomEvents.Add(recentRandomObject);
+        if (mostRecentRandomEvents.Count > 3)
+        {
+            // only keep the 3 most recent events, remove oldest event
+            mostRecentRandomEvents.RemoveAt(0);
+        }
     }
 }
