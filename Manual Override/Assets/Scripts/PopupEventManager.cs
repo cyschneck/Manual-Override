@@ -94,7 +94,6 @@ public class PopupEventManager : MonoBehaviour
     public IEnumerator ClosePopUpMenu()
     {
         // close popup menu, restart time, apply event stats, display terminal text
-        Debug.Log("TODO: apply event stats, display terminal text");
         gameManager.StartGameFromPause(); // restarts time
         gameManager.DisableOrEnableAllTermianlButtonsInteractable(true); // make buttons not interactable
 

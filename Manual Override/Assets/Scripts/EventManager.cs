@@ -34,6 +34,7 @@ public class EventManager : MonoBehaviour
     public List<TextToDisplayEvents> allEvents = new List<TextToDisplayEvents>();
     public List<TextToDisplayEvents> allDistanceEvents = new List<TextToDisplayEvents>();
     public List<TextToDisplayEvents> allRandomEvents = new List<TextToDisplayEvents>();
+    public List<TextToDisplayEvents> allAccientConditionsEvents = new List<TextToDisplayEvents>();
 
     private void Awake()
     {
@@ -75,6 +76,10 @@ public class EventManager : MonoBehaviour
             if (eventObject.eventType == eventType.distanceFromTitan)
             {
                 allDistanceEvents.Add(eventObject);
+            }
+            if (eventObject.eventType == eventType.accidents)
+            {
+                allAccientConditionsEvents.Add(eventObject);
             }
         }
 

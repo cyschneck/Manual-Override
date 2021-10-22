@@ -16838,6 +16838,7 @@ MonoBehaviour:
   allEvents: []
   allDistanceEvents: []
   allRandomEvents: []
+  allAccientConditionsEvents: []
 --- !u!1 &1034355388
 GameObject:
   m_ObjectHideFlags: 0
@@ -30010,6 +30011,7 @@ GameObject:
   - component: {fileID: 1720581049}
   - component: {fileID: 1720581051}
   - component: {fileID: 1720581052}
+  - component: {fileID: 1720581053}
   m_Layer: 0
   m_Name: PopupEventManager
   m_TagString: Untagged
@@ -30077,6 +30079,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSinceRandomEvent: 0
   triggerTime: 0
+  mostRecentRandomEvents: []
+--- !u!114 &1720581053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720581048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26dd41c065a3bee498376c604c65c3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1721548958
 GameObject:
   m_ObjectHideFlags: 0
