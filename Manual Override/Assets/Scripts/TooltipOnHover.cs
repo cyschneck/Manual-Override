@@ -51,6 +51,7 @@ public class TooltipOnHover : MonoBehaviour
         if (this.gameObject == gameManager.plantSeedsButton) { SetValuesFromScriptableObject(gameManager.plantSeedsText);}
         if (this.gameObject == gameManager.treatPlantsButton) { SetValuesFromScriptableObject(gameManager.treatPlantsText);}
         if (this.gameObject == gameManager.performElectrolysisButton) { SetValuesFromScriptableObject(gameManager.performElectrolysisText);}
+        if (this.gameObject == gameManager.performSabatierButton) { SetValuesFromScriptableObject(gameManager.performSabatierText);}
         if (this.gameObject == gameManager.assembleRobotsButton) { SetValuesFromScriptableObject(gameManager.assembleBatteryText);}
         if (this.gameObject == gameManager.dismantleRobotsButton) { SetValuesFromScriptableObject(gameManager.dismantleRobotsText);}
         if (this.gameObject == gameManager.scanButton) { SetValuesFromScriptableObject(gameManager.startScanText);}

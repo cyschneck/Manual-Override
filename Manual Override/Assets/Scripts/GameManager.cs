@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject plantSeedsButton;
     public GameObject treatPlantsButton;
     public GameObject performElectrolysisButton;
+    public GameObject performSabatierButton;
     public GameObject assembleRobotsButton;
     public GameObject dismantleRobotsButton;
     public GameObject scanButton;
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
     private GameObject plantSeedsCooldownBar;
     private GameObject treatPlantsCooldownBar;
     private GameObject performElectrolysisCooldownBar;
+    private GameObject performSabatierCooldownBar;
     private GameObject assembleRobotsCooldownBar;
     private GameObject dismantleRobotsCooldownBar;
     private GameObject scanCooldownBar;
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
     public TextToDisplay plantSeedsText;
     public TextToDisplay treatPlantsText;
     public TextToDisplay performElectrolysisText;
+    public TextToDisplay performSabatierText;
     public TextToDisplay deployMiningRobotsText;
     public TextToDisplay assembleRobotsText;
     public TextToDisplay dismantleRobotsText;
@@ -77,7 +80,6 @@ public class GameManager : MonoBehaviour
     {
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         terminalTextManager = GameObject.Find("TerminalTextManager").GetComponent<TerminalTextManager>();
-
 
         // track time in the game
         currentTime = 0.0f;
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
         cooldownDict.Add("plantSeedsCooldown", false);
         cooldownDict.Add("treatPlantsCooldown", false);
         cooldownDict.Add("performElectrolysisCooldown", false);
+        cooldownDict.Add("performSabatierCooldown", false);
         cooldownDict.Add("assembleRobotsCooldown", false);
         cooldownDict.Add("dismantleRobotsCooldown", false);
         cooldownDict.Add("scanCooldown", false);
@@ -116,6 +119,7 @@ public class GameManager : MonoBehaviour
         plantSeedsCooldownBar = plantSeedsButton.transform.GetChild(1).gameObject;
         treatPlantsCooldownBar = treatPlantsButton.transform.GetChild(1).gameObject;
         performElectrolysisCooldownBar = performElectrolysisButton.transform.GetChild(1).gameObject;
+        performSabatierCooldownBar = performSabatierButton.transform.GetChild(1).gameObject;
         assembleRobotsCooldownBar = assembleRobotsButton.transform.GetChild(1).gameObject;
         dismantleRobotsCooldownBar = dismantleRobotsButton.transform.GetChild(1).gameObject;
         scanCooldownBar = scanButton.transform.GetChild(1).gameObject;
@@ -129,6 +133,7 @@ public class GameManager : MonoBehaviour
         plantSeedsCooldownBar.GetComponent<Slider>().value = 0;
         treatPlantsCooldownBar.GetComponent<Slider>().value = 0;
         performElectrolysisCooldownBar.GetComponent<Slider>().value = 0;
+        performSabatierCooldownBar.GetComponent<Slider>().value = 0;
         assembleRobotsCooldownBar.GetComponent<Slider>().value = 0;
         dismantleRobotsCooldownBar.GetComponent<Slider>().value = 0;
         scanCooldownBar.GetComponent<Slider>().value = 0;
@@ -185,6 +190,7 @@ public class GameManager : MonoBehaviour
             plantSeedsButton.GetComponent<Button>().interactable = !cooldownDict["plantSeedsCooldown"];
             treatPlantsButton.GetComponent<Button>().interactable = !cooldownDict["treatPlantsCooldown"];
             performElectrolysisButton.GetComponent<Button>().interactable = !cooldownDict["performElectrolysisCooldown"];
+            performSabatierButton.GetComponent<Button>().interactable = !cooldownDict["performSabatierCooldown"];
             assembleRobotsButton.GetComponent<Button>().interactable = !cooldownDict["assembleRobotsCooldown"];
             dismantleRobotsButton.GetComponent<Button>().interactable = !cooldownDict["dismantleRobotsCooldown"];
             scanButton.GetComponent<Button>().interactable = !cooldownDict["scanCooldown"];
@@ -202,6 +208,7 @@ public class GameManager : MonoBehaviour
         plantSeedsButton.GetComponent<Button>().interactable = isButtonInteractable;
         treatPlantsButton.GetComponent<Button>().interactable = isButtonInteractable;
         performElectrolysisButton.GetComponent<Button>().interactable = isButtonInteractable;
+        performSabatierButton.GetComponent<Button>().interactable = isButtonInteractable;
         assembleRobotsButton.GetComponent<Button>().interactable = isButtonInteractable;
         dismantleRobotsButton.GetComponent<Button>().interactable = isButtonInteractable;
         scanButton.GetComponent<Button>().interactable = isButtonInteractable;
@@ -356,6 +363,19 @@ public class GameManager : MonoBehaviour
             // update slider for cooldown
             StartCoroutine(UpdateCooldownBar(performElectrolysisText.cooldownTime, performElectrolysisCooldownBar));
             StartCoroutine(TriggerCooldown(performElectrolysisText.cooldownTime, "performElectrolysisCooldown")); // wait x seconds before ending cooldown
+        }
+    }
+
+    public void PerformSabatierReaction()
+    {
+        if (!statsManager.DoesNotHaveResources(performSabatierText))
+        {
+            // preform electrolysis in the science department
+            terminalTextManager.startWriteText(performSabatierText.text);
+            statsManager.UpdateStaticValues(performSabatierText);
+            // update slider for cooldown
+            StartCoroutine(UpdateCooldownBar(performSabatierText.cooldownTime, performSabatierCooldownBar));
+            StartCoroutine(TriggerCooldown(performSabatierText.cooldownTime, "performSabatierCooldown")); // wait x seconds before ending cooldown
         }
     }
 

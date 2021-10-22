@@ -8,7 +8,6 @@ public class TextToDisplay : ScriptableObject
     public string description;
     public string text;
     public float cooldownTime;
-    public string eventType;
     public float heatCost;
     public float energyCellCost;
     public float waterCost;
