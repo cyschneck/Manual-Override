@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
   m_Name: accident_dangerously low oxygen last warning
   m_EditorClassIdentifier: 
-  eventDescription: 
-  eventText: 
-  eventTerminalText: 
+  eventDescription: dangerously low oxygen last warning
+  eventText: 'Accident:
+
+    Dangerously low oxygen, last warning: nausea, vomiting,
+    lethargy, blacking out, lips blue'
+  eventTerminalText: Dangerously low oxygen levels text
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
@@ -35,11 +38,11 @@ MonoBehaviour:
   turnEngineOff: 0
   weightOfOccuring: 0
   distanceToTitanInKmTrigger: 0
-  nitrogenMinTrigger: 0
-  nitrogenMaxTrigger: 0
-  oxygenMinTrigger: 0
-  oxygenMaxTrigger: 0
-  carbonDioxdeMinTrigger: 0
-  carbonDioxdeMaxTrigger: 0
-  hydrogenMinTrigger: 0
+  nitrogenMinTrigger: -1
+  nitrogenMaxTrigger: -1
+  oxygenMinTrigger: 6
+  oxygenMaxTrigger: 19.5
+  carbonDioxdeMinTrigger: -1
+  carbonDioxdeMaxTrigger: -1
+  hydrogenMinTrigger: -1
   hydrogenMaxTrigger: 0

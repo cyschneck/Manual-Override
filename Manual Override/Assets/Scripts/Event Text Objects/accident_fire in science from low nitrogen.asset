@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
   m_Name: accident_fire in science from low nitrogen
   m_EditorClassIdentifier: 
-  eventDescription: 
-  eventText: 
-  eventTerminalText: 
+  eventDescription: fire in science from low nitrogen
+  eventText: 'Accident:
+
+    fire in science from low nitrogen'
+  eventTerminalText: fire in science from low nitrogen text
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
@@ -35,7 +37,11 @@ MonoBehaviour:
   turnEngineOff: 0
   weightOfOccuring: 0
   distanceToTitanInKmTrigger: 0
-  nitrogenMinTrigger: 0
-  oxygenMinTrigger: 0
-  carbonDioxdeMinTrigger: 0
-  hydrogenMinTrigger: 0
+  nitrogenMinTrigger: 25
+  nitrogenMaxTrigger: -1
+  oxygenMinTrigger: -1
+  oxygenMaxTrigger: -1
+  carbonDioxdeMinTrigger: -1
+  carbonDioxdeMaxTrigger: -1
+  hydrogenMinTrigger: -1
+  hydrogenMaxTrigger: 0

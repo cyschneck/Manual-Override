@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
-  m_Name: plants get sick
+  m_Name: random_plants get sick
   m_EditorClassIdentifier: 
   eventDescription: plants get sick
   eventText: You notice a white fuzz spreading over the once healthy leaves of your
     plants. A fungal infection has taken hold across the nursery
-  eventTerminalText: plants get sick triggered
+  eventTerminalText: plants get sick triggered (random)
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  weightOfOccuring: 15
-  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0
@@ -36,3 +34,13 @@ MonoBehaviour:
   metalCost: 0
   deadBatteryCost: 0
   turnEngineOff: 0
+  weightOfOccuring: 15
+  distanceToTitanInKmTrigger: 0
+  nitrogenMinTrigger: -1
+  nitrogenMaxTrigger: -1
+  oxygenMinTrigger: -1
+  oxygenMaxTrigger: -1
+  carbonDioxdeMinTrigger: -1
+  carbonDioxdeMaxTrigger: -1
+  hydrogenMinTrigger: -1
+  hydrogenMaxTrigger: -1

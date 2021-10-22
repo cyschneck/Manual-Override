@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
-  m_Name: oxygen leak
+  m_Name: random_oxygen leak
   m_EditorClassIdentifier: 
   eventDescription: oxygen leak
   eventText: a leak springs in the oxygen reserves. You seal it quickly, but it will
     take time to recover
-  eventTerminalText: oxygen leak triggered
+  eventTerminalText: oxygen leak triggered (random)
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  weightOfOccuring: 85
-  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0
@@ -36,3 +34,13 @@ MonoBehaviour:
   metalCost: 0
   deadBatteryCost: 0
   turnEngineOff: 0
+  weightOfOccuring: 85
+  distanceToTitanInKmTrigger: 0
+  nitrogenMinTrigger: -1
+  nitrogenMaxTrigger: -1
+  oxygenMinTrigger: -1
+  oxygenMaxTrigger: -1
+  carbonDioxdeMinTrigger: -1
+  carbonDioxdeMaxTrigger: -1
+  hydrogenMinTrigger: -1
+  hydrogenMaxTrigger: -1

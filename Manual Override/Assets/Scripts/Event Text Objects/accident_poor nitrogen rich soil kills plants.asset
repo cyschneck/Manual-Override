@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
-  m_Name: poor nitrogen rich soil kills plants
+  m_Name: accident_poor nitrogen rich soil kills plants
   m_EditorClassIdentifier: 
   eventDescription: poor nitrogen rich soil kills plants
-  eventText: The soil monitor registers a deficit in nitrogen. Without more nitrogen,
-    the roots of the plants wither
-  eventTerminalText: poor nitrogen rich soil kills plants triggered
+  eventText: 'Accident:
+
+    The soil monitor registers a deficit in nitrogen. Without
+    more nitrogen, the roots of the plants wither'
+  eventTerminalText: poor nitrogen rich soil kills plants triggered text
   eventHasBeenTriggered: 0
   eventType: 2
   popUpMenuOption: 1
-  weightOfOccuring: 49
-  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0
@@ -36,3 +36,13 @@ MonoBehaviour:
   metalCost: 0
   deadBatteryCost: 0
   turnEngineOff: 0
+  weightOfOccuring: 49
+  distanceToTitanInKmTrigger: 0
+  nitrogenMinTrigger: -1
+  nitrogenMaxTrigger: -1
+  oxygenMinTrigger: -1
+  oxygenMaxTrigger: -1
+  carbonDioxdeMinTrigger: -1
+  carbonDioxdeMaxTrigger: -1
+  hydrogenMinTrigger: -1
+  hydrogenMaxTrigger: 0

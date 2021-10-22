@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
-  m_Name: computer error
+  m_Name: random_computer error
   m_EditorClassIdentifier: 
   eventDescription: computer error
   eventText: The terminal freezes for a moment, jumbling your orders. You play it
     safe and power down unnecessary systems to allow for a full reboot. It gives
     you peace of mind but requires more energy than you were expecting
-  eventTerminalText: computer error triggered
+  eventTerminalText: computer error triggered (random)
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  weightOfOccuring: 40
-  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0
@@ -37,3 +35,13 @@ MonoBehaviour:
   metalCost: -1
   deadBatteryCost: 0
   turnEngineOff: 0
+  weightOfOccuring: 40
+  distanceToTitanInKmTrigger: 0
+  nitrogenMinTrigger: -1
+  nitrogenMaxTrigger: -1
+  oxygenMinTrigger: -1
+  oxygenMaxTrigger: -1
+  carbonDioxdeMinTrigger: -1
+  carbonDioxdeMaxTrigger: -1
+  hydrogenMinTrigger: -1
+  hydrogenMaxTrigger: -1

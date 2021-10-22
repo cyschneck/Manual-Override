@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
-  m_Name: entered too deep into a gravity well
+  m_Name: random_entered too deep into a gravity well
   m_EditorClassIdentifier: 
   eventDescription: entered too deep into a gravity well
   eventText: " a proximity alarm blares in your ear. The ship has drifted too far
     into Jupiter\u2019s gravity well, and you are losing altitude quickly"
-  eventTerminalText: entered too deep into a gravity well triggered
+  eventTerminalText: entered too deep into a gravity well triggered (random)
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 1
-  weightOfOccuring: 1
-  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0
@@ -36,3 +34,13 @@ MonoBehaviour:
   metalCost: 0
   deadBatteryCost: 0
   turnEngineOff: 1
+  weightOfOccuring: 1
+  distanceToTitanInKmTrigger: 0
+  nitrogenMinTrigger: -1
+  nitrogenMaxTrigger: -1
+  oxygenMinTrigger: -1
+  oxygenMaxTrigger: -1
+  carbonDioxdeMinTrigger: -1
+  carbonDioxdeMaxTrigger: -1
+  hydrogenMinTrigger: -1
+  hydrogenMaxTrigger: -1

@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
-  m_Name: heat fails (hot)
+  m_Name: random_heat fails (hot)
   m_EditorClassIdentifier: 
   eventDescription: heat fails (hot)
   eventText: A drop of sweat stings your eyes, and you notice how hot the cabin has
     suddenly gotten. The heating unit has glitched into overdrive. You have to flush
     the system with cool water to cool off the ship. You feel just like your wilted
     plants
-  eventTerminalText: heat fails (hot) triggered
+  eventTerminalText: heat fails (hot) triggered (random)
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0
-  weightOfOccuring: 42
-  distanceToTitanInKmTrigger: 0
   heatCost: 0
   energyCellCost: 0
   waterCost: 0
@@ -38,3 +36,13 @@ MonoBehaviour:
   metalCost: 0
   deadBatteryCost: 0
   turnEngineOff: 0
+  weightOfOccuring: 42
+  distanceToTitanInKmTrigger: 0
+  nitrogenMinTrigger: -1
+  nitrogenMaxTrigger: -1
+  oxygenMinTrigger: -1
+  oxygenMaxTrigger: -1
+  carbonDioxdeMinTrigger: -1
+  carbonDioxdeMaxTrigger: -1
+  hydrogenMinTrigger: -1
+  hydrogenMaxTrigger: -1
