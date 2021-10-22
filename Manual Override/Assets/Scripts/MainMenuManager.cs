@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    // Main menu manager controls the main menu scene
+
     [Header("Main Menu Objects")]
     public GameObject mainMenuUI;
     public GameObject creditsUI;

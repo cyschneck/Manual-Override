@@ -7,6 +7,8 @@ using TMPro;
 public enum roomType { main, science, engineering }
 public class GameManager : MonoBehaviour
 {
+    // Game manger controls: cooldown bars, buttons on UI, , button interactably, start/stop time, change rooms
+
     [Header("Reference")]
     private StatsManager statsManager;
     public bool gameIsPaused = false;

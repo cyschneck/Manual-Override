@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PopupAccidentManager : MonoBehaviour
 {
+    // Controls Accident-based events for popups
+
     [Header("Reference")]
     private GameManager gameManager;
     private EventManager eventManager;

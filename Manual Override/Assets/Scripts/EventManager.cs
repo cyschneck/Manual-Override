@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
+    // Track all events in the game, serving as a central storage for other scripts for events
+
     [Header("Mission Logs and Events Populated By Hand")]
     public TextToDisplayEvents approachingMoon;
     public TextToDisplayEvents approachingMars;

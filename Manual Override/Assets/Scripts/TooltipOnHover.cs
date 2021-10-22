@@ -5,6 +5,8 @@ using TMPro;
 
 public class TooltipOnHover : MonoBehaviour
 {
+    // Controls the popup Tooltip for interactable buttons
+
     [Header("References")]
     private GameManager gameManager;
     private GameObject toolTipOnDisplay;

@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Terminal Text Object", menuName = "Terminal Text")]
 public class TextToDisplay : ScriptableObject
 {
+    // Scriptable object for terminal buttons
+
+    [Header("Terminal Buttons and Text")]
     public string description;
     public string text;
     public float cooldownTime;

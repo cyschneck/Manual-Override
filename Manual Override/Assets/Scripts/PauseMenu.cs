@@ -7,6 +7,8 @@ using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
+    // Pause menu manager, controls menus displayed in pause menu as well as mission logs
+
     [Header("Menus")]
     public bool referenceOpened = false;
     private GameManager gameManager;

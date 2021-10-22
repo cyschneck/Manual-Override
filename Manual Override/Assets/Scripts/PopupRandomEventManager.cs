@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PopupRandomEventManager : MonoBehaviour
 {
+    // Controls Random-based events for popups
+
     [Header("Reference")]
     private EventManager eventManager;
     private PopupEventManager popupEventManager;

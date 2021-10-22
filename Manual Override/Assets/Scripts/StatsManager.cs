@@ -5,7 +5,8 @@ using TMPro;
 
 public class StatsManager : MonoBehaviour
 {
-    // controls updating the stats on the home page, science department, and engineering department
+    // Stats Manager controls updating stats on terminal (non-strings, numerical values)
+
     [Header("Reference")]
     private GameManager gameManager;
     private StatsForStringValues stringStatsValues;

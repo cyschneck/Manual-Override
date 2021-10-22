@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PopupDistanceEventManager : MonoBehaviour
 {
+    // Controls Distance-based events for popups
+
     [Header("Reference")]
     private EventManager eventManager;
     private StatsManager statsManager;

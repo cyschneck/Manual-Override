@@ -16,19 +16,19 @@ MonoBehaviour:
   text: the smell of moist soil fills the small cabin as you plant the freshly-sprouted
     seeds
   cooldownTime: 15
-  eventType: 
-  heatCost: 0
+  heatCost: 1
   energyCellCost: 2
   waterCost: 3
   robotCost: 4
   plantCost: 5
   seedsCost: 6
-  nitrogenCost: 7
-  oxygenCost: 8
-  carbonDioxdeCost: 9
-  hydrogenCost: 10
-  chemicalsCost: 11
-  copperWireCost: 12
-  metalCost: 13
-  deadBatteryCost: 14
+  methaneCost: 8
+  nitrogenCost: 9
+  oxygenCost: 10
+  carbonDioxdeCost: 11
+  hydrogenCost: 12
+  chemicalsCost: 13
+  copperWireCost: 14
+  metalCost: 15
+  deadBatteryCost: 16
   turnEngineOff: 0

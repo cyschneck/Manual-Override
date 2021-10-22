@@ -15,13 +15,13 @@ MonoBehaviour:
   description: assemble battery
   text: assemble battery text
   cooldownTime: 45
-  eventType: 
   heatCost: 0
   energyCellCost: 1
   waterCost: 1
   robotCost: 0
   plantCost: 0
   seedsCost: 0
+  methaneCost: 0
   nitrogenCost: 0
   oxygenCost: 0
   carbonDioxdeCost: 0

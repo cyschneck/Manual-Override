@@ -7,8 +7,8 @@ public enum StatsStringsOptions { offline, nominal, poor }
 
 public class StatsForStringValues : MonoBehaviour
 {
+    // Controls string based states for heat, soil health, plant health
     // updates string values from: [offline, nominal, poor]
-    // currently applied for: heat, soil health, plant health
 
     [Header("Reference")]
     private GameManager gameManager;

@@ -6,6 +6,8 @@ using TMPro;
 
 public class TerminalTextManager : MonoBehaviour
 {
+    // Controls printing text to terminal
+
     [Header("Text Values")]
     public TextMeshProUGUI terminalTextUI;
 

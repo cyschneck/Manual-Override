@@ -8,6 +8,8 @@ public enum popUpMenuOptions { continueOnly, yesOrNo}
 [CreateAssetMenu(fileName = "Event Text Object", menuName = "Event Text")]
 public class TextToDisplayEvents : ScriptableObject
 {
+    // Scriptable object for Event based objects: random, distance to Titan, Accidents
+
     [Header("Generic")]
     public string eventDescription;
     [TextArea]
