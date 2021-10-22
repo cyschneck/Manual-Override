@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: accident_fire in engineering from high oxygen
   m_EditorClassIdentifier: 
   eventDescription: fire in engineering from high oxygen
-  eventText: "Accident: \na fire breaks out in the oxygen rich engineering department,
+  eventText: "Accident: \na fire breaks out in the oxygen-rich engineering department,
     you can only salvage a few robots"
-  eventTerminalText: fire in engineering from oxygen triggered
+  eventTerminalText: fire in engineering from oxygen triggered  (accident)
   eventHasBeenTriggered: 0
   eventType: 2
   popUpMenuOption: 0
@@ -34,13 +34,13 @@ MonoBehaviour:
   metalCost: 2
   deadBatteryCost: 0
   turnEngineOff: 0
-  weightOfOccuring: 33
+  weightOfOccuring: 1
   distanceToTitanInKmTrigger: 0
-  nitrogenMinTrigger: -1
-  nitrogenMaxTrigger: -1
-  oxygenMinTrigger: -1
-  oxygenMaxTrigger: 23
-  carbonDioxdeMinTrigger: -1
-  carbonDioxdeMaxTrigger: -1
-  hydrogenMinTrigger: -1
+  nitrogenMinTrigger: 0
+  nitrogenMaxTrigger: 0
+  oxygenMinTrigger: 23
+  oxygenMaxTrigger: 100
+  carbonDioxdeMinTrigger: 0
+  carbonDioxdeMaxTrigger: 0
+  hydrogenMinTrigger: 0
   hydrogenMaxTrigger: 0

@@ -12,8 +12,8 @@ public class PopupAccidentManager : MonoBehaviour
 
     [Header("Track Accidents And Events")]
     public float timeSinceLastAccident;
-    public bool hasHadRecentAccident;
-    private float waitBetweenChecks = 15.0f; // time to wait befor echecking again
+    public bool resetTimeSinceAccident;
+    public float waitBetweenChecks; // time to wait before checking again
 
     private void Start()
     {
@@ -21,7 +21,8 @@ public class PopupAccidentManager : MonoBehaviour
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         popupEventManager = GameObject.Find("PopupEventManager").GetComponent<PopupEventManager>();
-        hasHadRecentAccident = false;
+        resetTimeSinceAccident = false;
+        waitBetweenChecks = 5.0f; // first time waits x time
     }
 
     private void Update()
@@ -33,17 +34,17 @@ public class PopupAccidentManager : MonoBehaviour
 
             if (timeSinceLastAccident > waitBetweenChecks)
             {
-                foreach (TextToDisplayEvents eventAccidentConditionsObject in eventManager.allAccientConditionsEvents)
+                foreach (TextToDisplayEvents eventAccidentConditionsObject in eventManager.allAccidentEvents)
                 {
                     //Debug.Log(eventAccidentConditionsObject);
                     TriggerEventBasedOnStats(eventAccidentConditionsObject);
                 }
             }
 
-            if (hasHadRecentAccident)
+            if (resetTimeSinceAccident)
             {
                 timeSinceLastAccident = 0.0f;
-                hasHadRecentAccident = false;
+                resetTimeSinceAccident = false;
             }
         }
     }
@@ -51,27 +52,27 @@ public class PopupAccidentManager : MonoBehaviour
     public void TriggerEventBasedOnStats(TextToDisplayEvents eventObject)
     {
         // check stats to determine if an event should be triggered
-        if (statsManager.nitrogenValue <= eventObject.nitrogenMinTrigger || statsManager.nitrogenValue >= eventObject.nitrogenMaxTrigger)
+        if (eventObject.nitrogenMinTrigger <= statsManager.nitrogenValue && eventObject.nitrogenMaxTrigger >= statsManager.nitrogenValue)
         {
             popupEventManager.SetUpPopup(eventObject);
-            hasHadRecentAccident = true;
+            resetTimeSinceAccident = true;
         }
-        if (statsManager.oxygenValue <= eventObject.oxygenMinTrigger || statsManager.oxygenValue >= eventObject.oxygenMaxTrigger)
-        {
+        if (eventObject.oxygenMinTrigger <= statsManager.oxygenValue && eventObject.oxygenMaxTrigger >= statsManager.oxygenValue)
+        { 
             popupEventManager.SetUpPopup(eventObject);
-            hasHadRecentAccident = true;
+            resetTimeSinceAccident = true;
 
         }
-        if (statsManager.carbonDioxdeValue <= eventObject.carbonDioxdeMinTrigger || statsManager.carbonDioxdeValue >= eventObject.carbonDioxdeMaxTrigger)
+        if (eventObject.carbonDioxdeMinTrigger <= statsManager.carbonDioxdeValue && eventObject.carbonDioxdeMaxTrigger >= statsManager.carbonDioxdeValue)
         {
             popupEventManager.SetUpPopup(eventObject);
-            hasHadRecentAccident = true;
+            resetTimeSinceAccident = true;
 
         }
-        if (statsManager.hydrogenValue <= eventObject.hydrogenMinTrigger || statsManager.hydrogenValue >= eventObject.hydrogenMaxTrigger)
+        if (eventObject.hydrogenMinTrigger <= statsManager.hydrogenValue && eventObject.hydrogenMaxTrigger >= statsManager.hydrogenValue)
         {
             popupEventManager.SetUpPopup(eventObject);
-            hasHadRecentAccident = true;
+            resetTimeSinceAccident = true;
         }
     }
 }

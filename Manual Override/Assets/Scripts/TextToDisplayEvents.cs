@@ -40,20 +40,20 @@ public class TextToDisplayEvents : ScriptableObject
     [Range(0.0f, 1277000000.0f)] // 1277000000.0f km (1 billion 277 million from Earth)
     public float distanceToTitanInKmTrigger;
     [Header("Accidents and Conditions")]
-    [Range(-1, 100)]
+    [Range(0, 100)]
     public float nitrogenMinTrigger; // low nitrogen trigger
-    [Range(-1, 100)]
+    [Range(0, 100)]
     public float nitrogenMaxTrigger; // high nitrogen trigger
-    [Range(-1, 100)]
+    [Range(0, 100)]
     public float oxygenMinTrigger; // low oxygen trigger
-    [Range(-1, 100)]
+    [Range(0, 100)]
     public float oxygenMaxTrigger; // high oxygen trigger
-    [Range(-1, 100)]
+    [Range(0, 100)]
     public float carbonDioxdeMinTrigger; // low co2 trigger
-    [Range(-1, 100)]
+    [Range(0, 100)]
     public float carbonDioxdeMaxTrigger; // high co2 trigger
-    [Range(-1, 100)]
+    [Range(0, 100)]
     public float hydrogenMinTrigger; // low hydrogen trigger
-    [Range(-1, 100)]
+    [Range(0, 100)]
     public float hydrogenMaxTrigger; // high hydrogen trigger
 }

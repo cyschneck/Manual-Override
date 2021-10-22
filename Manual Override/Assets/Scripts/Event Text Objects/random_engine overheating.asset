@@ -35,11 +35,11 @@ MonoBehaviour:
   turnEngineOff: 0
   weightOfOccuring: 50
   distanceToTitanInKmTrigger: 0
-  nitrogenMinTrigger: -1
-  nitrogenMaxTrigger: -1
-  oxygenMinTrigger: -1
-  oxygenMaxTrigger: -1
-  carbonDioxdeMinTrigger: -1
-  carbonDioxdeMaxTrigger: -1
-  hydrogenMinTrigger: -1
-  hydrogenMaxTrigger: -1
+  nitrogenMinTrigger: 0
+  nitrogenMaxTrigger: 0
+  oxygenMinTrigger: 0
+  oxygenMaxTrigger: 0
+  carbonDioxdeMinTrigger: 0
+  carbonDioxdeMaxTrigger: 0
+  hydrogenMinTrigger: 0
+  hydrogenMaxTrigger: 0

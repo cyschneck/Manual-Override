@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14a0e36a85ea714da83f8051c7ba867, type: 3}
-  m_Name: random_heating fails (cold)
+  m_Name: accident_high levels of co2
   m_EditorClassIdentifier: 
-  eventDescription: heat fails (cold)
-  eventText: You wake up to your breath clouding the windows. The heating unit has
-    started to fail. You reroute the engine system and reestablish life support,
-    but many of your plants could not survive the freeze
-  eventTerminalText: heat fails (cold) triggered (random)
+  eventDescription: high levels of co2
+  eventText: 'Accident:
+
+    Hypercapnia begins to set in, shortness of breath, headache,
+    sluggishness, abnormal heartbeat, paranoia, confusion, flushed skin'
+  eventTerminalText: High levels of CO2 text
   eventHasBeenTriggered: 0
-  eventType: 0
+  eventType: 2
   popUpMenuOption: 0
   heatCost: 0
   energyCellCost: 0
@@ -31,17 +32,17 @@ MonoBehaviour:
   carbonDioxdeCost: 0
   hydrogenCost: 0
   chemicalsCost: 0
-  copperWireCost: -5
+  copperWireCost: 0
   metalCost: 0
   deadBatteryCost: 0
   turnEngineOff: 0
-  weightOfOccuring: 30
+  weightOfOccuring: 0
   distanceToTitanInKmTrigger: 0
-  nitrogenMinTrigger: -1
-  nitrogenMaxTrigger: -1
-  oxygenMinTrigger: -1
-  oxygenMaxTrigger: -1
-  carbonDioxdeMinTrigger: -1
-  carbonDioxdeMaxTrigger: -1
-  hydrogenMinTrigger: -1
-  hydrogenMaxTrigger: -1
+  nitrogenMinTrigger: 0
+  nitrogenMaxTrigger: 0
+  oxygenMinTrigger: 0
+  oxygenMaxTrigger: 0
+  carbonDioxdeMinTrigger: 5
+  carbonDioxdeMaxTrigger: 100
+  hydrogenMinTrigger: 0
+  hydrogenMaxTrigger: 0

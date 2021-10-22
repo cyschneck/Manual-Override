@@ -149,10 +149,10 @@ public class StatsManager : MonoBehaviour
         SetTitanDistance(titanTotalDistance); // 1200000.0f
         distanceToTitanAmount = titanTotalDistance;
         SetAirComp(0.0f, 0.0f, 0.0f, 0.0f);
-        nitrogenValue = 0;
-        oxygenValue = 0;
-        carbonDioxdeValue = 0;
-        hydrogenValue = 0;
+        nitrogenValue = 55.0f;
+        oxygenValue = 22.0f;
+        carbonDioxdeValue = 3.0f;
+        hydrogenValue = 2.0f;
     }
 
     public void ReduceRemainingDistanceToTitan()

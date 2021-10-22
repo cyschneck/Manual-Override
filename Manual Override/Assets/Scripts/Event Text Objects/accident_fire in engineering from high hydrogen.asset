@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: accident_fire in engineering from high hydrogen
   m_EditorClassIdentifier: 
   eventDescription: fire in engineering from high hydrogen
-  eventText: "Accident: \na fire breaks out in the hydrogen  rich engineering department,
+  eventText: "Accident: \na fire breaks out in the hydrogen-rich engineering department,
     burning the engines"
-  eventTerminalText: fire in engineering from hydrogen text
+  eventTerminalText: fire in engineering from hydrogen text (accident)
   eventHasBeenTriggered: 0
   eventType: 2
   popUpMenuOption: 0
@@ -36,11 +36,11 @@ MonoBehaviour:
   turnEngineOff: 0
   weightOfOccuring: 0
   distanceToTitanInKmTrigger: 0
-  nitrogenMinTrigger: -1
-  nitrogenMaxTrigger: -1
-  oxygenMinTrigger: -1
-  oxygenMaxTrigger: -1
-  carbonDioxdeMinTrigger: -1
-  carbonDioxdeMaxTrigger: -1
-  hydrogenMinTrigger: -1
-  hydrogenMaxTrigger: 4
+  nitrogenMinTrigger: 0
+  nitrogenMaxTrigger: 0
+  oxygenMinTrigger: 0
+  oxygenMaxTrigger: 0
+  carbonDioxdeMinTrigger: 0
+  carbonDioxdeMaxTrigger: 0
+  hydrogenMinTrigger: 4
+  hydrogenMaxTrigger: 100

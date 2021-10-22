@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    [Header("Events Text Options")]
+    [Header("Mission Logs and Events Populated By Hand")]
     public TextToDisplayEvents approachingMoon;
     public TextToDisplayEvents approachingMars;
     public TextToDisplayEvents apporoachingAsteroidBelt;
@@ -12,29 +12,12 @@ public class EventManager : MonoBehaviour
     public TextToDisplayEvents approachingJupitersMoons;
     public TextToDisplayEvents approachingSaturn;
     public TextToDisplayEvents approachingTitan;
-    public TextToDisplayEvents brokenRobotPiece;
-    public TextToDisplayEvents computerError;
-    public TextToDisplayEvents computerVirus;
-    public TextToDisplayEvents cmeBreaksElectronics;
-    public TextToDisplayEvents dirtInFilters;
-    public TextToDisplayEvents engineOverheating;
-    public TextToDisplayEvents enteredGravityWell;
-    public TextToDisplayEvents escapeGravityWell;
-    public TextToDisplayEvents fireInEngineeringFromOxygen;
-    public TextToDisplayEvents heatFailsHot;
-    public TextToDisplayEvents heatFailsCold;
-    public TextToDisplayEvents lowWaterKillsPlants;
-    public TextToDisplayEvents micrometeoriteBreaksEngineering;
-    public TextToDisplayEvents oxygenLeak;
-    public TextToDisplayEvents plantsGetSick;
-    public TextToDisplayEvents poorNitrogenSoilKillsPlants;
-    public TextToDisplayEvents radiationShield;
-    public TextToDisplayEvents randomFireInEngineering;
+    public List<TextToDisplayEvents> allRandomEvents = new List<TextToDisplayEvents>();
+    public List<TextToDisplayEvents> allAccidentEvents = new List<TextToDisplayEvents>();
 
+    [Header("Populated by Script")]
     public List<TextToDisplayEvents> allEvents = new List<TextToDisplayEvents>();
     public List<TextToDisplayEvents> allDistanceEvents = new List<TextToDisplayEvents>();
-    public List<TextToDisplayEvents> allRandomEvents = new List<TextToDisplayEvents>();
-    public List<TextToDisplayEvents> allAccientConditionsEvents = new List<TextToDisplayEvents>();
 
     private void Awake()
     {
@@ -47,39 +30,22 @@ public class EventManager : MonoBehaviour
         allEvents.Add(approachingSaturn);
         allEvents.Add(approachingTitan);
 
-        allEvents.Add(brokenRobotPiece);
-        allEvents.Add(computerError);
-        allEvents.Add(computerVirus);
-        allEvents.Add(cmeBreaksElectronics);
-        allEvents.Add(dirtInFilters);
-        allEvents.Add(engineOverheating);
-        allEvents.Add(enteredGravityWell);
-        allEvents.Add(escapeGravityWell);
-        allEvents.Add(fireInEngineeringFromOxygen);
-        allEvents.Add(heatFailsHot);
-        allEvents.Add(heatFailsCold);
-        allEvents.Add(lowWaterKillsPlants);
-        allEvents.Add(micrometeoriteBreaksEngineering);
-        allEvents.Add(oxygenLeak);
-        allEvents.Add(plantsGetSick);
-        allEvents.Add(poorNitrogenSoilKillsPlants);
-        allEvents.Add(radiationShield);
-        allEvents.Add(randomFireInEngineering);
+        foreach (TextToDisplayEvents eventObject in allRandomEvents)
+        {
+            allEvents.Add(eventObject);
+        }
+
+        foreach (TextToDisplayEvents eventObject in allAccidentEvents)
+        {
+            allEvents.Add(eventObject);
+        }
 
         // iterate through all events to track all random events
-        foreach(TextToDisplayEvents eventObject in allEvents)
+        foreach (TextToDisplayEvents eventObject in allEvents)
         {
-            if (eventObject.eventType == eventType.random)
-            {
-                allRandomEvents.Add(eventObject);
-            }
             if (eventObject.eventType == eventType.distanceFromTitan)
             {
                 allDistanceEvents.Add(eventObject);
-            }
-            if (eventObject.eventType == eventType.accidents)
-            {
-                allAccientConditionsEvents.Add(eventObject);
             }
         }
 
