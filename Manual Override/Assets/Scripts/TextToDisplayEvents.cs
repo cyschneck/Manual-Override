@@ -24,6 +24,7 @@ public class TextToDisplayEvents : ScriptableObject
     public float robotCost;
     public float plantCost;
     public float seedsCost;
+    public float methaneCost;
     public float nitrogenCost;
     public float oxygenCost;
     public float carbonDioxdeCost;

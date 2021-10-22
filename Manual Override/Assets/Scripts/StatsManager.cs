@@ -23,6 +23,7 @@ public class StatsManager : MonoBehaviour
     public float carbonDioxdeValue;
     public float hydrogenValue;
     public float seedsAmount;
+    public float methaneAmount;
     public float chemicalsAmount;
     public float copperWireAmount;
     public float metalAmount;
@@ -46,6 +47,7 @@ public class StatsManager : MonoBehaviour
     [Header("Ship Science Stats")]
     public TextMeshProUGUI chemicalsStats;
     public TextMeshProUGUI seedStats;
+    public TextMeshProUGUI methaneStats;
 
     [Header("Ship Engineering Stats")]
     public TextMeshProUGUI copperWireStats;
@@ -68,6 +70,7 @@ public class StatsManager : MonoBehaviour
         textDictionary.Add("robots", "Robotics");
         textDictionary.Add("plants", "Plants");
         textDictionary.Add("seeds", "Seeds");
+        textDictionary.Add("methane", "Methane");
         textDictionary.Add("chemicals", "Avaliable Chemicals");
         textDictionary.Add("nitrogen", "Nitrogen Gas");
         textDictionary.Add("oxygen", "Oxygen Gas");
@@ -90,6 +93,7 @@ public class StatsManager : MonoBehaviour
         SetStatValue(robotsStats, "robots", robotsAmount);
         SetStatValue(plantStats, "plants", plantsAmount);
         SetStatValue(seedStats, "seeds", seedsAmount);
+        SetStatValue(methaneStats, "methane", methaneAmount);
         SetStatValue(chemicalsStats, "chemicals", chemicalsAmount);
         SetStatValue(copperWireStats, "copper wire", copperWireAmount);
         SetStatValue(metalStats, "metal", metalAmount);
@@ -136,6 +140,8 @@ public class StatsManager : MonoBehaviour
         plantsAmount = 0;
         SetStatValue(seedStats, "seeds", 0);
         seedsAmount = 0;
+        SetStatValue(methaneStats, "methane", 0);
+        methaneAmount = 0;
         SetStatValue(chemicalsStats, "chemicals", 0);
         chemicalsAmount = 0;
         SetStatValue(copperWireStats, "copper wire", 0);
@@ -210,6 +216,7 @@ public class StatsManager : MonoBehaviour
         robotsAmount += textValues.robotCost;
         plantsAmount += textValues.plantCost;
         seedsAmount += textValues.seedsCost;
+        methaneAmount += textValues.methaneCost;
         nitrogenValue += textValues.nitrogenCost;
         oxygenValue += textValues.oxygenCost;
         carbonDioxdeValue += textValues.carbonDioxdeCost;
@@ -229,6 +236,7 @@ public class StatsManager : MonoBehaviour
         robotsAmount = robotsAmount + textValues.robotCost < 0 ? 0 : robotsAmount + textValues.robotCost;
         plantsAmount = plantsAmount + textValues.plantCost < 0 ? 0 : plantsAmount + textValues.plantCost;
         seedsAmount = seedsAmount + textValues.seedsCost < 0 ? 0 : seedsAmount + textValues.seedsCost;
+        methaneAmount = methaneAmount + textValues.methaneCost < 0 ? 0 : methaneAmount + textValues.methaneCost;
         nitrogenValue = nitrogenValue + textValues.nitrogenCost < 0 ? 0 : nitrogenValue + textValues.nitrogenCost;
         oxygenValue = oxygenValue + textValues.oxygenCost < 0 ? 0 : oxygenValue + textValues.oxygenCost;
         carbonDioxdeValue = carbonDioxdeValue + textValues.carbonDioxdeCost < 0 ? 0 : carbonDioxdeValue + textValues.carbonDioxdeCost;
@@ -248,6 +256,7 @@ public class StatsManager : MonoBehaviour
         IsValueZeroOrNegative(robotsAmount + textValues.robotCost, textDictionary["robots"]);
         IsValueZeroOrNegative(plantsAmount + textValues.plantCost, textDictionary["plants"]);
         IsValueZeroOrNegative(seedsAmount + textValues.seedsCost, textDictionary["seeds"]);
+        IsValueZeroOrNegative(methaneAmount + textValues.methaneCost, textDictionary["methane"]);
         IsValueZeroOrNegative(nitrogenValue + textValues.nitrogenCost, textDictionary["nitrogen"]);
         IsValueZeroOrNegative(oxygenValue + textValues.oxygenCost, textDictionary["oxygen"]);
         IsValueZeroOrNegative(carbonDioxdeValue + textValues.carbonDioxdeCost, textDictionary["co2"]);

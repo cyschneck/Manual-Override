@@ -15,6 +15,7 @@ public class TooltipOnHover : MonoBehaviour
     private GameObject robotsTooltip;
     private GameObject plantsTooltip;
     private GameObject seedsTooltip;
+    private GameObject methaneTooltip;
     private GameObject nitrogenTooltip;
     private GameObject oxygenTooltip;
     private GameObject carbonDioxdTooltip;
@@ -37,14 +38,15 @@ public class TooltipOnHover : MonoBehaviour
         robotsTooltip = toolTipOnDisplay.transform.GetChild(2).gameObject;
         plantsTooltip = toolTipOnDisplay.transform.GetChild(3).gameObject;
         seedsTooltip = toolTipOnDisplay.transform.GetChild(4).gameObject;
-        nitrogenTooltip = toolTipOnDisplay.transform.GetChild(5).gameObject;
-        oxygenTooltip = toolTipOnDisplay.transform.GetChild(6).gameObject;
-        carbonDioxdTooltip = toolTipOnDisplay.transform.GetChild(7).gameObject;
-        hydrogenTooltip = toolTipOnDisplay.transform.GetChild(8).gameObject;
-        chemicalsTooltip = toolTipOnDisplay.transform.GetChild(9).gameObject;
-        copperWireTooltip = toolTipOnDisplay.transform.GetChild(10).gameObject;
-        metalTooltip = toolTipOnDisplay.transform.GetChild(11).gameObject;
-        batteryTooltip = toolTipOnDisplay.transform.GetChild(12).gameObject;
+        methaneTooltip = toolTipOnDisplay.transform.GetChild(5).gameObject;
+        nitrogenTooltip = toolTipOnDisplay.transform.GetChild(6).gameObject;
+        oxygenTooltip = toolTipOnDisplay.transform.GetChild(7).gameObject;
+        carbonDioxdTooltip = toolTipOnDisplay.transform.GetChild(8).gameObject;
+        hydrogenTooltip = toolTipOnDisplay.transform.GetChild(9).gameObject;
+        chemicalsTooltip = toolTipOnDisplay.transform.GetChild(10).gameObject;
+        copperWireTooltip = toolTipOnDisplay.transform.GetChild(11).gameObject;
+        metalTooltip = toolTipOnDisplay.transform.GetChild(12).gameObject;
+        batteryTooltip = toolTipOnDisplay.transform.GetChild(13).gameObject;
 
         // populate tooltip based on scriptable object based on which button is being hovered on
         if (this.gameObject == gameManager.germinateSeedsButton) { SetValuesFromScriptableObject(gameManager.germinateSeedsText);}
@@ -68,6 +70,7 @@ public class TooltipOnHover : MonoBehaviour
         SetTooltip(robotsTooltip, displayText.robotCost);
         SetTooltip(plantsTooltip, displayText.plantCost);
         SetTooltip(seedsTooltip, displayText.seedsCost);
+        SetTooltip(methaneTooltip, displayText.methaneCost);
         SetTooltip(nitrogenTooltip, displayText.nitrogenCost);
         SetTooltip(oxygenTooltip, displayText.oxygenCost);
         SetTooltip(carbonDioxdTooltip, displayText.carbonDioxdeCost);

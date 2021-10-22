@@ -40,7 +40,7 @@ public class EventManager : MonoBehaviour
             allEvents.Add(eventObject);
         }
 
-        // iterate through all events to track all random events
+        // iterate through all events to track all events
         foreach (TextToDisplayEvents eventObject in allEvents)
         {
             if (eventObject.eventType == eventType.distanceFromTitan)

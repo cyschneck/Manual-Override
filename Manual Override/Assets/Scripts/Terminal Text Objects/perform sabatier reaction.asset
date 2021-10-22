@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: perform sabatier reaction
   text: perform sabatier reaction text
-  cooldownTime: 0
+  cooldownTime: 20
   heatCost: 0
   energyCellCost: 0
   waterCost: 2
   robotCost: 0
   plantCost: 0
   seedsCost: 0
+  methaneCost: 1
   nitrogenCost: 0
   oxygenCost: 0
-  carbonDioxdeCost: 1
+  carbonDioxdeCost: -1
   hydrogenCost: -4
   chemicalsCost: 0
   copperWireCost: 0
