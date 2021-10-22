@@ -26,7 +26,7 @@ public class PopupDistanceEventManager : MonoBehaviour
         distanceTravelled = 0.0f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         distanceTravelled = statsManager.titanTotalDistance - statsManager.distanceToTitanAmount;
 

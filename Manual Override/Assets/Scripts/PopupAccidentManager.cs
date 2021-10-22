@@ -25,7 +25,7 @@ public class PopupAccidentManager : MonoBehaviour
         waitBetweenChecks = 5.0f; // first time waits x time
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // calculate time elapsed since last random event displayed
         if (!gameManager.gameIsPaused)

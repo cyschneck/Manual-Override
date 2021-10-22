@@ -82,7 +82,7 @@ public class StatsManager : MonoBehaviour
         timeBetweenDelay = 0.0f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // update values as they are updated
         SetStatValue(energyCellStats, "energy cells", energyCellAmount);

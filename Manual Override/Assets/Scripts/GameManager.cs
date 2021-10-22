@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         dismantleBatteryCooldownBar.GetComponent<Slider>().value = 0;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // update time over time
         currentTime += 1.0f * Time.deltaTime;

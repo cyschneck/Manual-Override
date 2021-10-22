@@ -140,7 +140,7 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         // unlock mission logs as time progresses
         UnlockMissionLog(isPlantUnlocked, plantButton, plantName);

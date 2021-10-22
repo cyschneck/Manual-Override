@@ -64,7 +64,7 @@ public class StatsForStringValues : MonoBehaviour
         SetDefaultValuesStrings();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         heatValue = SetBackgroundValue(heatRangeBackground);
         SetStringStatValue(heatStats, "heat", heatValue);
@@ -74,10 +74,7 @@ public class StatsForStringValues : MonoBehaviour
 
         plantHealthValue = SetBackgroundValue(plantHealthBackground);
         SetStringStatValue(plantHealthStats, "plant health", plantHealthValue);
-    }
 
-    private void FixedUpdate()
-    {
         // set up values in fixed time
         if (!gameManager.gameIsPaused) { SetHeatBasedOnEngine(gameManager.isEngineOn); } // while engine is on, increment heat, if off, loss heat
     }

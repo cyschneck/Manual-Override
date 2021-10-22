@@ -29,7 +29,7 @@ public class PopupRandomEventManager : MonoBehaviour
         timeSinceRandomEvent = 0.0f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // calculate time elapsed since last random event displayed
         if (!gameManager.gameIsPaused)

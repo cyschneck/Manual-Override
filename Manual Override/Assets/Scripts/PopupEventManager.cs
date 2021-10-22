@@ -31,7 +31,7 @@ public class PopupEventManager : MonoBehaviour
         Debug.Log("TODO TO DO : display tooltip on the contine/yes/no button to info about changes when relevant (when there are any costs)");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isPopUpActive)
         {
