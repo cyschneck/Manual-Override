@@ -9,6 +9,7 @@ public class StatsManager : MonoBehaviour
 
     [Header("Reference")]
     private GameManager gameManager;
+    private CooldownBar cooldownBar;
     private StatsForStringValues stringStatsValues;
     private TerminalTextManager terminalTextManager;
 
@@ -62,6 +63,7 @@ public class StatsManager : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        cooldownBar = GameObject.Find("CooldownManager").GetComponent<CooldownBar>();
         terminalTextManager = GameObject.Find("TerminalTextManager").GetComponent<TerminalTextManager>();
         stringStatsValues = GameObject.Find("StatsManager").GetComponent<StatsForStringValues>();
 
@@ -288,7 +290,7 @@ public class StatsManager : MonoBehaviour
     {
         engineChangingSpeed = false;
         // speed of ship when engine is on ( x km/s)
-        float buildUpTime = gameManager.engineCooldown; // build up to target speed over engine cooldown time
+        float buildUpTime = cooldownBar.engineCooldown; // build up to target speed over engine cooldown time
 
         float elapsedTime = 0.0f;
         // if engine is on: build up

@@ -7,10 +7,11 @@ using TMPro;
 public enum roomType { main, science, engineering }
 public class GameManager : MonoBehaviour
 {
-    // Game manger controls: cooldown bars, buttons on UI, , button interactably, start/stop time, change rooms
+    // Game manger controls: buttons on UI, , button interactably, start/stop time, change rooms
 
     [Header("Reference")]
     private StatsManager statsManager;
+    private CooldownBar cooldownBar;
     public bool gameIsPaused = false;
     public float currentTime;
 
@@ -42,22 +43,6 @@ public class GameManager : MonoBehaviour
     public GameObject engineeringDepartmentUI;
     public GameObject returnToMainDepartment;
 
-    [Header("Cooldown")]
-    public Dictionary<string, bool> cooldownDict = new Dictionary<string, bool>(); // store the name of the cooldown (to pass to coroutine) and whether cooldown is active
-    public float engineCooldown = 15.0f;
-    private GameObject engineCooldownBar;
-    private GameObject germinateSeedsCooldownBar;
-    private GameObject plantSeedsCooldownBar;
-    private GameObject treatPlantsCooldownBar;
-    private GameObject performElectrolysisCooldownBar;
-    private GameObject performSabatierCooldownBar;
-    private GameObject assembleRobotsCooldownBar;
-    private GameObject dismantleRobotsCooldownBar;
-    private GameObject scanCooldownBar;
-    private GameObject deployMiningRobotsCooldownBar;
-    private GameObject assembleBatteryCooldownBar;
-    private GameObject dismantleBatteryCooldownBar;
-
     [Header("Text to Display")]
     private TerminalTextManager terminalTextManager;
     public TextToDisplay openingText1;
@@ -82,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         terminalTextManager = GameObject.Find("TerminalTextManager").GetComponent<TerminalTextManager>();
+        cooldownBar = GameObject.Find("CooldownManager").GetComponent<CooldownBar>();
 
         // track time in the game
         currentTime = 0.0f;
@@ -100,48 +86,6 @@ public class GameManager : MonoBehaviour
         terminalTextManager.terminalTextUI.text = ""; // start with clear terminal
         terminalTextManager.startWriteText(openingText1.text);
         terminalTextManager.startWriteText(openingText2.text);
-
-        // set up dictionary to track cooldowns triggered
-        cooldownDict.Add("engineCooldown", false);
-        cooldownDict.Add("germinateSeedsCooldown", false);
-        cooldownDict.Add("plantSeedsCooldown", false);
-        cooldownDict.Add("treatPlantsCooldown", false);
-        cooldownDict.Add("performElectrolysisCooldown", false);
-        cooldownDict.Add("performSabatierCooldown", false);
-        cooldownDict.Add("assembleRobotsCooldown", false);
-        cooldownDict.Add("dismantleRobotsCooldown", false);
-        cooldownDict.Add("scanCooldown", false);
-        cooldownDict.Add("deployMiningRobotsCooldown", false);
-        cooldownDict.Add("assembleBatteryCooldown", false);
-        cooldownDict.Add("dismantleBatteryCooldown", false);
-
-        // set cooldown bar for each button with cooldown
-        engineCooldownBar = engineOnOffButton.transform.GetChild(1).gameObject;
-        germinateSeedsCooldownBar = germinateSeedsButton.transform.GetChild(1).gameObject;
-        plantSeedsCooldownBar = plantSeedsButton.transform.GetChild(1).gameObject;
-        treatPlantsCooldownBar = treatPlantsButton.transform.GetChild(1).gameObject;
-        performElectrolysisCooldownBar = performElectrolysisButton.transform.GetChild(1).gameObject;
-        performSabatierCooldownBar = performSabatierButton.transform.GetChild(1).gameObject;
-        assembleRobotsCooldownBar = assembleRobotsButton.transform.GetChild(1).gameObject;
-        dismantleRobotsCooldownBar = dismantleRobotsButton.transform.GetChild(1).gameObject;
-        scanCooldownBar = scanButton.transform.GetChild(1).gameObject;
-        deployMiningRobotsCooldownBar = deployMiningRobotsButton.transform.GetChild(1).gameObject;
-        assembleBatteryCooldownBar = assembleBatteryButton.transform.GetChild(1).gameObject;
-        dismantleBatteryCooldownBar = dismantleBatteryButton.transform.GetChild(1).gameObject;
-
-        // on start up, set all cooldown sliders to 0 so they are not visible
-        engineCooldownBar.GetComponent<Slider>().value = 0;
-        germinateSeedsCooldownBar.GetComponent<Slider>().value = 0;
-        plantSeedsCooldownBar.GetComponent<Slider>().value = 0;
-        treatPlantsCooldownBar.GetComponent<Slider>().value = 0;
-        performElectrolysisCooldownBar.GetComponent<Slider>().value = 0;
-        performSabatierCooldownBar.GetComponent<Slider>().value = 0;
-        assembleRobotsCooldownBar.GetComponent<Slider>().value = 0;
-        dismantleRobotsCooldownBar.GetComponent<Slider>().value = 0;
-        scanCooldownBar.GetComponent<Slider>().value = 0;
-        deployMiningRobotsCooldownBar.GetComponent<Slider>().value = 0;
-        assembleBatteryCooldownBar.GetComponent<Slider>().value = 0;
-        dismantleBatteryCooldownBar.GetComponent<Slider>().value = 0;
     }
 
     private void FixedUpdate()
@@ -182,23 +126,6 @@ public class GameManager : MonoBehaviour
                 engineeringDeptButton.GetComponent<Button>().interactable = true;
                 engineeringDeptButton.GetComponentInChildren<TextMeshProUGUI>().text = "Engineering Dept";
             }
-        }
-
-        // cooldown effects make the button not able to be interacted with
-        if (!gameIsPaused)
-        {
-            engineOnOffButton.GetComponent<Button>().interactable = !cooldownDict["engineCooldown"];
-            germinateSeedsButton.GetComponent<Button>().interactable = !cooldownDict["germinateSeedsCooldown"];
-            plantSeedsButton.GetComponent<Button>().interactable = !cooldownDict["plantSeedsCooldown"];
-            treatPlantsButton.GetComponent<Button>().interactable = !cooldownDict["treatPlantsCooldown"];
-            performElectrolysisButton.GetComponent<Button>().interactable = !cooldownDict["performElectrolysisCooldown"];
-            performSabatierButton.GetComponent<Button>().interactable = !cooldownDict["performSabatierCooldown"];
-            assembleRobotsButton.GetComponent<Button>().interactable = !cooldownDict["assembleRobotsCooldown"];
-            dismantleRobotsButton.GetComponent<Button>().interactable = !cooldownDict["dismantleRobotsCooldown"];
-            scanButton.GetComponent<Button>().interactable = !cooldownDict["scanCooldown"];
-            deployMiningRobotsButton.GetComponent<Button>().interactable = !cooldownDict["deployMiningRobotsCooldown"];
-            assembleBatteryButton.GetComponent<Button>().interactable = !cooldownDict["assembleBatteryCooldown"];
-            dismantleBatteryButton.GetComponent<Button>().interactable = !cooldownDict["dismantleBatteryCooldown"];
         }
     }
 
@@ -251,33 +178,8 @@ public class GameManager : MonoBehaviour
             StartCoroutine(statsManager.SetEngineSpeed(isEngineOn));
         }
         // update slider for cooldown
-        StartCoroutine(UpdateCooldownBar(engineCooldown, engineCooldownBar));
-        StartCoroutine(TriggerCooldown(engineCooldown, "engineCooldown")); // wait x seconds before ending cooldown
-    }
-
-    private IEnumerator TriggerCooldown(float cooldownTime, string keyCooldownDict)
-    {
-        //Debug.Log("COOLDOWN TRIGGERED FOR: " + keyCooldownDict + " for " + cooldownTime);
-        // set cooldown as active, wait until the cooldown timer is done, then set to true
-        cooldownDict[keyCooldownDict] = true;
-
-        // finish cooldown and release cooldown
-        yield return new WaitForSeconds(cooldownTime);
-        cooldownDict[keyCooldownDict] = false;
-    }
-
-    private IEnumerator UpdateCooldownBar(float cooldownTime, GameObject cooldownBar)
-    {
-        // shrink overlay cooldown bar overtime
-        Slider cooldownSlider = cooldownBar.GetComponent<Slider>();
-        float elapsedTime = 0.0f;
-
-        while (elapsedTime < cooldownTime)
-        {
-            elapsedTime += Time.deltaTime;
-            cooldownSlider.value = Mathf.Lerp(1, 0, elapsedTime / cooldownTime);
-            yield return null;
-        }
+        StartCoroutine(cooldownBar.UpdateCooldownBar(cooldownBar.engineCooldown, cooldownBar.engineCooldownBar));
+        StartCoroutine(cooldownBar.TriggerCooldown(cooldownBar.engineCooldown, "engineCooldown")); // wait x seconds before ending cooldown
     }
 
     public void EnterScienceDepartment()
@@ -324,8 +226,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(germinateSeedsText.text);
             statsManager.UpdateStaticValues(germinateSeedsText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(germinateSeedsText.cooldownTime, germinateSeedsCooldownBar));
-            StartCoroutine(TriggerCooldown(germinateSeedsText.cooldownTime, "germinateSeedsCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(germinateSeedsText.cooldownTime, cooldownBar.germinateSeedsCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(germinateSeedsText.cooldownTime, "germinateSeedsCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -337,8 +239,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(plantSeedsText.text);
             statsManager.UpdateStaticValues(plantSeedsText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(plantSeedsText.cooldownTime, plantSeedsCooldownBar));
-            StartCoroutine(TriggerCooldown(plantSeedsText.cooldownTime, "plantSeedsCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(plantSeedsText.cooldownTime, cooldownBar.plantSeedsCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(plantSeedsText.cooldownTime, "plantSeedsCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -350,8 +252,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(treatPlantsText.text);
             statsManager.UpdateStaticValues(treatPlantsText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(treatPlantsText.cooldownTime, treatPlantsCooldownBar));
-            StartCoroutine(TriggerCooldown(treatPlantsText.cooldownTime, "treatPlantsCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(treatPlantsText.cooldownTime, cooldownBar.treatPlantsCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(treatPlantsText.cooldownTime, "treatPlantsCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -363,8 +265,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(performElectrolysisText.text);
             statsManager.UpdateStaticValues(performElectrolysisText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(performElectrolysisText.cooldownTime, performElectrolysisCooldownBar));
-            StartCoroutine(TriggerCooldown(performElectrolysisText.cooldownTime, "performElectrolysisCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(performElectrolysisText.cooldownTime, cooldownBar.performElectrolysisCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(performElectrolysisText.cooldownTime, "performElectrolysisCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -376,8 +278,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(performSabatierText.text);
             statsManager.UpdateStaticValues(performSabatierText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(performSabatierText.cooldownTime, performSabatierCooldownBar));
-            StartCoroutine(TriggerCooldown(performSabatierText.cooldownTime, "performSabatierCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(performSabatierText.cooldownTime, cooldownBar.performSabatierCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(performSabatierText.cooldownTime, "performSabatierCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -389,8 +291,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(assembleRobotsText.text);
             statsManager.UpdateStaticValues(assembleRobotsText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(assembleRobotsText.cooldownTime, assembleRobotsCooldownBar));
-            StartCoroutine(TriggerCooldown(assembleRobotsText.cooldownTime, "assembleRobotsCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(assembleRobotsText.cooldownTime, cooldownBar.assembleRobotsCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(assembleRobotsText.cooldownTime, "assembleRobotsCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -402,8 +304,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(dismantleRobotsText.text);
             statsManager.UpdateStaticValues(dismantleRobotsText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(dismantleRobotsText.cooldownTime, dismantleRobotsCooldownBar));
-            StartCoroutine(TriggerCooldown(dismantleRobotsText.cooldownTime, "dismantleRobotsCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(dismantleRobotsText.cooldownTime, cooldownBar.dismantleRobotsCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(dismantleRobotsText.cooldownTime, "dismantleRobotsCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -415,8 +317,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(startScanText.text);
             statsManager.UpdateStaticValues(startScanText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(startScanText.cooldownTime, scanCooldownBar));
-            StartCoroutine(TriggerCooldown(startScanText.cooldownTime, "scanCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(startScanText.cooldownTime, cooldownBar.scanCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(startScanText.cooldownTime, "scanCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -428,8 +330,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(deployMiningRobotsText.text);
             statsManager.UpdateStaticValues(deployMiningRobotsText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(deployMiningRobotsText.cooldownTime, deployMiningRobotsCooldownBar));
-            StartCoroutine(TriggerCooldown(deployMiningRobotsText.cooldownTime, "deployMiningRobotsCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(deployMiningRobotsText.cooldownTime, cooldownBar.deployMiningRobotsCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(deployMiningRobotsText.cooldownTime, "deployMiningRobotsCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -441,8 +343,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(assembleBatteryText.text);
             statsManager.UpdateStaticValues(assembleBatteryText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(assembleBatteryText.cooldownTime, assembleBatteryCooldownBar));
-            StartCoroutine(TriggerCooldown(assembleBatteryText.cooldownTime, "assembleBatteryCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(assembleBatteryText.cooldownTime, cooldownBar.assembleBatteryCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(assembleBatteryText.cooldownTime, "assembleBatteryCooldown")); // wait x seconds before ending cooldown
         }
     }
 
@@ -454,8 +356,8 @@ public class GameManager : MonoBehaviour
             terminalTextManager.startWriteText(dismantleBatteryText.text);
             statsManager.UpdateStaticValues(dismantleBatteryText);
             // update slider for cooldown
-            StartCoroutine(UpdateCooldownBar(dismantleBatteryText.cooldownTime, dismantleBatteryCooldownBar));
-            StartCoroutine(TriggerCooldown(dismantleBatteryText.cooldownTime, "dismantleBatteryCooldown")); // wait x seconds before ending cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(dismantleBatteryText.cooldownTime, cooldownBar.dismantleBatteryCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(dismantleBatteryText.cooldownTime, "dismantleBatteryCooldown")); // wait x seconds before ending cooldown
         }
     }
 }
