@@ -19,12 +19,12 @@ MonoBehaviour:
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 1
-  heatCost: 0
   energyCellCost: 0
   waterCost: 0
   robotCost: 0
   plantCost: 0
   seedsCost: 0
+  methaneCost: -3
   nitrogenCost: 0
   oxygenCost: 0
   carbonDioxdeCost: 0

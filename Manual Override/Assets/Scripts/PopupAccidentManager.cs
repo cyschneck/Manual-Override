@@ -24,7 +24,7 @@ public class PopupAccidentManager : MonoBehaviour
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         popupEventManager = GameObject.Find("PopupEventManager").GetComponent<PopupEventManager>();
         resetTimeSinceAccident = false;
-        waitBetweenChecks = 5.0f; // first time waits x time
+        waitBetweenChecks = 25.0f; // first time waits x time
     }
 
     private void FixedUpdate()

@@ -20,7 +20,6 @@ public class TextToDisplayEvents : ScriptableObject
     public eventType eventType;
     public popUpMenuOptions popUpMenuOption;
     [Header("Stats")]
-    public float heatCost;
     public float energyCellCost;
     public float waterCost;
     public float robotCost;

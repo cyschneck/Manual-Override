@@ -11,7 +11,6 @@ public class TextToDisplay : ScriptableObject
     public string description;
     public string text;
     public float cooldownTime;
-    public float heatCost;
     public float energyCellCost;
     public float waterCost;
     public float robotCost;
@@ -26,5 +25,4 @@ public class TextToDisplay : ScriptableObject
     public float copperWireCost;
     public float metalCost;
     public float deadBatteryCost;
-    public bool turnEngineOff;
 }
