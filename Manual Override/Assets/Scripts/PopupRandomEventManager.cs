@@ -82,20 +82,76 @@ public class PopupRandomEventManager : MonoBehaviour
         bool hasMetal = true;
         bool hasDeadBattery = true;
 
-        if (eventRandomObject.energyCellCost != 0) { if (statsManager.energyCellAmount == 0) { hasEnergyCell = false; }}
-        if (eventRandomObject.waterCost != 0) { if (statsManager.waterAmount == 0) { hasWater = false; }}
-        if (eventRandomObject.robotCost != 0) { if (statsManager.robotsAmount == 0) { hasRobot = false; }}
-        if (eventRandomObject.plantCost != 0) { if (statsManager.plantsAmount == 0) { hasPlant = false; }}
-        if (eventRandomObject.seedsCost != 0) { if (statsManager.seedsAmount == 0) { hasSeeds = false; }}
-        if (eventRandomObject.methaneCost != 0) { if (statsManager.methaneAmount == 0) { hasMethane = false; }}
-        if (eventRandomObject.nitrogenCost != 0) { if (statsManager.nitrogenValue == 0) { hasNitrogen = false; }}
-        if (eventRandomObject.oxygenCost != 0) { if (statsManager.oxygenValue == 0) { hasOxygen = false; }}
-        if (eventRandomObject.carbonDioxdeCost != 0) { if (statsManager.carbonDioxdeValue == 0) { hasCarbonDioxde = false; }}
-        if (eventRandomObject.hydrogenCost != 0) { if (statsManager.hydrogenValue == 0) { hasHydrogen = false; }}
-        if (eventRandomObject.chemicalsCost != 0) { if (statsManager.chemicalsAmount == 0) { hasChemicals = false; }}
-        if (eventRandomObject.copperWireCost != 0) { if (statsManager.copperWireAmount == 0) { hasCooperWire = false; }}
-        if (eventRandomObject.metalCost != 0) { if (statsManager.metalAmount == 0) { hasMetal = false; }}
-        if (eventRandomObject.deadBatteryCost != 0) { if (statsManager.deadBatteryAmount == 0) { hasDeadBattery = false; }}
+        if (eventRandomObject.energyCellCost != 0) 
+        { 
+            if (eventRandomObject.energyCellCost > 0) { hasEnergyCell = true;} // postive value
+            else if (statsManager.energyCellAmount == 0) { hasEnergyCell = false;} // negative value
+        }
+        if (eventRandomObject.waterCost != 0)
+        {
+            if (eventRandomObject.waterCost > 0) { hasWater = true; } // postive value
+            else if (statsManager.waterAmount == 0) { hasWater = false; } // negative value
+        }
+        if (eventRandomObject.robotCost != 0) 
+        {
+            if (eventRandomObject.robotCost > 0) { hasRobot = true; } // postive value
+            else if (statsManager.robotsAmount == 0) { hasRobot = false; } // negative value
+        }
+        if (eventRandomObject.plantCost != 0) 
+        {
+            if (eventRandomObject.plantCost > 0) { hasPlant = true; } // postive value
+            else if (statsManager.plantsAmount == 0) { hasPlant = false; } // negative value
+        }
+        if (eventRandomObject.seedsCost != 0) 
+        {
+            if (eventRandomObject.seedsCost > 0) { hasSeeds = true; } // postive value
+            else if (statsManager.seedsAmount == 0) { hasSeeds = false; } // negative value
+        }
+        if (eventRandomObject.methaneCost != 0) 
+        {
+            if (eventRandomObject.methaneCost > 0) { hasMethane = true; } // postive value
+            else if (statsManager.methaneAmount == 0) { hasMethane = false; } // negative value
+        }
+        if (eventRandomObject.nitrogenCost != 0) 
+        {
+            if (eventRandomObject.nitrogenCost > 0) { hasNitrogen = true; } // postive value
+            else if (statsManager.nitrogenValue == 0) { hasNitrogen = false; } // negative value
+        }
+        if (eventRandomObject.oxygenCost != 0)
+        {
+            if (eventRandomObject.oxygenCost > 0) { hasOxygen = true; } // postive value
+            else if (statsManager.oxygenValue == 0) { hasOxygen = false; } // negative value
+        }
+        if (eventRandomObject.carbonDioxdeCost != 0) 
+        {
+            if (eventRandomObject.carbonDioxdeCost > 0) { hasCarbonDioxde = true; } // postive value
+            else if (statsManager.carbonDioxdeValue == 0) { hasCarbonDioxde = false; } // negative value
+        }
+        if (eventRandomObject.hydrogenCost != 0) 
+        {
+            if (eventRandomObject.hydrogenCost > 0) { hasHydrogen = true; } // postive value
+            else if (statsManager.hydrogenValue == 0) { hasHydrogen = false; } // negative value
+        }
+        if (eventRandomObject.chemicalsCost != 0) 
+        {
+            if (eventRandomObject.chemicalsCost > 0) { hasChemicals = true; } // postive value
+            else if (statsManager.chemicalsAmount == 0) { hasChemicals = false; } // negative value
+        }
+        if (eventRandomObject.copperWireCost != 0) 
+        {
+            if (eventRandomObject.copperWireCost > 0) { hasCooperWire = true; } // postive values
+            else if (statsManager.copperWireAmount == 0) { hasCooperWire = false; } // negative value
+        }
+        if (eventRandomObject.metalCost != 0) 
+        {
+            if (eventRandomObject.metalCost > 0) { hasMetal = true; } // postive values
+            else if (statsManager.metalAmount == 0) { hasMetal = false; } // negative value
+        }
+        if (eventRandomObject.deadBatteryCost != 0) 
+        {
+            if (eventRandomObject.deadBatteryCost > 0) { hasDeadBattery = true; } // postive values
+            else if (statsManager.deadBatteryAmount == 0) { hasDeadBattery = false; } // negative value
+        }
 
         return (hasEnergyCell && hasWater && hasRobot && hasPlant && hasSeeds && hasMethane && hasNitrogen && hasOxygen && hasCarbonDioxde && hasHydrogen && hasChemicals && hasCooperWire && hasMetal && hasDeadBattery);
     }

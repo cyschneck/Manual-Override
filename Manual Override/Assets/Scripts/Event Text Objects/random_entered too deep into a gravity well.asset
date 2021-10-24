@@ -24,8 +24,8 @@ MonoBehaviour:
   robotCost: 0
   plantCost: 0
   seedsCost: 0
-  methaneCost: -3
-  nitrogenCost: 0
+  methaneCost: 0
+  nitrogenCost: -4
   oxygenCost: 0
   carbonDioxdeCost: 0
   hydrogenCost: 0

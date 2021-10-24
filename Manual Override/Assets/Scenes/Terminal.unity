@@ -18778,6 +18778,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9837ffd4de3a7749a323340fc925c0a, type: 2}
   - {fileID: 11400000, guid: 182b77071d61dd1488603b8a030858dd, type: 2}
   - {fileID: 11400000, guid: 2581a5e84f8c74142aa1873f81914007, type: 2}
+  - {fileID: 11400000, guid: 8190c968a59f12847ba0adfbb4a6efdb, type: 2}
   allAccidentEvents:
   - {fileID: 11400000, guid: 7396f4f8e71562a439fcf3f49c07f8ca, type: 2}
   - {fileID: 11400000, guid: e6e70e0fb5be3414082845e50ea6e13c, type: 2}
@@ -33494,6 +33495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSinceRandomEvent: 0
   triggerTime: 0
+  randomEventsToSelectFrom: []
   mostRecentRandomEvents: []
 --- !u!114 &1720581053
 MonoBehaviour:
