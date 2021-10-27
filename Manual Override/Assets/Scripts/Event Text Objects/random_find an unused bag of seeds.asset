@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventDescription: find an unused bag of seeds
   eventText: You find an unused bag of seeds, tucked behind the tools
-  eventTerminalText: find an unused bag of seeds text
+  eventTerminalText: find an unused bag of seeds text (random)
   eventHasBeenTriggered: 0
   eventType: 0
   popUpMenuOption: 0

@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
             engineText.text = "Turn on Engine";
             terminalTextManager.startWriteText(turnOffEngineText.text);
             isEngineOn = false;
-            StartCoroutine(statsManager.SetEngineSpeed(isEngineOn));
+            StartCoroutine(statsManager.SetRocketThrust(isEngineOn));
         }
         else
         {
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
             engineText.text = "Turn off Engine";
             terminalTextManager.startWriteText(turnOnEngineText.text);
             isEngineOn = true;
-            StartCoroutine(statsManager.SetEngineSpeed(isEngineOn));
+            StartCoroutine(statsManager.SetRocketThrust(isEngineOn));
         }
         // update slider for cooldown
         StartCoroutine(cooldownBar.UpdateCooldownBar(cooldownBar.engineCooldown, cooldownBar.engineCooldownBar));

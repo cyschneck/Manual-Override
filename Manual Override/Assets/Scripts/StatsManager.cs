@@ -18,7 +18,8 @@ public class StatsManager : MonoBehaviour
     public float waterAmount;
     public float robotsAmount;
     public float plantsAmount;
-    public float engineSpeedValue;
+    public float rocketThurstValue;
+    public float shipSpeedValue;
     public float distanceToTitanValue;
     public float nitrogenValue;
     public float oxygenValue;
@@ -34,7 +35,7 @@ public class StatsManager : MonoBehaviour
     public float distanceChangeDelay;
     public float timeBetweenDelay; // how often to update distance
     private bool notEnoughResourcesTriggered; // trigger a text value if any values in the list are zero
-    private int idleEngineSpeed = 56327; // km/s (voyager speed)
+    private int idleRocketThrust = 56327; // km/s (voyager speed)
     public float titanTotalDistance = 1277000000.0f; // distance to Titan from Earth (km)
 
     [Header("Ship Main Stats")]
@@ -42,7 +43,8 @@ public class StatsManager : MonoBehaviour
     public TextMeshProUGUI waterStats;
     public TextMeshProUGUI robotsStats;
     public TextMeshProUGUI plantStats;
-    public TextMeshProUGUI engineSpeedStats;
+    public TextMeshProUGUI rocketThrustStats;
+    public TextMeshProUGUI shipSpeedStats;
     public TextMeshProUGUI distanceToTitanStats;
     public TextMeshProUGUI airCompStats;
 
@@ -101,7 +103,9 @@ public class StatsManager : MonoBehaviour
         SetStatValue(copperWireStats, "copper wire", copperWireAmount);
         SetStatValue(metalStats, "metal", metalAmount);
         SetStatValue(deadBatteriesStats, "dead battery", deadBatteryAmount);
-        SetEngineSpeed(engineSpeedValue);
+        SetRocketThrust(rocketThurstValue);
+        UpdateShipSpeedBasedOnRocketThrust(rocketThurstValue);
+        SetShipSpeed(shipSpeedValue);
         SetTitanDistance(distanceToTitanAmount);
         SetAirComp(nitrogenValue, oxygenValue, carbonDioxdeValue, hydrogenValue);
 
@@ -115,7 +119,7 @@ public class StatsManager : MonoBehaviour
                 if (!engineChangingSpeed) // only change speed when not currently building up/losing speed (changes randomly during idle)
                 {
                     ReduceRemainingDistanceToTitan();
-                    RandomlyIncreaseDecreaseEngineSpeed();
+                    RandomlyIncreaseDecreaseRocketThurst();
                     timeBetweenDelay = 0.0f;
                 }
             }
@@ -133,41 +137,43 @@ public class StatsManager : MonoBehaviour
         stringStatsValues.SetDefaultValuesStrings();
 
         // set default values for integers
-        SetStatValue(energyCellStats, "energy cells", 0);
         energyCellAmount = 0;
-        SetStatValue(waterStats, "water", 0);
+        SetStatValue(energyCellStats, "energy cells", energyCellAmount);
         waterAmount = 0;
-        SetStatValue(robotsStats, "robots", 0);
+        SetStatValue(waterStats, "water", waterAmount);
         robotsAmount = 0;
-        SetStatValue(plantStats, "plants", 0);
+        SetStatValue(robotsStats, "robots", robotsAmount);
         plantsAmount = 0;
-        SetStatValue(seedStats, "seeds", 0);
+        SetStatValue(plantStats, "plants", plantsAmount);
         seedsAmount = 0;
-        SetStatValue(methaneStats, "methane", 0);
+        SetStatValue(seedStats, "seeds", seedsAmount);
         methaneAmount = 0;
-        SetStatValue(chemicalsStats, "chemicals", 0);
+        SetStatValue(methaneStats, "methane", methaneAmount);
         chemicalsAmount = 0;
-        SetStatValue(copperWireStats, "copper wire", 0);
+        SetStatValue(chemicalsStats, "chemicals", chemicalsAmount);
         copperWireAmount = 0;
-        SetStatValue(metalStats, "metal", 0);
+        SetStatValue(copperWireStats, "copper wire", copperWireAmount);
         metalAmount = 0;
-        SetStatValue(deadBatteriesStats, "dead battery", 0);
+        SetStatValue(metalStats, "metal", metalAmount);
         deadBatteryAmount = 0;
-        SetEngineSpeed(0.0f);
-        engineSpeedValue = 0.0f;
-        SetTitanDistance(titanTotalDistance); // 1200000.0f
+        SetStatValue(deadBatteriesStats, "dead battery", deadBatteryAmount);
+        rocketThurstValue = 0.0f;
+        SetRocketThrust(rocketThurstValue);
+        shipSpeedValue = 0.0f;
+        SetShipSpeed(shipSpeedValue);
         distanceToTitanAmount = titanTotalDistance;
-        SetAirComp(0.0f, 0.0f, 0.0f, 0.0f);
+        SetTitanDistance(distanceToTitanAmount); // 1200000.0f
         nitrogenValue = 55.0f;
         oxygenValue = 22.0f;
         carbonDioxdeValue = 3.0f;
         hydrogenValue = 2.0f;
+        SetAirComp(nitrogenValue, oxygenValue, carbonDioxdeValue, hydrogenValue);
     }
 
     public void ReduceRemainingDistanceToTitan()
     {
         // update the distance to titan based on current speed
-        distanceToTitanAmount -= engineSpeedValue;
+        distanceToTitanAmount -= rocketThurstValue;
     }
 
     public void SetStatValue(TextMeshProUGUI textStatsToUpdate, string textString, float updatedValueString)
@@ -181,17 +187,30 @@ public class StatsManager : MonoBehaviour
         airCompStats.text = "N: " + nitrogen + "%\nO2: " + oxygen + "%\nCo2: " + co2 + "%\nh2: " + hydrogen + "%";
     }
 
-    public void SetEngineSpeed(float engineSpeed)
+    public void SetRocketThrust(float rocketThrustForce)
     {
-        engineSpeedStats.text = "> Engine Speed: " + engineSpeed + " km/s";
+        rocketThrustStats.text = "> Rocket Thrust: " + rocketThrustForce + " n";
     }
 
-    public void RandomlyIncreaseDecreaseEngineSpeed()
+    public void SetShipSpeed(float shipSpeed)
+    {
+        // set up ship speed that is impacted by the non-fiction enviorment and gravity wells
+        shipSpeedStats.text = "> Ship Speed: " + shipSpeed + " km/s";
+    }
+
+    public void UpdateShipSpeedBasedOnRocketThrust(float rocketThrustValue)
+    {
+        // engine speed based on engine on/off and direction
+        // thurst = velocity * (change of mass/change in time)
+        shipSpeedValue = rocketThrustValue;
+    }
+
+        public void RandomlyIncreaseDecreaseRocketThurst()
     {
         // randomly increase or decrease speed over time
-        float minSpeed = idleEngineSpeed + (idleEngineSpeed * 0.1f); // 10% slower
-        float maxSpeed = idleEngineSpeed - (idleEngineSpeed * 0.1f); // 10% faster
-        engineSpeedValue = (int)Random.Range(minSpeed, maxSpeed); // 10% slower, 10% faster
+        float minThrust = idleRocketThrust + (idleRocketThrust * 0.05f); // 5% slower
+        float maxThrust = idleRocketThrust - (idleRocketThrust * 0.05f); // 5% faster
+        rocketThurstValue = (int)Random.Range(minThrust, maxThrust); // 5% slower, 5% faster
     }
 
     public void SetTitanDistance(float titanDistance)
@@ -286,7 +305,7 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-    public IEnumerator SetEngineSpeed(bool engineIsOn)
+    public IEnumerator SetRocketThrust(bool engineIsOn)
     {
         engineChangingSpeed = false;
         // speed of ship when engine is on ( x km/s)
@@ -300,17 +319,17 @@ public class StatsManager : MonoBehaviour
             while (elapsedTime < buildUpTime)
             {
                 elapsedTime += Time.deltaTime;
-                engineSpeedValue = (int)Mathf.Lerp(0, idleEngineSpeed, elapsedTime / buildUpTime);
+                rocketThurstValue = (int)Mathf.Lerp(0, idleRocketThrust, elapsedTime / buildUpTime);
                 yield return null;
             }
         } else // if engine is off: slow downs
         {
             //slowly slow down speed to stop
-            float currentEngineSpeed = engineSpeedValue;
+            float currentEngineSpeed = rocketThurstValue;
             while (elapsedTime < buildUpTime)
             {
                 elapsedTime += Time.deltaTime;
-                engineSpeedValue = (int)Mathf.Lerp(currentEngineSpeed, 0, elapsedTime / buildUpTime);
+                rocketThurstValue = (int)Mathf.Lerp(currentEngineSpeed, 0, elapsedTime / buildUpTime);
                 yield return null;
             }
         }
