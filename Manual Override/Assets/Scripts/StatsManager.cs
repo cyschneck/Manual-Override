@@ -16,8 +16,6 @@ public class StatsManager : MonoBehaviour
     [Header("Static Stats")]
     public float energyCellAmount;
     public float waterAmount;
-    public float robotsAmount;
-    public float plantsAmount;
     public float shipMassValue;
     public float rocketThurstValue;
     public float shipSpeedValue;
@@ -27,8 +25,10 @@ public class StatsManager : MonoBehaviour
     public float carbonDioxdeValue;
     public float hydrogenValue;
     public float seedsAmount;
+    public float plantsAmount;
     public float methaneAmount;
     public float chemicalsAmount;
+    public float robotsAmount;
     public float copperWireAmount;
     public float metalAmount;
     public float deadBatteryAmount;
@@ -43,8 +43,6 @@ public class StatsManager : MonoBehaviour
     [Header("Ship Main Stats")]
     public TextMeshProUGUI energyCellStats;
     public TextMeshProUGUI waterStats;
-    public TextMeshProUGUI robotsStats;
-    public TextMeshProUGUI plantStats;
     public TextMeshProUGUI shipMassStats;
     public TextMeshProUGUI rocketThrustStats;
     public TextMeshProUGUI shipSpeedStats;
@@ -52,11 +50,13 @@ public class StatsManager : MonoBehaviour
     public TextMeshProUGUI airCompStats;
 
     [Header("Ship Science Stats")]
-    public TextMeshProUGUI chemicalsStats;
+    public TextMeshProUGUI plantStats;
     public TextMeshProUGUI seedStats;
     public TextMeshProUGUI methaneStats;
+    public TextMeshProUGUI chemicalsStats;
 
     [Header("Ship Engineering Stats")]
+    public TextMeshProUGUI robotsStats;
     public TextMeshProUGUI copperWireStats;
     public TextMeshProUGUI metalStats;
     public TextMeshProUGUI deadBatteriesStats;
@@ -298,7 +298,7 @@ public class StatsManager : MonoBehaviour
         // prevent values from going lower than 0, if <= 0, value = 0 and triggers text
         if (updatedValue < 0)
         {
-            //Debug.Log(resourceName + " is '" + updatedValue + "'  VALUE IS ZERO OR BELOW");
+            // resource value is zero or below zero
             if (!notEnoughResourcesTriggered)
             {
                 terminalTextManager.startWriteText("Not enough " + resourceName);
@@ -345,7 +345,7 @@ public class StatsManager : MonoBehaviour
     {
         // engine speed based on engine on/off and direction
         // thrust = velocity * (change of mass/change in time)
-        accelerationOfShip = (int)(rocketThrustValue / shipMassValue); // f = ma where a = f/m
+        accelerationOfShip = rocketThrustValue / shipMassValue; // f = ma where a = f/m
         shipSpeedValue += (int)(accelerationOfShip * Time.deltaTime);
     }
 }
