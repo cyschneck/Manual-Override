@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     public GameObject deployMiningRobotsButton;
     public GameObject assembleBatteryButton;
     public GameObject dismantleBatteryButton;
+    public GameObject continueOptionButton;
+    public GameObject yesOptionButton;
+    public GameObject noOptionButton;
 
     [Header("Department UI")]
     public GameObject scienceDepartmentUI;
@@ -62,6 +65,9 @@ public class GameManager : MonoBehaviour
     public TextToDisplay startScanText;
     public TextToDisplay assembleBatteryText;
     public TextToDisplay dismantleBatteryText;
+    public TextToDisplay continueOptionText;
+    public TextToDisplay yesOptionText;
+    public TextToDisplay noOptionText;
 
     public void Start()
     {

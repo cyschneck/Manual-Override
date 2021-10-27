@@ -32,7 +32,7 @@ public class TooltipOnHover : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         //Debug.Log("this gameobject: " + this.gameObject.name);
-        toolTipOnDisplay = this.gameObject.transform.GetChild(2).gameObject; // tooltip is the second child
+        toolTipOnDisplay = this.gameObject.transform.GetChild(1).gameObject; // tooltip is the second child
 
         // set tooltip options based on current button (based on the postion of the tooltip in the tooltip)
         energyCellTooltip = toolTipOnDisplay.transform.GetChild(0).gameObject;
@@ -62,6 +62,9 @@ public class TooltipOnHover : MonoBehaviour
         if (this.gameObject == gameManager.deployMiningRobotsButton) { SetValuesFromScriptableObject(gameManager.deployMiningRobotsText);}
         if (this.gameObject == gameManager.assembleBatteryButton) { SetValuesFromScriptableObject(gameManager.assembleBatteryText);}
         if (this.gameObject == gameManager.dismantleBatteryButton) { SetValuesFromScriptableObject(gameManager.dismantleRobotsText);}
+        if (this.gameObject == gameManager.continueOptionButton) { SetValuesFromScriptableObject(gameManager.continueOptionText);}
+        if (this.gameObject == gameManager.yesOptionButton) { SetValuesFromScriptableObject(gameManager.yesOptionText);}
+        if (this.gameObject == gameManager.noOptionButton) { SetValuesFromScriptableObject(gameManager.noOptionText);}
     }
 
     private void SetValuesFromScriptableObject(TextToDisplay displayText)
@@ -81,7 +84,8 @@ public class TooltipOnHover : MonoBehaviour
         SetTooltip(copperWireTooltip, displayText.copperWireCost);
         SetTooltip(metalTooltip, displayText.metalCost);
         SetTooltip(batteryTooltip, displayText.deadBatteryCost);
-}
+    }
+
 
     private void SetTooltip(GameObject tooltip, float tooltipValue)
     {
@@ -100,7 +104,7 @@ public class TooltipOnHover : MonoBehaviour
     public void HoverOver()
     {
         //Debug.Log("Mouse hover over: " + this.gameObject.name);
-        //Debug.Log("Mouse hover over: " + toolTip.name);
+        //Debug.Log("Mouse hover over: " + toolTipOnDisplay.name);
         toolTipOnDisplay.SetActive(true);
     }
 

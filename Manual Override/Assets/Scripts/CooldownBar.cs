@@ -47,17 +47,17 @@ public class CooldownBar : MonoBehaviour
 
         // set cooldown bar for each button with cooldown
         engineCooldownBar = gameManager.engineOnOffButton.transform.GetChild(1).gameObject;
-        germinateSeedsCooldownBar = gameManager.germinateSeedsButton.transform.GetChild(1).gameObject;
-        plantSeedsCooldownBar = gameManager.plantSeedsButton.transform.GetChild(1).gameObject;
-        treatPlantsCooldownBar = gameManager.treatPlantsButton.transform.GetChild(1).gameObject;
-        performElectrolysisCooldownBar = gameManager.performElectrolysisButton.transform.GetChild(1).gameObject;
-        performSabatierCooldownBar = gameManager.performSabatierButton.transform.GetChild(1).gameObject;
-        assembleRobotsCooldownBar = gameManager.assembleRobotsButton.transform.GetChild(1).gameObject;
-        dismantleRobotsCooldownBar = gameManager.dismantleRobotsButton.transform.GetChild(1).gameObject;
-        scanCooldownBar = gameManager.scanButton.transform.GetChild(1).gameObject;
-        deployMiningRobotsCooldownBar = gameManager.deployMiningRobotsButton.transform.GetChild(1).gameObject;
-        assembleBatteryCooldownBar = gameManager.assembleBatteryButton.transform.GetChild(1).gameObject;
-        dismantleBatteryCooldownBar = gameManager.dismantleBatteryButton.transform.GetChild(1).gameObject;
+        germinateSeedsCooldownBar = gameManager.germinateSeedsButton.transform.GetChild(2).gameObject;
+        plantSeedsCooldownBar = gameManager.plantSeedsButton.transform.GetChild(2).gameObject;
+        treatPlantsCooldownBar = gameManager.treatPlantsButton.transform.GetChild(2).gameObject;
+        performElectrolysisCooldownBar = gameManager.performElectrolysisButton.transform.GetChild(2).gameObject;
+        performSabatierCooldownBar = gameManager.performSabatierButton.transform.GetChild(2).gameObject;
+        assembleRobotsCooldownBar = gameManager.assembleRobotsButton.transform.GetChild(2).gameObject;
+        dismantleRobotsCooldownBar = gameManager.dismantleRobotsButton.transform.GetChild(2).gameObject;
+        scanCooldownBar = gameManager.scanButton.transform.GetChild(2).gameObject;
+        deployMiningRobotsCooldownBar = gameManager.deployMiningRobotsButton.transform.GetChild(2).gameObject;
+        assembleBatteryCooldownBar = gameManager.assembleBatteryButton.transform.GetChild(2).gameObject;
+        dismantleBatteryCooldownBar = gameManager.dismantleBatteryButton.transform.GetChild(2).gameObject;
 
         // on start up, set all cooldown sliders to 0 so they are not visible
         engineCooldownBar.GetComponent<Slider>().value = 0;

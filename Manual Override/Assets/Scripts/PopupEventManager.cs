@@ -45,19 +45,43 @@ public class PopupEventManager : MonoBehaviour
     public void SetUpPopup(TextToDisplayEvents displayValue)
     {
         eventObject = displayValue;
+        // set up values for each option continue/yes/no
         eventTextBox.GetComponent<TextMeshProUGUI>().text = eventObject.eventText;
         if (eventObject.popUpMenuOption == popUpMenuOptions.continueOnly)
         {
+            SetUpContinueYesNoTooltip(gameManager.continueOptionText, eventObject);
             SetUpGenericEvent();
         }
         else
         {
+            SetUpContinueYesNoTooltip(gameManager.yesOptionText, eventObject);
+            SetUpContinueYesNoTooltip(gameManager.noOptionText, eventObject);
             SetUpYesAndNoEvent();
         }
         popUpMenu.SetActive(true);
         isPopUpActive = true;
     }
 
+    private void SetUpContinueYesNoTooltip(TextToDisplay existingValue, TextToDisplayEvents updatedValue)
+    {
+        // set up the dynamic tooltip for popup events (based on which event is being displayed)
+        Debug.Log("setting up for: " + existingValue.name + " for the event " + updatedValue.name);
+        existingValue.energyCellCost = updatedValue.energyCellCost;
+        existingValue.waterCost = updatedValue.waterCost;
+        existingValue.nitrogenCost = updatedValue.nitrogenCost;
+        existingValue.oxygenCost = updatedValue.oxygenCost;
+        existingValue.carbonDioxdeCost = updatedValue.carbonDioxdeCost;
+        existingValue.hydrogenCost = updatedValue.hydrogenCost;
+        existingValue.seedsCost = updatedValue.seedsCost;
+        existingValue.plantsCost = updatedValue.plantCost;
+        existingValue.methaneCost = updatedValue.methaneCost;
+        existingValue.chemicalsCost = updatedValue.chemicalsCost;
+        existingValue.robotCost = updatedValue.robotCost;
+        existingValue.copperWireCost = updatedValue.copperWireCost;
+        existingValue.metalCost = updatedValue.metalCost;
+        existingValue.deadBatteryCost = updatedValue.deadBatteryCost;
+
+    }
     private void SetUpYesAndNoEvent()
     {
         // set up menu with yes and no options
@@ -73,7 +97,6 @@ public class PopupEventManager : MonoBehaviour
         yesButton.SetActive(false);
         noButton.SetActive(false);
     }
-
     public void ContinueButton()
     {
         Debug.Log("PRESSED CONTINUE");
