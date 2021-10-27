@@ -74,15 +74,15 @@ public class StatsManager : MonoBehaviour
         // dictionary to store displayed version of stats name (chemical = "avaiable chemicals")
         textDictionary.Add("energy cells", "Energy Cells");
         textDictionary.Add("water", "water");
-        textDictionary.Add("robots", "Robotics");
-        textDictionary.Add("plants", "Plants");
-        textDictionary.Add("seeds", "Seeds");
-        textDictionary.Add("methane", "Methane");
-        textDictionary.Add("chemicals", "Avaliable Chemicals");
         textDictionary.Add("nitrogen", "Nitrogen Gas");
         textDictionary.Add("oxygen", "Oxygen Gas");
         textDictionary.Add("co2", "Carbon Dioxide Gas");
         textDictionary.Add("hydrogen", "Hydrogen Gas");
+        textDictionary.Add("seeds", "Seeds");
+        textDictionary.Add("plants", "Plants");
+        textDictionary.Add("methane", "Methane");
+        textDictionary.Add("chemicals", "Avaliable Chemicals");
+        textDictionary.Add("robots", "Robotics");
         textDictionary.Add("copper wire", "Copper Wire");
         textDictionary.Add("metal", "Processed Metal");
         textDictionary.Add("dead battery", "Dead Batteries");
@@ -97,11 +97,12 @@ public class StatsManager : MonoBehaviour
         // update values as they are updated
         SetStatValue(energyCellStats, "energy cells", energyCellAmount);
         SetStatValue(waterStats, "water", waterAmount);
-        SetStatValue(robotsStats, "robots", robotsAmount);
-        SetStatValue(plantStats, "plants", plantsAmount);
+        SetAirComp(nitrogenValue, oxygenValue, carbonDioxdeValue, hydrogenValue);
         SetStatValue(seedStats, "seeds", seedsAmount);
+        SetStatValue(plantStats, "plants", plantsAmount);
         SetStatValue(methaneStats, "methane", methaneAmount);
         SetStatValue(chemicalsStats, "chemicals", chemicalsAmount);
+        SetStatValue(robotsStats, "robots", robotsAmount);
         SetStatValue(copperWireStats, "copper wire", copperWireAmount);
         SetStatValue(metalStats, "metal", metalAmount);
         SetStatValue(deadBatteriesStats, "dead battery", deadBatteryAmount);
@@ -110,7 +111,6 @@ public class StatsManager : MonoBehaviour
         SetShipMass(shipMassValue);
         SetShipSpeed(shipSpeedValue);
         SetTitanDistance(distanceToTitanAmount);
-        SetAirComp(nitrogenValue, oxygenValue, carbonDioxdeValue, hydrogenValue);
 
         // calculate the distance every second while the engine is on, randomly change speed by 10%
         if (gameManager.isEngineOn && !gameManager.gameIsPaused)
@@ -144,16 +144,21 @@ public class StatsManager : MonoBehaviour
         SetStatValue(energyCellStats, "energy cells", energyCellAmount);
         waterAmount = 0;
         SetStatValue(waterStats, "water", waterAmount);
-        robotsAmount = 0;
-        SetStatValue(robotsStats, "robots", robotsAmount);
-        plantsAmount = 0;
-        SetStatValue(plantStats, "plants", plantsAmount);
+        nitrogenValue = 55.0f;
+        oxygenValue = 22.0f;
+        carbonDioxdeValue = 3.0f;
+        hydrogenValue = 2.0f;
+        SetAirComp(nitrogenValue, oxygenValue, carbonDioxdeValue, hydrogenValue);
         seedsAmount = 0;
         SetStatValue(seedStats, "seeds", seedsAmount);
+        plantsAmount = 0;
+        SetStatValue(plantStats, "plants", plantsAmount);
         methaneAmount = 0;
         SetStatValue(methaneStats, "methane", methaneAmount);
         chemicalsAmount = 0;
         SetStatValue(chemicalsStats, "chemicals", chemicalsAmount);
+        robotsAmount = 0;
+        SetStatValue(robotsStats, "robots", robotsAmount);
         copperWireAmount = 0;
         SetStatValue(copperWireStats, "copper wire", copperWireAmount);
         metalAmount = 0;
@@ -168,11 +173,6 @@ public class StatsManager : MonoBehaviour
         SetShipSpeed(shipSpeedValue);
         distanceToTitanAmount = titanTotalDistance;
         SetTitanDistance(distanceToTitanAmount); // 1200000.0f
-        nitrogenValue = 55.0f;
-        oxygenValue = 22.0f;
-        carbonDioxdeValue = 3.0f;
-        hydrogenValue = 2.0f;
-        SetAirComp(nitrogenValue, oxygenValue, carbonDioxdeValue, hydrogenValue);
     }
 
     public void ReduceRemainingDistanceToTitan()
@@ -237,15 +237,15 @@ public class StatsManager : MonoBehaviour
         // apply new values
         energyCellAmount += textValues.energyCellCost;
         waterAmount += textValues.waterCost;
-        robotsAmount += textValues.robotCost;
-        plantsAmount += textValues.plantCost;
-        seedsAmount += textValues.seedsCost;
-        methaneAmount += textValues.methaneCost;
         nitrogenValue += textValues.nitrogenCost;
         oxygenValue += textValues.oxygenCost;
         carbonDioxdeValue += textValues.carbonDioxdeCost;
         hydrogenValue += textValues.hydrogenCost;
+        seedsAmount += textValues.seedsCost;
+        plantsAmount += textValues.plantsCost;
+        methaneAmount += textValues.methaneCost;
         chemicalsAmount += textValues.chemicalsCost;
+        robotsAmount += textValues.robotCost;
         copperWireAmount += textValues.copperWireCost;
         metalAmount += textValues.metalCost;
         deadBatteryAmount += textValues.deadBatteryCost;
@@ -257,15 +257,15 @@ public class StatsManager : MonoBehaviour
         // prevent values from becoming negative, otherwise set as listed
         energyCellAmount = energyCellAmount + textValues.energyCellCost < 0 ? 0 : energyCellAmount + textValues.energyCellCost;
         waterAmount = waterAmount + textValues.waterCost < 0 ? 0 : waterAmount + textValues.waterCost;
-        robotsAmount = robotsAmount + textValues.robotCost < 0 ? 0 : robotsAmount + textValues.robotCost;
-        plantsAmount = plantsAmount + textValues.plantCost < 0 ? 0 : plantsAmount + textValues.plantCost;
-        seedsAmount = seedsAmount + textValues.seedsCost < 0 ? 0 : seedsAmount + textValues.seedsCost;
-        methaneAmount = methaneAmount + textValues.methaneCost < 0 ? 0 : methaneAmount + textValues.methaneCost;
         nitrogenValue = nitrogenValue + textValues.nitrogenCost < 0 ? 0 : nitrogenValue + textValues.nitrogenCost;
         oxygenValue = oxygenValue + textValues.oxygenCost < 0 ? 0 : oxygenValue + textValues.oxygenCost;
         carbonDioxdeValue = carbonDioxdeValue + textValues.carbonDioxdeCost < 0 ? 0 : carbonDioxdeValue + textValues.carbonDioxdeCost;
         hydrogenValue = hydrogenValue + textValues.hydrogenCost < 0 ? 0 : hydrogenValue + textValues.hydrogenCost;
+        seedsAmount = seedsAmount + textValues.seedsCost < 0 ? 0 : seedsAmount + textValues.seedsCost;
+        plantsAmount = plantsAmount + textValues.plantCost < 0 ? 0 : plantsAmount + textValues.plantCost;
+        methaneAmount = methaneAmount + textValues.methaneCost < 0 ? 0 : methaneAmount + textValues.methaneCost;
         chemicalsAmount = chemicalsAmount + textValues.chemicalsCost < 0 ? 0 : chemicalsAmount + textValues.chemicalsCost;
+        robotsAmount = robotsAmount + textValues.robotCost < 0 ? 0 : robotsAmount + textValues.robotCost;
         copperWireAmount = copperWireAmount + textValues.copperWireCost < 0 ? 0 : copperWireAmount + textValues.copperWireCost;
         metalAmount = metalAmount + textValues.metalCost < 0 ? 0 : metalAmount + textValues.metalCost;
         deadBatteryAmount = deadBatteryAmount + textValues.deadBatteryCost < 0 ? 0 : deadBatteryAmount + textValues.deadBatteryCost;
@@ -277,15 +277,15 @@ public class StatsManager : MonoBehaviour
         notEnoughResourcesTriggered = false;
         IsValueZeroOrNegative(energyCellAmount + textValues.energyCellCost, textDictionary["energy cells"]);
         IsValueZeroOrNegative(waterAmount + textValues.waterCost, textDictionary["water"]);
-        IsValueZeroOrNegative(robotsAmount + textValues.robotCost, textDictionary["robots"]);
-        IsValueZeroOrNegative(plantsAmount + textValues.plantCost, textDictionary["plants"]);
-        IsValueZeroOrNegative(seedsAmount + textValues.seedsCost, textDictionary["seeds"]);
-        IsValueZeroOrNegative(methaneAmount + textValues.methaneCost, textDictionary["methane"]);
         IsValueZeroOrNegative(nitrogenValue + textValues.nitrogenCost, textDictionary["nitrogen"]);
         IsValueZeroOrNegative(oxygenValue + textValues.oxygenCost, textDictionary["oxygen"]);
         IsValueZeroOrNegative(carbonDioxdeValue + textValues.carbonDioxdeCost, textDictionary["co2"]);
         IsValueZeroOrNegative(hydrogenValue + textValues.hydrogenCost, textDictionary["hydrogen"]);
+        IsValueZeroOrNegative(seedsAmount + textValues.seedsCost, textDictionary["seeds"]);
+        IsValueZeroOrNegative(plantsAmount + textValues.plantsCost, textDictionary["plants"]);
+        IsValueZeroOrNegative(methaneAmount + textValues.methaneCost, textDictionary["methane"]);
         IsValueZeroOrNegative(chemicalsAmount + textValues.chemicalsCost, textDictionary["chemicals"]);
+        IsValueZeroOrNegative(robotsAmount + textValues.robotCost, textDictionary["robots"]);
         IsValueZeroOrNegative(copperWireAmount + textValues.copperWireCost, textDictionary["copper wire"]);
         IsValueZeroOrNegative(metalAmount + textValues.metalCost, textDictionary["metal"]);
         IsValueZeroOrNegative(deadBatteryAmount + textValues.deadBatteryCost, textDictionary["dead battery"]);

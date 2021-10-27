@@ -22,15 +22,15 @@ public class TextToDisplayEvents : ScriptableObject
     [Header("Stats")]
     public float energyCellCost;
     public float waterCost;
-    public float robotCost;
-    public float plantCost;
-    public float seedsCost;
-    public float methaneCost;
     public float nitrogenCost;
     public float oxygenCost;
     public float carbonDioxdeCost;
     public float hydrogenCost;
+    public float seedsCost;
+    public float plantCost;
+    public float methaneCost;
     public float chemicalsCost;
+    public float robotCost;
     public float copperWireCost;
     public float metalCost;
     public float deadBatteryCost;

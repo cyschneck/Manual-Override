@@ -14,15 +14,15 @@ public class TooltipOnHover : MonoBehaviour
     [Header("Display Textboxes")]
     private GameObject energyCellTooltip;
     private GameObject waterTooltip;
-    private GameObject robotsTooltip;
-    private GameObject plantsTooltip;
-    private GameObject seedsTooltip;
-    private GameObject methaneTooltip;
     private GameObject nitrogenTooltip;
     private GameObject oxygenTooltip;
     private GameObject carbonDioxdTooltip;
     private GameObject hydrogenTooltip;
+    private GameObject seedsTooltip;
+    private GameObject plantsTooltip;
+    private GameObject methaneTooltip;
     private GameObject chemicalsTooltip;
+    private GameObject robotsTooltip;
     private GameObject copperWireTooltip;
     private GameObject metalTooltip;
     private GameObject batteryTooltip;
@@ -37,15 +37,15 @@ public class TooltipOnHover : MonoBehaviour
         // set tooltip options based on current button (based on the postion of the tooltip in the tooltip)
         energyCellTooltip = toolTipOnDisplay.transform.GetChild(0).gameObject;
         waterTooltip = toolTipOnDisplay.transform.GetChild(1).gameObject;
-        robotsTooltip = toolTipOnDisplay.transform.GetChild(2).gameObject;
-        plantsTooltip = toolTipOnDisplay.transform.GetChild(3).gameObject;
-        seedsTooltip = toolTipOnDisplay.transform.GetChild(4).gameObject;
-        methaneTooltip = toolTipOnDisplay.transform.GetChild(5).gameObject;
-        nitrogenTooltip = toolTipOnDisplay.transform.GetChild(6).gameObject;
-        oxygenTooltip = toolTipOnDisplay.transform.GetChild(7).gameObject;
-        carbonDioxdTooltip = toolTipOnDisplay.transform.GetChild(8).gameObject;
-        hydrogenTooltip = toolTipOnDisplay.transform.GetChild(9).gameObject;
-        chemicalsTooltip = toolTipOnDisplay.transform.GetChild(10).gameObject;
+        nitrogenTooltip = toolTipOnDisplay.transform.GetChild(2).gameObject;
+        oxygenTooltip = toolTipOnDisplay.transform.GetChild(3).gameObject;
+        carbonDioxdTooltip = toolTipOnDisplay.transform.GetChild(4).gameObject;
+        hydrogenTooltip = toolTipOnDisplay.transform.GetChild(5).gameObject;
+        seedsTooltip = toolTipOnDisplay.transform.GetChild(6).gameObject;
+        plantsTooltip = toolTipOnDisplay.transform.GetChild(7).gameObject;
+        methaneTooltip = toolTipOnDisplay.transform.GetChild(8).gameObject;
+        chemicalsTooltip = toolTipOnDisplay.transform.GetChild(9).gameObject;
+        robotsTooltip = toolTipOnDisplay.transform.GetChild(10).gameObject;
         copperWireTooltip = toolTipOnDisplay.transform.GetChild(11).gameObject;
         metalTooltip = toolTipOnDisplay.transform.GetChild(12).gameObject;
         batteryTooltip = toolTipOnDisplay.transform.GetChild(13).gameObject;
@@ -69,15 +69,15 @@ public class TooltipOnHover : MonoBehaviour
         // set the values for the tooltip from the JSON
         SetTooltip(energyCellTooltip, displayText.energyCellCost);
         SetTooltip(waterTooltip, displayText.waterCost);
-        SetTooltip(robotsTooltip, displayText.robotCost);
-        SetTooltip(plantsTooltip, displayText.plantCost);
-        SetTooltip(seedsTooltip, displayText.seedsCost);
-        SetTooltip(methaneTooltip, displayText.methaneCost);
         SetTooltip(nitrogenTooltip, displayText.nitrogenCost);
         SetTooltip(oxygenTooltip, displayText.oxygenCost);
         SetTooltip(carbonDioxdTooltip, displayText.carbonDioxdeCost);
         SetTooltip(hydrogenTooltip, displayText.hydrogenCost);
+        SetTooltip(seedsTooltip, displayText.seedsCost);
+        SetTooltip(plantsTooltip, displayText.plantsCost);
+        SetTooltip(methaneTooltip, displayText.methaneCost);
         SetTooltip(chemicalsTooltip, displayText.chemicalsCost);
+        SetTooltip(robotsTooltip, displayText.robotCost);
         SetTooltip(copperWireTooltip, displayText.copperWireCost);
         SetTooltip(metalTooltip, displayText.metalCost);
         SetTooltip(batteryTooltip, displayText.deadBatteryCost);
