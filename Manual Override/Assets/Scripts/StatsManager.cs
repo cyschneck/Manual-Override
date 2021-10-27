@@ -64,7 +64,6 @@ public class StatsManager : MonoBehaviour
     private Dictionary<string, string> textDictionary = new Dictionary<string, string>();
     private bool isEngineChangingSpeed;
 
-
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -311,6 +310,7 @@ public class StatsManager : MonoBehaviour
     public IEnumerator SetRocketThrust(bool engineIsOn)
     {
         isEngineChangingSpeed = false;
+
         // speed of ship when engine is on ( x km/s)
         float buildUpTime = cooldownBar.engineCooldown; // build up to target speed over engine cooldown time
 
@@ -321,6 +321,7 @@ public class StatsManager : MonoBehaviour
             //slowly build up speed to max speed
             while (elapsedTime < buildUpTime)
             {
+                isEngineChangingSpeed = true;
                 elapsedTime += Time.deltaTime;
                 rocketThurstValue = (int)Mathf.Lerp(0, idleCruisingRocketThrust, elapsedTime / buildUpTime);
                 yield return null;
@@ -331,6 +332,7 @@ public class StatsManager : MonoBehaviour
             float currentEngineSpeed = rocketThurstValue;
             while (elapsedTime < buildUpTime)
             {
+                isEngineChangingSpeed = true;
                 elapsedTime += Time.deltaTime;
                 rocketThurstValue = (int)Mathf.Lerp(currentEngineSpeed, 0, elapsedTime / buildUpTime);
                 yield return null;
