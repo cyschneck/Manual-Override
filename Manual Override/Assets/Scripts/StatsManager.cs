@@ -18,6 +18,7 @@ public class StatsManager : MonoBehaviour
     public float waterAmount;
     public float robotsAmount;
     public float plantsAmount;
+    public float shipMassValue;
     public float rocketThurstValue;
     public float shipSpeedValue;
     public float distanceToTitanValue;
@@ -35,14 +36,16 @@ public class StatsManager : MonoBehaviour
     public float distanceChangeDelay;
     public float timeBetweenDelay; // how often to update distance
     private bool notEnoughResourcesTriggered; // trigger a text value if any values in the list are zero
-    private int idleRocketThrust = 56327; // km/s (voyager speed)
+    private int idleCruisingRocketThrust = 26000; // kph
     public float titanTotalDistance = 1277000000.0f; // distance to Titan from Earth (km)
+    public float accelerationOfShip;
 
     [Header("Ship Main Stats")]
     public TextMeshProUGUI energyCellStats;
     public TextMeshProUGUI waterStats;
     public TextMeshProUGUI robotsStats;
     public TextMeshProUGUI plantStats;
+    public TextMeshProUGUI shipMassStats;
     public TextMeshProUGUI rocketThrustStats;
     public TextMeshProUGUI shipSpeedStats;
     public TextMeshProUGUI distanceToTitanStats;
@@ -59,7 +62,7 @@ public class StatsManager : MonoBehaviour
     public TextMeshProUGUI deadBatteriesStats;
 
     private Dictionary<string, string> textDictionary = new Dictionary<string, string>();
-    private bool engineChangingSpeed;
+    private bool isEngineChangingSpeed;
 
 
     private void Awake()
@@ -86,7 +89,7 @@ public class StatsManager : MonoBehaviour
         textDictionary.Add("dead battery", "Dead Batteries");
 
         // how often to update distance to titan
-        distanceChangeDelay = 4.0f; // update every x seconds
+        distanceChangeDelay = 10.0f; // update every x seconds
         timeBetweenDelay = 0.0f;
     }
 
@@ -105,6 +108,7 @@ public class StatsManager : MonoBehaviour
         SetStatValue(deadBatteriesStats, "dead battery", deadBatteryAmount);
         SetRocketThrust(rocketThurstValue);
         UpdateShipSpeedBasedOnRocketThrust(rocketThurstValue);
+        SetShipMass(shipMassValue);
         SetShipSpeed(shipSpeedValue);
         SetTitanDistance(distanceToTitanAmount);
         SetAirComp(nitrogenValue, oxygenValue, carbonDioxdeValue, hydrogenValue);
@@ -116,7 +120,7 @@ public class StatsManager : MonoBehaviour
             if (timeBetweenDelay >= distanceChangeDelay)
             {
                 // update every x seconds
-                if (!engineChangingSpeed) // only change speed when not currently building up/losing speed (changes randomly during idle)
+                if (!isEngineChangingSpeed) // only change speed when not currently building up/losing speed (changes randomly during idle)
                 {
                     ReduceRemainingDistanceToTitan();
                     RandomlyIncreaseDecreaseRocketThurst();
@@ -157,6 +161,8 @@ public class StatsManager : MonoBehaviour
         SetStatValue(metalStats, "metal", metalAmount);
         deadBatteryAmount = 0;
         SetStatValue(deadBatteriesStats, "dead battery", deadBatteryAmount);
+        shipMassValue = 420.0f; // 420,000 kg (ISS) = 420 Mg
+        SetShipMass(shipMassValue);
         rocketThurstValue = 0.0f;
         SetRocketThrust(rocketThurstValue);
         shipSpeedValue = 0.0f;
@@ -192,24 +198,21 @@ public class StatsManager : MonoBehaviour
         rocketThrustStats.text = "> Rocket Thrust: " + rocketThrustForce + " n";
     }
 
+    public void SetShipMass(float shipMass)
+    {
+        shipMassStats.text = "> Ship Mass: " + shipMass + " mg";
+    }
+
     public void SetShipSpeed(float shipSpeed)
     {
         // set up ship speed that is impacted by the non-fiction enviorment and gravity wells
-        shipSpeedStats.text = "> Ship Speed: " + shipSpeed + " km/s";
+        shipSpeedStats.text = "> Ship Speed: " + shipSpeed + " k/h";
     }
-
-    public void UpdateShipSpeedBasedOnRocketThrust(float rocketThrustValue)
-    {
-        // engine speed based on engine on/off and direction
-        // thurst = velocity * (change of mass/change in time)
-        shipSpeedValue = rocketThrustValue;
-    }
-
-        public void RandomlyIncreaseDecreaseRocketThurst()
+    public void RandomlyIncreaseDecreaseRocketThurst()
     {
         // randomly increase or decrease speed over time
-        float minThrust = idleRocketThrust + (idleRocketThrust * 0.05f); // 5% slower
-        float maxThrust = idleRocketThrust - (idleRocketThrust * 0.05f); // 5% faster
+        float minThrust = idleCruisingRocketThrust + (idleCruisingRocketThrust * 0.05f); // 5% slower
+        float maxThrust = idleCruisingRocketThrust - (idleCruisingRocketThrust * 0.05f); // 5% faster
         rocketThurstValue = (int)Random.Range(minThrust, maxThrust); // 5% slower, 5% faster
     }
 
@@ -307,7 +310,7 @@ public class StatsManager : MonoBehaviour
 
     public IEnumerator SetRocketThrust(bool engineIsOn)
     {
-        engineChangingSpeed = false;
+        isEngineChangingSpeed = false;
         // speed of ship when engine is on ( x km/s)
         float buildUpTime = cooldownBar.engineCooldown; // build up to target speed over engine cooldown time
 
@@ -319,7 +322,7 @@ public class StatsManager : MonoBehaviour
             while (elapsedTime < buildUpTime)
             {
                 elapsedTime += Time.deltaTime;
-                rocketThurstValue = (int)Mathf.Lerp(0, idleRocketThrust, elapsedTime / buildUpTime);
+                rocketThurstValue = (int)Mathf.Lerp(0, idleCruisingRocketThrust, elapsedTime / buildUpTime);
                 yield return null;
             }
         } else // if engine is off: slow downs
@@ -333,6 +336,14 @@ public class StatsManager : MonoBehaviour
                 yield return null;
             }
         }
-        engineChangingSpeed = false; // engine in the process of gaining/losing speed
+        isEngineChangingSpeed = false; // engine in the process of gaining/losing speed
+    }
+
+    public void UpdateShipSpeedBasedOnRocketThrust(float rocketThrustValue)
+    {
+        // engine speed based on engine on/off and direction
+        // thrust = velocity * (change of mass/change in time)
+        accelerationOfShip = (int)(rocketThrustValue / shipMassValue); // f = ma where a = f/m
+        shipSpeedValue += (int)(accelerationOfShip * Time.deltaTime);
     }
 }
