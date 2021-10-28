@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject treatPlantsButton;
     public GameObject performElectrolysisButton;
     public GameObject performSabatierButton;
-    public GameObject reverseEngineButton;
+    public GameObject stopEngineButton;
     public GameObject assembleRobotsButton;
     public GameObject dismantleRobotsButton;
     public GameObject scanButton;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     public TextToDisplay performElectrolysisText;
     public TextToDisplay performSabatierText;
     public TextToDisplay deployMiningRobotsText;
-    public TextToDisplay reverseEngineText;
+    public TextToDisplay stopEngineText;
     public TextToDisplay assembleRobotsText;
     public TextToDisplay dismantleRobotsText;
     public TextToDisplay startScanText;
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
         treatPlantsButton.GetComponent<Button>().interactable = isButtonInteractable;
         performElectrolysisButton.GetComponent<Button>().interactable = isButtonInteractable;
         performSabatierButton.GetComponent<Button>().interactable = isButtonInteractable;
-        reverseEngineButton.GetComponent<Button>().interactable = isButtonInteractable;
+        stopEngineButton.GetComponent<Button>().interactable = isButtonInteractable;
         assembleRobotsButton.GetComponent<Button>().interactable = isButtonInteractable;
         dismantleRobotsButton.GetComponent<Button>().interactable = isButtonInteractable;
         scanButton.GetComponent<Button>().interactable = isButtonInteractable;
@@ -292,16 +292,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ReverseEngine()
+    public void StopEngine()
     {
-        if (!statsManager.DoesNotHaveResources(reverseEngineText))
+        // reverse the direction of thrust of engine and stop the ship
+        if (!statsManager.DoesNotHaveResources(stopEngineText))
         {
-            // reverse the engine direction in the engineering department
-            terminalTextManager.startWriteText(reverseEngineText.text);
-            statsManager.UpdateStaticValues(reverseEngineText);
-            // update slider for cooldown
-            StartCoroutine(cooldownBar.UpdateCooldownBar(reverseEngineText.cooldownTime, cooldownBar.reverseEngineCooldownBar));
-            StartCoroutine(cooldownBar.TriggerCooldown(reverseEngineText.cooldownTime, "reverseEngineCooldown")); // wait x seconds before ending cooldown
+            if (statsManager.isEngineChangingSpeed)
+            {
+                // prevent engine switch when engine is one
+                terminalTextManager.startWriteText("Engine in motion, cannot switch direction");
+            }
+            else
+            {
+                terminalTextManager.startWriteText(stopEngineText.text);
+
+                // update slider for cooldown
+                StartCoroutine(cooldownBar.UpdateCooldownBar(stopEngineText.cooldownTime, cooldownBar.stopEngineCooldownBar));
+                StartCoroutine(cooldownBar.TriggerCooldown(stopEngineText.cooldownTime, "stopEngineCooldown")); // wait x seconds before ending cooldown
+            }
         }
     }
 

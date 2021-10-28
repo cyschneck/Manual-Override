@@ -62,7 +62,7 @@ public class StatsManager : MonoBehaviour
     public TextMeshProUGUI deadBatteriesStats;
 
     private Dictionary<string, string> textDictionary = new Dictionary<string, string>();
-    private bool isEngineChangingSpeed;
+    public bool isEngineChangingSpeed;
 
     private void Awake()
     {
