@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject treatPlantsButton;
     public GameObject performElectrolysisButton;
     public GameObject performSabatierButton;
+    public GameObject reverseEngineButton;
     public GameObject assembleRobotsButton;
     public GameObject dismantleRobotsButton;
     public GameObject scanButton;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
     public TextToDisplay performElectrolysisText;
     public TextToDisplay performSabatierText;
     public TextToDisplay deployMiningRobotsText;
+    public TextToDisplay reverseEngineText;
     public TextToDisplay assembleRobotsText;
     public TextToDisplay dismantleRobotsText;
     public TextToDisplay startScanText;
@@ -144,6 +146,7 @@ public class GameManager : MonoBehaviour
         treatPlantsButton.GetComponent<Button>().interactable = isButtonInteractable;
         performElectrolysisButton.GetComponent<Button>().interactable = isButtonInteractable;
         performSabatierButton.GetComponent<Button>().interactable = isButtonInteractable;
+        reverseEngineButton.GetComponent<Button>().interactable = isButtonInteractable;
         assembleRobotsButton.GetComponent<Button>().interactable = isButtonInteractable;
         dismantleRobotsButton.GetComponent<Button>().interactable = isButtonInteractable;
         scanButton.GetComponent<Button>().interactable = isButtonInteractable;
@@ -286,6 +289,19 @@ public class GameManager : MonoBehaviour
             // update slider for cooldown
             StartCoroutine(cooldownBar.UpdateCooldownBar(performSabatierText.cooldownTime, cooldownBar.performSabatierCooldownBar));
             StartCoroutine(cooldownBar.TriggerCooldown(performSabatierText.cooldownTime, "performSabatierCooldown")); // wait x seconds before ending cooldown
+        }
+    }
+
+    public void ReverseEngine()
+    {
+        if (!statsManager.DoesNotHaveResources(reverseEngineText))
+        {
+            // reverse the engine direction in the engineering department
+            terminalTextManager.startWriteText(reverseEngineText.text);
+            statsManager.UpdateStaticValues(reverseEngineText);
+            // update slider for cooldown
+            StartCoroutine(cooldownBar.UpdateCooldownBar(reverseEngineText.cooldownTime, cooldownBar.reverseEngineCooldownBar));
+            StartCoroutine(cooldownBar.TriggerCooldown(reverseEngineText.cooldownTime, "reverseEngineCooldown")); // wait x seconds before ending cooldown
         }
     }
 

@@ -19,6 +19,7 @@ public class CooldownBar : MonoBehaviour
     public GameObject treatPlantsCooldownBar;
     public GameObject performElectrolysisCooldownBar;
     public GameObject performSabatierCooldownBar;
+    public GameObject reverseEngineCooldownBar;
     public GameObject assembleRobotsCooldownBar;
     public GameObject dismantleRobotsCooldownBar;
     public GameObject scanCooldownBar;
@@ -38,6 +39,7 @@ public class CooldownBar : MonoBehaviour
         cooldownDict.Add("treatPlantsCooldown", false);
         cooldownDict.Add("performElectrolysisCooldown", false);
         cooldownDict.Add("performSabatierCooldown", false);
+        cooldownDict.Add("reverseEngineCooldown", false);
         cooldownDict.Add("assembleRobotsCooldown", false);
         cooldownDict.Add("dismantleRobotsCooldown", false);
         cooldownDict.Add("scanCooldown", false);
@@ -52,6 +54,7 @@ public class CooldownBar : MonoBehaviour
         treatPlantsCooldownBar = gameManager.treatPlantsButton.transform.GetChild(2).gameObject;
         performElectrolysisCooldownBar = gameManager.performElectrolysisButton.transform.GetChild(2).gameObject;
         performSabatierCooldownBar = gameManager.performSabatierButton.transform.GetChild(2).gameObject;
+        reverseEngineCooldownBar = gameManager.reverseEngineButton.transform.GetChild(2).gameObject;
         assembleRobotsCooldownBar = gameManager.assembleRobotsButton.transform.GetChild(2).gameObject;
         dismantleRobotsCooldownBar = gameManager.dismantleRobotsButton.transform.GetChild(2).gameObject;
         scanCooldownBar = gameManager.scanButton.transform.GetChild(2).gameObject;
@@ -66,6 +69,7 @@ public class CooldownBar : MonoBehaviour
         treatPlantsCooldownBar.GetComponent<Slider>().value = 0;
         performElectrolysisCooldownBar.GetComponent<Slider>().value = 0;
         performSabatierCooldownBar.GetComponent<Slider>().value = 0;
+        reverseEngineCooldownBar.GetComponent<Slider>().value = 0;
         assembleRobotsCooldownBar.GetComponent<Slider>().value = 0;
         dismantleRobotsCooldownBar.GetComponent<Slider>().value = 0;
         scanCooldownBar.GetComponent<Slider>().value = 0;
@@ -85,6 +89,7 @@ public class CooldownBar : MonoBehaviour
             gameManager.treatPlantsButton.GetComponent<Button>().interactable = !cooldownDict["treatPlantsCooldown"];
             gameManager.performElectrolysisButton.GetComponent<Button>().interactable = !cooldownDict["performElectrolysisCooldown"];
             gameManager.performSabatierButton.GetComponent<Button>().interactable = !cooldownDict["performSabatierCooldown"];
+            gameManager.reverseEngineButton.GetComponent<Button>().interactable = !cooldownDict["reverseEngineCooldown"];
             gameManager.assembleRobotsButton.GetComponent<Button>().interactable = !cooldownDict["assembleRobotsCooldown"];
             gameManager.dismantleRobotsButton.GetComponent<Button>().interactable = !cooldownDict["dismantleRobotsCooldown"];
             gameManager.scanButton.GetComponent<Button>().interactable = !cooldownDict["scanCooldown"];

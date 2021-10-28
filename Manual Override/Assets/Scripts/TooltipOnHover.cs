@@ -61,6 +61,8 @@ public class TooltipOnHover : MonoBehaviour
         if (this.gameObject == gameManager.treatPlantsButton) { SetValuesFromScriptableObject(gameManager.treatPlantsText); }
         if (this.gameObject == gameManager.performElectrolysisButton) { SetValuesFromScriptableObject(gameManager.performElectrolysisText); }
         if (this.gameObject == gameManager.performSabatierButton) { SetValuesFromScriptableObject(gameManager.performSabatierText); }
+        if (this.gameObject == gameManager.reverseEngineButton) { SetValuesFromScriptableObject(gameManager.reverseEngineText); }
+        if (this.gameObject == gameManager.assembleRobotsButton) { SetValuesFromScriptableObject(gameManager.assembleRobotsText); }
         if (this.gameObject == gameManager.dismantleRobotsButton) { SetValuesFromScriptableObject(gameManager.dismantleRobotsText); }
         if (this.gameObject == gameManager.scanButton) { SetValuesFromScriptableObject(gameManager.startScanText); }
         if (this.gameObject == gameManager.deployMiningRobotsButton) { SetValuesFromScriptableObject(gameManager.deployMiningRobotsText); }
@@ -120,7 +122,7 @@ public class TooltipOnHover : MonoBehaviour
 
     public void HoverOver()
     {
-        Debug.Log("Mouse hover over: " + this.gameObject.name);
+        //Debug.Log("Mouse hover over: " + this.gameObject.name);
         //Debug.Log("Mouse hover over: " + toolTipOnDisplay.name);
         if (isTooltipNotEmpty)
         {
