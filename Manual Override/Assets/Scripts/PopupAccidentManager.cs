@@ -36,6 +36,7 @@ public class PopupAccidentManager : MonoBehaviour
 
             if (timeSinceLastAccident > waitBetweenChecks)
             {
+                // only trigger the first accident in the list
                 foreach (TextToDisplayEvents eventAccidentConditionsObject in eventManager.allAccidentEvents)
                 {
                     //Debug.Log(eventAccidentConditionsObject);

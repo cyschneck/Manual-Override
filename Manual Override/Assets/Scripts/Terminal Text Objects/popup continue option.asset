@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: popup continue option
   text: popup continue text
-  cooldownTime: 111
+  cooldownTime: 0
   energyCellCost: 111
   waterCost: 111
   nitrogenCost: 111

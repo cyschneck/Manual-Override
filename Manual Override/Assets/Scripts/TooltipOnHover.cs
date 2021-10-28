@@ -27,6 +27,8 @@ public class TooltipOnHover : MonoBehaviour
     private GameObject metalTooltip;
     private GameObject batteryTooltip;
 
+    private bool isTooltipNotEmpty;
+
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -54,23 +56,22 @@ public class TooltipOnHover : MonoBehaviour
     private void Update()
     {
         // populate tooltip based on scriptable object based on which button is being hovered on
-        if (this.gameObject == gameManager.germinateSeedsButton) { SetValuesFromScriptableObject(gameManager.germinateSeedsText);}
-        if (this.gameObject == gameManager.plantSeedsButton) { SetValuesFromScriptableObject(gameManager.plantSeedsText);}
-        if (this.gameObject == gameManager.treatPlantsButton) { SetValuesFromScriptableObject(gameManager.treatPlantsText);}
-        if (this.gameObject == gameManager.performElectrolysisButton) { SetValuesFromScriptableObject(gameManager.performElectrolysisText);}
-        if (this.gameObject == gameManager.performSabatierButton) { SetValuesFromScriptableObject(gameManager.performSabatierText);}
-        if (this.gameObject == gameManager.assembleRobotsButton) { SetValuesFromScriptableObject(gameManager.assembleBatteryText);}
-        if (this.gameObject == gameManager.dismantleRobotsButton) { SetValuesFromScriptableObject(gameManager.dismantleRobotsText);}
-        if (this.gameObject == gameManager.scanButton) { SetValuesFromScriptableObject(gameManager.startScanText);}
-        if (this.gameObject == gameManager.deployMiningRobotsButton) { SetValuesFromScriptableObject(gameManager.deployMiningRobotsText);}
-        if (this.gameObject == gameManager.assembleBatteryButton) { SetValuesFromScriptableObject(gameManager.assembleBatteryText);}
-        if (this.gameObject == gameManager.dismantleBatteryButton) { SetValuesFromScriptableObject(gameManager.dismantleRobotsText);}
-        if (this.gameObject == gameManager.continueOptionButton) { SetValuesFromScriptableObject(gameManager.continueOptionText);}
-        if (this.gameObject == gameManager.yesOptionButton) { SetValuesFromScriptableObject(gameManager.yesOptionText);}
-        if (this.gameObject == gameManager.noOptionButton) { SetValuesFromScriptableObject(gameManager.noOptionText);}   
+        if (this.gameObject == gameManager.germinateSeedsButton) { SetValuesFromScriptableObject(gameManager.germinateSeedsText); }
+        if (this.gameObject == gameManager.plantSeedsButton) { SetValuesFromScriptableObject(gameManager.plantSeedsText); }
+        if (this.gameObject == gameManager.treatPlantsButton) { SetValuesFromScriptableObject(gameManager.treatPlantsText); }
+        if (this.gameObject == gameManager.performElectrolysisButton) { SetValuesFromScriptableObject(gameManager.performElectrolysisText); }
+        if (this.gameObject == gameManager.performSabatierButton) { SetValuesFromScriptableObject(gameManager.performSabatierText); }
+        if (this.gameObject == gameManager.dismantleRobotsButton) { SetValuesFromScriptableObject(gameManager.dismantleRobotsText); }
+        if (this.gameObject == gameManager.scanButton) { SetValuesFromScriptableObject(gameManager.startScanText); }
+        if (this.gameObject == gameManager.deployMiningRobotsButton) { SetValuesFromScriptableObject(gameManager.deployMiningRobotsText); }
+        if (this.gameObject == gameManager.assembleBatteryButton) { SetValuesFromScriptableObject(gameManager.assembleBatteryText); }
+        if (this.gameObject == gameManager.dismantleBatteryButton) { SetValuesFromScriptableObject(gameManager.dismantleRobotsText); }
+        if (this.gameObject == gameManager.continueOptionButton) { SetValuesFromScriptableObject(gameManager.continueOptionText); }
+        if (this.gameObject == gameManager.yesOptionButton) { SetValuesFromScriptableObject(gameManager.yesOptionText); }
+        if (this.gameObject == gameManager.noOptionButton) { SetValuesFromScriptableObject(gameManager.noOptionText); }
     }
 
-    private void SetValuesFromScriptableObject(TextToDisplay displayText)
+    public void SetValuesFromScriptableObject(TextToDisplay displayText)
     {
         // set the values for the tooltip from the JSON
         SetTooltip(energyCellTooltip, displayText.energyCellCost);
@@ -87,6 +88,18 @@ public class TooltipOnHover : MonoBehaviour
         SetTooltip(copperWireTooltip, displayText.copperWireCost);
         SetTooltip(metalTooltip, displayText.metalCost);
         SetTooltip(batteryTooltip, displayText.deadBatteryCost);
+
+        // if tooltip has no values, do not display tooltip
+        if (displayText.energyCellCost == 0 && displayText.waterCost == 0 && displayText.nitrogenCost == 0 && displayText.oxygenCost == 0
+            && displayText.carbonDioxdeCost == 0 && displayText.hydrogenCost == 0 && displayText.seedsCost == 0 && displayText.plantsCost == 0
+            && displayText.methaneCost == 0 && displayText.chemicalsCost == 0 && displayText.robotCost == 0 && displayText.copperWireCost == 0
+            && displayText.metalCost == 0 && displayText.deadBatteryCost == 0)
+        {
+            isTooltipNotEmpty = false;
+        } else
+        {
+            isTooltipNotEmpty = true;
+        }
     }
 
 
@@ -99,6 +112,7 @@ public class TooltipOnHover : MonoBehaviour
             tooltip.SetActive(false);
         } else
         {
+            tooltip.SetActive(true);
             tooltip.GetComponent<TextMeshProUGUI>().text = tooltip.name + ": " + tooltipValue.ToString();
         }
 
@@ -106,13 +120,35 @@ public class TooltipOnHover : MonoBehaviour
 
     public void HoverOver()
     {
-        //Debug.Log("Mouse hover over: " + this.gameObject.name);
+        Debug.Log("Mouse hover over: " + this.gameObject.name);
         //Debug.Log("Mouse hover over: " + toolTipOnDisplay.name);
-        toolTipOnDisplay.SetActive(true);
+        if (isTooltipNotEmpty)
+        {
+            toolTipOnDisplay.SetActive(true);
+        }
     }
 
     public void LeftHover()
     {
         toolTipOnDisplay.SetActive(false);
+    }
+
+    public void ResetDefaultValues(TextToDisplay existingValue)
+    {
+        // set default values for continue/yes/no to save between popups
+        existingValue.energyCellCost = 123;
+        existingValue.waterCost = 123;
+        existingValue.nitrogenCost = 123;
+        existingValue.oxygenCost = 123;
+        existingValue.carbonDioxdeCost = 123;
+        existingValue.hydrogenCost = 123;
+        existingValue.seedsCost = 123;
+        existingValue.plantsCost = 123;
+        existingValue.methaneCost = 123;
+        existingValue.chemicalsCost = 123;
+        existingValue.robotCost = 123;
+        existingValue.copperWireCost = 123;
+        existingValue.metalCost = 123;
+        existingValue.deadBatteryCost = 123;
     }
 }

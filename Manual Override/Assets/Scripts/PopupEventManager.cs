@@ -69,14 +69,6 @@ public class PopupEventManager : MonoBehaviour
     public void SetUpContinueYesNoTooltip(TextToDisplay existingValue)
     {
         // set up the dynamic tooltip for popup events (based on which event is being displayed)
-        Debug.Log("setting up for: " + existingValue.name + " for the event " + eventObject.name);
-        Debug.Log("energy cells = " + eventObject.energyCellCost + " water = " + eventObject.waterCost);
-        Debug.Log("nitrogen = " + eventObject.nitrogenCost + " oxygen = " + eventObject.oxygenCost);
-        Debug.Log("co2 = " + eventObject.carbonDioxdeCost + " hydrogen = " + eventObject.hydrogenCost);
-        Debug.Log("seeds = " + eventObject.seedsCost + " plants = " + eventObject.plantsCost);
-        Debug.Log("methane = " + eventObject.methaneCost + " chemical = " + eventObject.chemicalsCost);
-        Debug.Log("robot = " + eventObject.robotCost + " copper wire = " + eventObject.copperWireCost);
-        Debug.Log("metal = " + eventObject.metalCost + " battery = " + eventObject.deadBatteryCost);
         existingValue.energyCellCost = eventObject.energyCellCost;
         existingValue.waterCost = eventObject.waterCost;
         existingValue.nitrogenCost = eventObject.nitrogenCost;
@@ -112,6 +104,7 @@ public class PopupEventManager : MonoBehaviour
     {
         Debug.Log("PRESSED CONTINUE");
         tooltipHoverContinue.LeftHover(); // close popup tooltip
+        tooltipHoverContinue.ResetDefaultValues(gameManager.continueOptionText);
         StartCoroutine(ClosePopUpMenu());
     }
 
@@ -119,6 +112,7 @@ public class PopupEventManager : MonoBehaviour
     {
         Debug.Log("PRESSED YES");
         tooltipHoverYes.LeftHover(); // close popup tooltip
+        tooltipHoverYes.ResetDefaultValues(gameManager.yesOptionText);
         StartCoroutine(ClosePopUpMenu());
     }
 
@@ -126,6 +120,7 @@ public class PopupEventManager : MonoBehaviour
     {
         Debug.Log("PRESSED NO");
         tooltipHoverNo.LeftHover(); // close popup tooltip
+        tooltipHoverNo.ResetDefaultValues(gameManager.noOptionText);
         StartCoroutine(ClosePopUpMenu());
     }
 
