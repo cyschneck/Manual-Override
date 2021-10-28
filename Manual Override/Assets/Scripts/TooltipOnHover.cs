@@ -49,7 +49,10 @@ public class TooltipOnHover : MonoBehaviour
         copperWireTooltip = toolTipOnDisplay.transform.GetChild(11).gameObject;
         metalTooltip = toolTipOnDisplay.transform.GetChild(12).gameObject;
         batteryTooltip = toolTipOnDisplay.transform.GetChild(13).gameObject;
+    }
 
+    private void Update()
+    {
         // populate tooltip based on scriptable object based on which button is being hovered on
         if (this.gameObject == gameManager.germinateSeedsButton) { SetValuesFromScriptableObject(gameManager.germinateSeedsText);}
         if (this.gameObject == gameManager.plantSeedsButton) { SetValuesFromScriptableObject(gameManager.plantSeedsText);}
@@ -64,7 +67,7 @@ public class TooltipOnHover : MonoBehaviour
         if (this.gameObject == gameManager.dismantleBatteryButton) { SetValuesFromScriptableObject(gameManager.dismantleRobotsText);}
         if (this.gameObject == gameManager.continueOptionButton) { SetValuesFromScriptableObject(gameManager.continueOptionText);}
         if (this.gameObject == gameManager.yesOptionButton) { SetValuesFromScriptableObject(gameManager.yesOptionText);}
-        if (this.gameObject == gameManager.noOptionButton) { SetValuesFromScriptableObject(gameManager.noOptionText);}
+        if (this.gameObject == gameManager.noOptionButton) { SetValuesFromScriptableObject(gameManager.noOptionText);}   
     }
 
     private void SetValuesFromScriptableObject(TextToDisplay displayText)

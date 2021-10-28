@@ -97,9 +97,9 @@ public class PopupRandomEventManager : MonoBehaviour
             if (eventRandomObject.robotCost > 0) { hasRobot = true; } // postive value
             else if (statsManager.robotsAmount == 0) { hasRobot = false; } // negative value
         }
-        if (eventRandomObject.plantCost != 0) 
+        if (eventRandomObject.plantsCost != 0) 
         {
-            if (eventRandomObject.plantCost > 0) { hasPlant = true; } // postive value
+            if (eventRandomObject.plantsCost > 0) { hasPlant = true; } // postive value
             else if (statsManager.plantsAmount == 0) { hasPlant = false; } // negative value
         }
         if (eventRandomObject.seedsCost != 0) 

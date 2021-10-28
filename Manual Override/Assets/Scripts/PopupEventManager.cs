@@ -12,6 +12,9 @@ public class PopupEventManager : MonoBehaviour
     private GameManager gameManager;
     private StatsManager statsManager;
     private TerminalTextManager terminalTextManager;
+    private TooltipOnHover tooltipHoverContinue;
+    private TooltipOnHover tooltipHoverYes;
+    private TooltipOnHover tooltipHoverNo;
 
     [Header("Popup Menu and Options")]
     public GameObject popUpMenu;
@@ -28,8 +31,9 @@ public class PopupEventManager : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         terminalTextManager = GameObject.Find("TerminalTextManager").GetComponent<TerminalTextManager>();
-
-        Debug.Log("TODO TO DO : display tooltip on the contine/yes/no button to info about changes when relevant (when there are any costs)");
+        tooltipHoverContinue = continueButton.GetComponent<TooltipOnHover>();
+        tooltipHoverYes = yesButton.GetComponent<TooltipOnHover>();
+        tooltipHoverNo = noButton.GetComponent<TooltipOnHover>();
     }
 
     private void FixedUpdate()
@@ -49,37 +53,44 @@ public class PopupEventManager : MonoBehaviour
         eventTextBox.GetComponent<TextMeshProUGUI>().text = eventObject.eventText;
         if (eventObject.popUpMenuOption == popUpMenuOptions.continueOnly)
         {
-            SetUpContinueYesNoTooltip(gameManager.continueOptionText, eventObject);
+            SetUpContinueYesNoTooltip(gameManager.continueOptionText);
             SetUpGenericEvent();
         }
         else
         {
-            SetUpContinueYesNoTooltip(gameManager.yesOptionText, eventObject);
-            SetUpContinueYesNoTooltip(gameManager.noOptionText, eventObject);
+            SetUpContinueYesNoTooltip(gameManager.yesOptionText);
+            SetUpContinueYesNoTooltip(gameManager.noOptionText);
             SetUpYesAndNoEvent();
         }
         popUpMenu.SetActive(true);
         isPopUpActive = true;
     }
 
-    private void SetUpContinueYesNoTooltip(TextToDisplay existingValue, TextToDisplayEvents updatedValue)
+    public void SetUpContinueYesNoTooltip(TextToDisplay existingValue)
     {
         // set up the dynamic tooltip for popup events (based on which event is being displayed)
-        Debug.Log("setting up for: " + existingValue.name + " for the event " + updatedValue.name);
-        existingValue.energyCellCost = updatedValue.energyCellCost;
-        existingValue.waterCost = updatedValue.waterCost;
-        existingValue.nitrogenCost = updatedValue.nitrogenCost;
-        existingValue.oxygenCost = updatedValue.oxygenCost;
-        existingValue.carbonDioxdeCost = updatedValue.carbonDioxdeCost;
-        existingValue.hydrogenCost = updatedValue.hydrogenCost;
-        existingValue.seedsCost = updatedValue.seedsCost;
-        existingValue.plantsCost = updatedValue.plantCost;
-        existingValue.methaneCost = updatedValue.methaneCost;
-        existingValue.chemicalsCost = updatedValue.chemicalsCost;
-        existingValue.robotCost = updatedValue.robotCost;
-        existingValue.copperWireCost = updatedValue.copperWireCost;
-        existingValue.metalCost = updatedValue.metalCost;
-        existingValue.deadBatteryCost = updatedValue.deadBatteryCost;
+        Debug.Log("setting up for: " + existingValue.name + " for the event " + eventObject.name);
+        Debug.Log("energy cells = " + eventObject.energyCellCost + " water = " + eventObject.waterCost);
+        Debug.Log("nitrogen = " + eventObject.nitrogenCost + " oxygen = " + eventObject.oxygenCost);
+        Debug.Log("co2 = " + eventObject.carbonDioxdeCost + " hydrogen = " + eventObject.hydrogenCost);
+        Debug.Log("seeds = " + eventObject.seedsCost + " plants = " + eventObject.plantsCost);
+        Debug.Log("methane = " + eventObject.methaneCost + " chemical = " + eventObject.chemicalsCost);
+        Debug.Log("robot = " + eventObject.robotCost + " copper wire = " + eventObject.copperWireCost);
+        Debug.Log("metal = " + eventObject.metalCost + " battery = " + eventObject.deadBatteryCost);
+        existingValue.energyCellCost = eventObject.energyCellCost;
+        existingValue.waterCost = eventObject.waterCost;
+        existingValue.nitrogenCost = eventObject.nitrogenCost;
+        existingValue.oxygenCost = eventObject.oxygenCost;
+        existingValue.carbonDioxdeCost = eventObject.carbonDioxdeCost;
+        existingValue.hydrogenCost = eventObject.hydrogenCost;
+        existingValue.seedsCost = eventObject.seedsCost;
+        existingValue.plantsCost = eventObject.plantsCost;
+        existingValue.methaneCost = eventObject.methaneCost;
+        existingValue.chemicalsCost = eventObject.chemicalsCost;
+        existingValue.robotCost = eventObject.robotCost;
+        existingValue.copperWireCost = eventObject.copperWireCost;
+        existingValue.metalCost = eventObject.metalCost;
+        existingValue.deadBatteryCost = eventObject.deadBatteryCost;
 
     }
     private void SetUpYesAndNoEvent()
@@ -100,18 +111,21 @@ public class PopupEventManager : MonoBehaviour
     public void ContinueButton()
     {
         Debug.Log("PRESSED CONTINUE");
+        tooltipHoverContinue.LeftHover(); // close popup tooltip
         StartCoroutine(ClosePopUpMenu());
     }
 
     public void YesButton()
     {
         Debug.Log("PRESSED YES");
+        tooltipHoverYes.LeftHover(); // close popup tooltip
         StartCoroutine(ClosePopUpMenu());
     }
 
     public void NoButton()
     {
         Debug.Log("PRESSED NO");
+        tooltipHoverNo.LeftHover(); // close popup tooltip
         StartCoroutine(ClosePopUpMenu());
     }
 

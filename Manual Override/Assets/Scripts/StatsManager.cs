@@ -262,7 +262,7 @@ public class StatsManager : MonoBehaviour
         carbonDioxdeValue = carbonDioxdeValue + textValues.carbonDioxdeCost < 0 ? 0 : carbonDioxdeValue + textValues.carbonDioxdeCost;
         hydrogenValue = hydrogenValue + textValues.hydrogenCost < 0 ? 0 : hydrogenValue + textValues.hydrogenCost;
         seedsAmount = seedsAmount + textValues.seedsCost < 0 ? 0 : seedsAmount + textValues.seedsCost;
-        plantsAmount = plantsAmount + textValues.plantCost < 0 ? 0 : plantsAmount + textValues.plantCost;
+        plantsAmount = plantsAmount + textValues.plantsCost < 0 ? 0 : plantsAmount + textValues.plantsCost;
         methaneAmount = methaneAmount + textValues.methaneCost < 0 ? 0 : methaneAmount + textValues.methaneCost;
         chemicalsAmount = chemicalsAmount + textValues.chemicalsCost < 0 ? 0 : chemicalsAmount + textValues.chemicalsCost;
         robotsAmount = robotsAmount + textValues.robotCost < 0 ? 0 : robotsAmount + textValues.robotCost;

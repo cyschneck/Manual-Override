@@ -40,13 +40,14 @@ public class PopupAccidentManager : MonoBehaviour
                 {
                     //Debug.Log(eventAccidentConditionsObject);
                     TriggerEventBasedOnStats(eventAccidentConditionsObject);
+                    if (resetTimeSinceAccident)
+                    {
+                        // trigger popup if event triggered by stats
+                        popupEventManager.SetUpPopup(eventAccidentConditionsObject);
+                        timeSinceLastAccident = 0.0f;
+                        resetTimeSinceAccident = false;
+                    }
                 }
-            }
-
-            if (resetTimeSinceAccident)
-            {
-                timeSinceLastAccident = 0.0f;
-                resetTimeSinceAccident = false;
             }
         }
     }
@@ -56,24 +57,20 @@ public class PopupAccidentManager : MonoBehaviour
         // check stats to determine if an event should be triggered
         if (eventObject.nitrogenMinTrigger <= statsManager.nitrogenValue && eventObject.nitrogenMaxTrigger >= statsManager.nitrogenValue)
         {
-            popupEventManager.SetUpPopup(eventObject);
             resetTimeSinceAccident = true;
         }
         if (eventObject.oxygenMinTrigger <= statsManager.oxygenValue && eventObject.oxygenMaxTrigger >= statsManager.oxygenValue)
         { 
-            popupEventManager.SetUpPopup(eventObject);
             resetTimeSinceAccident = true;
 
         }
         if (eventObject.carbonDioxdeMinTrigger <= statsManager.carbonDioxdeValue && eventObject.carbonDioxdeMaxTrigger >= statsManager.carbonDioxdeValue)
         {
-            popupEventManager.SetUpPopup(eventObject);
             resetTimeSinceAccident = true;
 
         }
         if (eventObject.hydrogenMinTrigger <= statsManager.hydrogenValue && eventObject.hydrogenMaxTrigger >= statsManager.hydrogenValue)
         {
-            popupEventManager.SetUpPopup(eventObject);
             resetTimeSinceAccident = true;
         }
     }
