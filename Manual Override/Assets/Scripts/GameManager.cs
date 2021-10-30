@@ -201,7 +201,7 @@ public class GameManager : MonoBehaviour
         scienceDepartmentUI.SetActive(true);
         engineeringDepartmentUI.SetActive(false);
 
-        // enter the engineering department
+        // enter the science department
         terminalTextManager.startWriteText(enterScienceDeptText.text);
     }
 
@@ -300,15 +300,22 @@ public class GameManager : MonoBehaviour
             if (statsManager.isEngineChangingSpeed)
             {
                 // prevent engine switch when engine is one
-                terminalTextManager.startWriteText("Engine in motion, cannot switch direction");
+                terminalTextManager.startWriteText("Engine in motion, cannot stop during powering up/down sequence");
             }
             else
             {
-                terminalTextManager.startWriteText(stopEngineText.text);
+                if (statsManager.shipSpeedValue != 0) // only stop engine when engine is not alerady moving
+                {
+                    terminalTextManager.startWriteText(stopEngineText.text);
 
-                // update slider for cooldown
-                StartCoroutine(cooldownBar.UpdateCooldownBar(stopEngineText.cooldownTime, cooldownBar.stopEngineCooldownBar));
-                StartCoroutine(cooldownBar.TriggerCooldown(stopEngineText.cooldownTime, "stopEngineCooldown")); // wait x seconds before ending cooldown
+                    // update slider for cooldown
+                    StartCoroutine(cooldownBar.UpdateCooldownBar(stopEngineText.cooldownTime, cooldownBar.stopEngineCooldownBar));
+                    StartCoroutine(cooldownBar.TriggerCooldown(stopEngineText.cooldownTime, "stopEngineCooldown")); // wait x seconds before ending cooldown
+                }
+                else
+                {
+                    terminalTextManager.startWriteText("Engine not on");
+                }
             }
         }
     }
