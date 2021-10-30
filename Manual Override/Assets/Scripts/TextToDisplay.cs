@@ -11,7 +11,7 @@ public class TextToDisplay : ScriptableObject
     public string description;
     public string text;
     public float cooldownTime;
-    public float energyCellCost;
+    public float hydrogenCellCost;
     public float waterCost;
     public float nitrogenCost;
     public float oxygenCost;

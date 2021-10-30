@@ -2271,12 +2271,12 @@ PrefabInstance:
     - target: {fileID: 3774399252765419501, guid: 29cb40ca7e581a64b82ceaad11ca8693,
         type: 3}
       propertyPath: m_Name
-      value: energy_cells
+      value: hydrogen_cells
       objectReference: {fileID: 0}
     - target: {fileID: 3774399252765419503, guid: 29cb40ca7e581a64b82ceaad11ca8693,
         type: 3}
       propertyPath: m_text
-      value: '> energy_cells: [3]'
+      value: '> hydrogen cells: [3]'
       objectReference: {fileID: 0}
     - target: {fileID: 3774399252765419503, guid: 29cb40ca7e581a64b82ceaad11ca8693,
         type: 3}
@@ -7827,6 +7827,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592553144}
   m_CullTransparentMesh: 0
+--- !u!1 &614621292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 18024625878358523, guid: 63a2fcf92e464314c8bffeec1de91747,
+    type: 3}
+  m_PrefabInstance: {fileID: 1911585644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &616176496
 GameObject:
   m_ObjectHideFlags: 0
@@ -24622,7 +24628,7 @@ PrefabInstance:
     - target: {fileID: 4118880992362875320, guid: cf1fad1c70ad7d844ac8cba5762aafd1,
         type: 3}
       propertyPath: m_Name
-      value: RE Tooltip
+      value: SE Tooltip
       objectReference: {fileID: 0}
     - target: {fileID: 4118880992362875320, guid: cf1fad1c70ad7d844ac8cba5762aafd1,
         type: 3}
@@ -25609,7 +25615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd4414cbab356644bf62ff65fa14525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyCellAmount: 0
+  hydrogenCellAmount: 0
   waterAmount: 0
   shipMassValue: 0
   rocketThurstValue: 0
@@ -25632,8 +25638,7 @@ MonoBehaviour:
   timeBetweenDelay: 0
   titanTotalDistance: 1.277e+9
   accelerationOfShip: 0
-  isEngineInReverse: 0
-  energyCellStats: {fileID: 2094851255}
+  hydrogenCellStats: {fileID: 2094851255}
   waterStats: {fileID: 460976598}
   shipMassStats: {fileID: 1522593138}
   rocketThrustStats: {fileID: 136618683}
@@ -26878,7 +26883,7 @@ MonoBehaviour:
   treatPlantsCooldownBar: {fileID: 632983347}
   performElectrolysisCooldownBar: {fileID: 1587184935}
   performSabatierCooldownBar: {fileID: 1809810281}
-  stopEngineCooldownBar: {fileID: 0}
+  stopEngineCooldownBar: {fileID: 614621292}
   assembleRobotsCooldownBar: {fileID: 1492443286}
   dismantleRobotsCooldownBar: {fileID: 869167192}
   scanCooldownBar: {fileID: 662572769}
@@ -28193,6 +28198,12 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 518332515665905253, guid: f04c8cf039dd77040a97fa6efccc0196,
         type: 3}
+      propertyPath: stopEngineText
+      value: 
+      objectReference: {fileID: 11400000, guid: c7f87324211a4e94ab138466ad9422cd,
+        type: 2}
+    - target: {fileID: 518332515665905253, guid: f04c8cf039dd77040a97fa6efccc0196,
+        type: 3}
       propertyPath: energyCellStats
       value: 
       objectReference: {fileID: 2094851255}
@@ -28222,6 +28233,11 @@ PrefabInstance:
       propertyPath: plantSeedsButton
       value: 
       objectReference: {fileID: 416302846}
+    - target: {fileID: 518332515665905253, guid: f04c8cf039dd77040a97fa6efccc0196,
+        type: 3}
+      propertyPath: stopEngineButton
+      value: 
+      objectReference: {fileID: 644837332}
     - target: {fileID: 518332515665905253, guid: f04c8cf039dd77040a97fa6efccc0196,
         type: 3}
       propertyPath: tretPlantsButton

@@ -67,7 +67,7 @@ public class PopupRandomEventManager : MonoBehaviour
         // all random events have a negative value associated
         // currently will throw the random event if any of the values exist, does not need all
 
-        bool hasEnergyCell = true;
+        bool hasHydrogenCell = true;
         bool hasWater = true;
         bool hasRobot = true;
         bool hasPlant = true;
@@ -82,78 +82,78 @@ public class PopupRandomEventManager : MonoBehaviour
         bool hasMetal = true;
         bool hasDeadBattery = true;
 
-        if (eventRandomObject.energyCellCost != 0) 
+        if (eventRandomObject.hydrogenCellCost != 0) 
         { 
-            if (eventRandomObject.energyCellCost > 0) { hasEnergyCell = true;} // postive value
-            else if (statsManager.energyCellAmount == 0) { hasEnergyCell = false;} // negative value
+            if (eventRandomObject.hydrogenCellCost > 0) { hasHydrogenCell = true;} // positive value
+            else if (statsManager.hydrogenCellAmount == 0) { hasHydrogenCell = false;} // negative value
         }
         if (eventRandomObject.waterCost != 0)
         {
-            if (eventRandomObject.waterCost > 0) { hasWater = true; } // postive value
+            if (eventRandomObject.waterCost > 0) { hasWater = true; } // positive value
             else if (statsManager.waterAmount == 0) { hasWater = false; } // negative value
         }
         if (eventRandomObject.robotCost != 0) 
         {
-            if (eventRandomObject.robotCost > 0) { hasRobot = true; } // postive value
+            if (eventRandomObject.robotCost > 0) { hasRobot = true; } // positive value
             else if (statsManager.robotsAmount == 0) { hasRobot = false; } // negative value
         }
         if (eventRandomObject.plantsCost != 0) 
         {
-            if (eventRandomObject.plantsCost > 0) { hasPlant = true; } // postive value
+            if (eventRandomObject.plantsCost > 0) { hasPlant = true; } // positive value
             else if (statsManager.plantsAmount == 0) { hasPlant = false; } // negative value
         }
         if (eventRandomObject.seedsCost != 0) 
         {
-            if (eventRandomObject.seedsCost > 0) { hasSeeds = true; } // postive value
+            if (eventRandomObject.seedsCost > 0) { hasSeeds = true; } // positive value
             else if (statsManager.seedsAmount == 0) { hasSeeds = false; } // negative value
         }
         if (eventRandomObject.methaneCost != 0) 
         {
-            if (eventRandomObject.methaneCost > 0) { hasMethane = true; } // postive value
+            if (eventRandomObject.methaneCost > 0) { hasMethane = true; } // positive value
             else if (statsManager.methaneAmount == 0) { hasMethane = false; } // negative value
         }
         if (eventRandomObject.nitrogenCost != 0) 
         {
-            if (eventRandomObject.nitrogenCost > 0) { hasNitrogen = true; } // postive value
+            if (eventRandomObject.nitrogenCost > 0) { hasNitrogen = true; } // positive value
             else if (statsManager.nitrogenValue == 0) { hasNitrogen = false; } // negative value
         }
         if (eventRandomObject.oxygenCost != 0)
         {
-            if (eventRandomObject.oxygenCost > 0) { hasOxygen = true; } // postive value
+            if (eventRandomObject.oxygenCost > 0) { hasOxygen = true; } // positive value
             else if (statsManager.oxygenValue == 0) { hasOxygen = false; } // negative value
         }
         if (eventRandomObject.carbonDioxdeCost != 0) 
         {
-            if (eventRandomObject.carbonDioxdeCost > 0) { hasCarbonDioxde = true; } // postive value
+            if (eventRandomObject.carbonDioxdeCost > 0) { hasCarbonDioxde = true; } // positive value
             else if (statsManager.carbonDioxdeValue == 0) { hasCarbonDioxde = false; } // negative value
         }
         if (eventRandomObject.hydrogenCost != 0) 
         {
-            if (eventRandomObject.hydrogenCost > 0) { hasHydrogen = true; } // postive value
+            if (eventRandomObject.hydrogenCost > 0) { hasHydrogen = true; } // positive value
             else if (statsManager.hydrogenValue == 0) { hasHydrogen = false; } // negative value
         }
         if (eventRandomObject.chemicalsCost != 0) 
         {
-            if (eventRandomObject.chemicalsCost > 0) { hasChemicals = true; } // postive value
+            if (eventRandomObject.chemicalsCost > 0) { hasChemicals = true; } // positive value
             else if (statsManager.chemicalsAmount == 0) { hasChemicals = false; } // negative value
         }
         if (eventRandomObject.copperWireCost != 0) 
         {
-            if (eventRandomObject.copperWireCost > 0) { hasCooperWire = true; } // postive values
+            if (eventRandomObject.copperWireCost > 0) { hasCooperWire = true; } // positive values
             else if (statsManager.copperWireAmount == 0) { hasCooperWire = false; } // negative value
         }
         if (eventRandomObject.metalCost != 0) 
         {
-            if (eventRandomObject.metalCost > 0) { hasMetal = true; } // postive values
+            if (eventRandomObject.metalCost > 0) { hasMetal = true; } // positive values
             else if (statsManager.metalAmount == 0) { hasMetal = false; } // negative value
         }
         if (eventRandomObject.deadBatteryCost != 0) 
         {
-            if (eventRandomObject.deadBatteryCost > 0) { hasDeadBattery = true; } // postive values
+            if (eventRandomObject.deadBatteryCost > 0) { hasDeadBattery = true; } // positive values
             else if (statsManager.deadBatteryAmount == 0) { hasDeadBattery = false; } // negative value
         }
 
-        return (hasEnergyCell && hasWater && hasRobot && hasPlant && hasSeeds && hasMethane && hasNitrogen && hasOxygen && hasCarbonDioxde && hasHydrogen && hasChemicals && hasCooperWire && hasMetal && hasDeadBattery);
+        return (hasHydrogenCell && hasWater && hasRobot && hasPlant && hasSeeds && hasMethane && hasNitrogen && hasOxygen && hasCarbonDioxde && hasHydrogen && hasChemicals && hasCooperWire && hasMetal && hasDeadBattery);
     }
 
     private void TriggerRandomEvent()

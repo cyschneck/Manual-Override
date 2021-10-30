@@ -69,7 +69,7 @@ public class PopupEventManager : MonoBehaviour
     public void SetUpContinueYesNoTooltip(TextToDisplay existingValue)
     {
         // set up the dynamic tooltip for popup events (based on which event is being displayed)
-        existingValue.energyCellCost = eventObject.energyCellCost;
+        existingValue.hydrogenCellCost = eventObject.hydrogenCellCost;
         existingValue.waterCost = eventObject.waterCost;
         existingValue.nitrogenCost = eventObject.nitrogenCost;
         existingValue.oxygenCost = eventObject.oxygenCost;

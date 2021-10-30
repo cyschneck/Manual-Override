@@ -12,7 +12,7 @@ public class TooltipOnHover : MonoBehaviour
     private GameObject toolTipOnDisplay;
 
     [Header("Display Textboxes")]
-    private GameObject energyCellTooltip;
+    private GameObject hydrogenCellTooltip;
     private GameObject waterTooltip;
     private GameObject nitrogenTooltip;
     private GameObject oxygenTooltip;
@@ -37,7 +37,7 @@ public class TooltipOnHover : MonoBehaviour
         toolTipOnDisplay = this.gameObject.transform.GetChild(1).gameObject; // tooltip is the second child
 
         // set tooltip options based on current button (based on the postion of the tooltip in the tooltip)
-        energyCellTooltip = toolTipOnDisplay.transform.GetChild(0).gameObject;
+        hydrogenCellTooltip = toolTipOnDisplay.transform.GetChild(0).gameObject;
         waterTooltip = toolTipOnDisplay.transform.GetChild(1).gameObject;
         nitrogenTooltip = toolTipOnDisplay.transform.GetChild(2).gameObject;
         oxygenTooltip = toolTipOnDisplay.transform.GetChild(3).gameObject;
@@ -76,7 +76,7 @@ public class TooltipOnHover : MonoBehaviour
     public void SetValuesFromScriptableObject(TextToDisplay displayText)
     {
         // set the values for the tooltip from the JSON
-        SetTooltip(energyCellTooltip, displayText.energyCellCost);
+        SetTooltip(hydrogenCellTooltip, displayText.hydrogenCellCost);
         SetTooltip(waterTooltip, displayText.waterCost);
         SetTooltip(nitrogenTooltip, displayText.nitrogenCost);
         SetTooltip(oxygenTooltip, displayText.oxygenCost);
@@ -92,7 +92,7 @@ public class TooltipOnHover : MonoBehaviour
         SetTooltip(batteryTooltip, displayText.deadBatteryCost);
 
         // if tooltip has no values, do not display tooltip
-        if (displayText.energyCellCost == 0 && displayText.waterCost == 0 && displayText.nitrogenCost == 0 && displayText.oxygenCost == 0
+        if (displayText.hydrogenCellCost == 0 && displayText.waterCost == 0 && displayText.nitrogenCost == 0 && displayText.oxygenCost == 0
             && displayText.carbonDioxdeCost == 0 && displayText.hydrogenCost == 0 && displayText.seedsCost == 0 && displayText.plantsCost == 0
             && displayText.methaneCost == 0 && displayText.chemicalsCost == 0 && displayText.robotCost == 0 && displayText.copperWireCost == 0
             && displayText.metalCost == 0 && displayText.deadBatteryCost == 0)
@@ -138,7 +138,7 @@ public class TooltipOnHover : MonoBehaviour
     public void ResetDefaultValues(TextToDisplay existingValue)
     {
         // set default values for continue/yes/no to save between popups
-        existingValue.energyCellCost = 123;
+        existingValue.hydrogenCellCost = 123;
         existingValue.waterCost = 123;
         existingValue.nitrogenCost = 123;
         existingValue.oxygenCost = 123;

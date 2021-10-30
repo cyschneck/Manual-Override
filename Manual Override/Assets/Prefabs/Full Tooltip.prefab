@@ -52,7 +52,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.6}
   m_AnchorMax: {x: 0, y: 0.6}
   m_AnchoredPosition: {x: -98.79, y: -10.39}
-  m_SizeDelta: {x: 143.67001, y: 189.39342}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4118880992362875268
 CanvasRenderer:
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4118880992509211136}
   - component: {fileID: 4118880992509211137}
   m_Layer: 5
-  m_Name: Energy Cells
+  m_Name: Hydrogen Cells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Energy Cells: 111'
+  m_text: 'Hydrogen Cells: 111'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b8ec6ff12e8b3b41887dbf69aeda117, type: 2}
   m_sharedMaterial: {fileID: -1360100811436935396, guid: 1b8ec6ff12e8b3b41887dbf69aeda117,

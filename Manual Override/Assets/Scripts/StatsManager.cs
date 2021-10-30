@@ -14,7 +14,7 @@ public class StatsManager : MonoBehaviour
     private TerminalTextManager terminalTextManager;
 
     [Header("Static Stats")]
-    public float energyCellAmount;
+    public float hydrogenCellAmount;
     public float waterAmount;
     public float shipMassValue;
     public float rocketThurstValue;
@@ -41,7 +41,7 @@ public class StatsManager : MonoBehaviour
     public float accelerationOfShip;
 
     [Header("Ship Main Stats")]
-    public TextMeshProUGUI energyCellStats;
+    public TextMeshProUGUI hydrogenCellStats;
     public TextMeshProUGUI waterStats;
     public TextMeshProUGUI shipMassStats;
     public TextMeshProUGUI rocketThrustStats;
@@ -72,7 +72,7 @@ public class StatsManager : MonoBehaviour
         stringStatsValues = GameObject.Find("StatsManager").GetComponent<StatsForStringValues>();
 
         // dictionary to store displayed version of stats name (chemical = "avaiable chemicals")
-        textDictionary.Add("energy cells", "Energy Cells");
+        textDictionary.Add("hydrogen cells", "Hydrogen Cells");
         textDictionary.Add("water", "water");
         textDictionary.Add("nitrogen", "Nitrogen Gas");
         textDictionary.Add("oxygen", "Oxygen Gas");
@@ -95,7 +95,7 @@ public class StatsManager : MonoBehaviour
     private void FixedUpdate()
     {
         // update values as they are updated
-        SetStatValue(energyCellStats, "energy cells", energyCellAmount);
+        SetStatValue(hydrogenCellStats, "hydrogen cells", hydrogenCellAmount);
         SetStatValue(waterStats, "water", waterAmount);
         SetAirComp(nitrogenValue, oxygenValue, carbonDioxdeValue, hydrogenValue);
         SetStatValue(seedStats, "seeds", seedsAmount);
@@ -140,8 +140,8 @@ public class StatsManager : MonoBehaviour
         stringStatsValues.SetDefaultValuesStrings();
 
         // set default values for integers
-        energyCellAmount = 0;
-        SetStatValue(energyCellStats, "energy cells", energyCellAmount);
+        hydrogenCellAmount = 0;
+        SetStatValue(hydrogenCellStats, "hydrogen cells", hydrogenCellAmount);
         waterAmount = 0;
         SetStatValue(waterStats, "water", waterAmount);
         nitrogenValue = 55.0f;
@@ -235,7 +235,7 @@ public class StatsManager : MonoBehaviour
     public void UpdateStaticValues(TextToDisplay textValues)
     {
         // apply new values
-        energyCellAmount += textValues.energyCellCost;
+        hydrogenCellAmount += textValues.hydrogenCellCost;
         waterAmount += textValues.waterCost;
         nitrogenValue += textValues.nitrogenCost;
         oxygenValue += textValues.oxygenCost;
@@ -255,7 +255,7 @@ public class StatsManager : MonoBehaviour
     {
         // apply new values: check < 20.0 ? true : false; if lower than zero, set to zero
         // prevent values from becoming negative, otherwise set as listed
-        energyCellAmount = energyCellAmount + textValues.energyCellCost < 0 ? 0 : energyCellAmount + textValues.energyCellCost;
+        hydrogenCellAmount = hydrogenCellAmount + textValues.hydrogenCellCost < 0 ? 0 : hydrogenCellAmount + textValues.hydrogenCellCost;
         waterAmount = waterAmount + textValues.waterCost < 0 ? 0 : waterAmount + textValues.waterCost;
         nitrogenValue = nitrogenValue + textValues.nitrogenCost < 0 ? 0 : nitrogenValue + textValues.nitrogenCost;
         oxygenValue = oxygenValue + textValues.oxygenCost < 0 ? 0 : oxygenValue + textValues.oxygenCost;
@@ -275,7 +275,7 @@ public class StatsManager : MonoBehaviour
     {
         // detect and update if any value goes below zero
         notEnoughResourcesTriggered = false;
-        IsValueZeroOrNegative(energyCellAmount + textValues.energyCellCost, textDictionary["energy cells"]);
+        IsValueZeroOrNegative(hydrogenCellAmount + textValues.hydrogenCellCost, textDictionary["hydrogen cells"]);
         IsValueZeroOrNegative(waterAmount + textValues.waterCost, textDictionary["water"]);
         IsValueZeroOrNegative(nitrogenValue + textValues.nitrogenCost, textDictionary["nitrogen"]);
         IsValueZeroOrNegative(oxygenValue + textValues.oxygenCost, textDictionary["oxygen"]);

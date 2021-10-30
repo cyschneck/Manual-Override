@@ -16,17 +16,17 @@ MonoBehaviour:
   text: the smell of moist soil fills the small cabin as you plant the freshly-sprouted
     seeds
   cooldownTime: 15
-  energyCellCost: 2
-  waterCost: 3
-  nitrogenCost: 4
-  oxygenCost: 5
-  carbonDioxdeCost: 6
-  hydrogenCost: 7
-  seedsCost: 8
-  plantsCost: 9
-  methaneCost: 10
-  chemicalsCost: 11
-  robotCost: 12
-  copperWireCost: 13
-  metalCost: 14
-  deadBatteryCost: 15
+  hydrogenCellCost: 1
+  waterCost: 2
+  nitrogenCost: 3
+  oxygenCost: 4
+  carbonDioxdeCost: 5
+  hydrogenCost: 6
+  seedsCost: 7
+  plantsCost: 8
+  methaneCost: 9
+  chemicalsCost: 10
+  robotCost: 11
+  copperWireCost: 12
+  metalCost: 13
+  deadBatteryCost: 14
