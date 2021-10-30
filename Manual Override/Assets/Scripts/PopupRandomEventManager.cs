@@ -80,7 +80,6 @@ public class PopupRandomEventManager : MonoBehaviour
         bool hasChemicals = true;
         bool hasCooperWire = true;
         bool hasMetal = true;
-        bool hasDeadBattery = true;
 
         if (eventRandomObject.hydrogenCellCost != 0) 
         { 
@@ -147,13 +146,10 @@ public class PopupRandomEventManager : MonoBehaviour
             if (eventRandomObject.metalCost > 0) { hasMetal = true; } // positive values
             else if (statsManager.metalAmount == 0) { hasMetal = false; } // negative value
         }
-        if (eventRandomObject.deadBatteryCost != 0) 
-        {
-            if (eventRandomObject.deadBatteryCost > 0) { hasDeadBattery = true; } // positive values
-            else if (statsManager.deadBatteryAmount == 0) { hasDeadBattery = false; } // negative value
-        }
 
-        return (hasHydrogenCell && hasWater && hasRobot && hasPlant && hasSeeds && hasMethane && hasNitrogen && hasOxygen && hasCarbonDioxde && hasHydrogen && hasChemicals && hasCooperWire && hasMetal && hasDeadBattery);
+        return (hasHydrogenCell && hasWater && hasRobot && hasPlant && hasSeeds && hasMethane 
+            && hasNitrogen && hasOxygen && hasCarbonDioxde && hasHydrogen && hasChemicals 
+            && hasCooperWire && hasMetal);
     }
 
     private void TriggerRandomEvent()

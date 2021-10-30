@@ -33,7 +33,6 @@ public class TextToDisplayEvents : ScriptableObject
     public float robotCost;
     public float copperWireCost;
     public float metalCost;
-    public float deadBatteryCost;
     public bool turnEngineOff;
     [Header("Random Events")]
     [Range(1, 100)]

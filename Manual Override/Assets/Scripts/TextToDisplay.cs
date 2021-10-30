@@ -24,5 +24,4 @@ public class TextToDisplay : ScriptableObject
     public float robotCost;
     public float copperWireCost;
     public float metalCost;
-    public float deadBatteryCost;
 }

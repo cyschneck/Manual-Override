@@ -82,7 +82,6 @@ public class PopupEventManager : MonoBehaviour
         existingValue.robotCost = eventObject.robotCost;
         existingValue.copperWireCost = eventObject.copperWireCost;
         existingValue.metalCost = eventObject.metalCost;
-        existingValue.deadBatteryCost = eventObject.deadBatteryCost;
 
     }
     private void SetUpYesAndNoEvent()

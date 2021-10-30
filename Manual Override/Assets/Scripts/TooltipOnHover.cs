@@ -25,7 +25,6 @@ public class TooltipOnHover : MonoBehaviour
     private GameObject robotsTooltip;
     private GameObject copperWireTooltip;
     private GameObject metalTooltip;
-    private GameObject batteryTooltip;
 
     private bool isTooltipNotEmpty;
 
@@ -50,7 +49,6 @@ public class TooltipOnHover : MonoBehaviour
         robotsTooltip = toolTipOnDisplay.transform.GetChild(10).gameObject;
         copperWireTooltip = toolTipOnDisplay.transform.GetChild(11).gameObject;
         metalTooltip = toolTipOnDisplay.transform.GetChild(12).gameObject;
-        batteryTooltip = toolTipOnDisplay.transform.GetChild(13).gameObject;
     }
 
     private void Update()
@@ -89,13 +87,12 @@ public class TooltipOnHover : MonoBehaviour
         SetTooltip(robotsTooltip, displayText.robotCost);
         SetTooltip(copperWireTooltip, displayText.copperWireCost);
         SetTooltip(metalTooltip, displayText.metalCost);
-        SetTooltip(batteryTooltip, displayText.deadBatteryCost);
 
         // if tooltip has no values, do not display tooltip
         if (displayText.hydrogenCellCost == 0 && displayText.waterCost == 0 && displayText.nitrogenCost == 0 && displayText.oxygenCost == 0
             && displayText.carbonDioxdeCost == 0 && displayText.hydrogenCost == 0 && displayText.seedsCost == 0 && displayText.plantsCost == 0
             && displayText.methaneCost == 0 && displayText.chemicalsCost == 0 && displayText.robotCost == 0 && displayText.copperWireCost == 0
-            && displayText.metalCost == 0 && displayText.deadBatteryCost == 0)
+            && displayText.metalCost == 0)
         {
             isTooltipNotEmpty = false;
         } else
@@ -151,6 +148,5 @@ public class TooltipOnHover : MonoBehaviour
         existingValue.robotCost = 123;
         existingValue.copperWireCost = 123;
         existingValue.metalCost = 123;
-        existingValue.deadBatteryCost = 123;
     }
 }

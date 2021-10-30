@@ -31,7 +31,6 @@ public class StatsManager : MonoBehaviour
     public float robotsAmount;
     public float copperWireAmount;
     public float metalAmount;
-    public float deadBatteryAmount;
     public float distanceToTitanAmount;
     public float distanceChangeDelay;
     public float timeBetweenDelay; // how often to update distance
@@ -59,7 +58,6 @@ public class StatsManager : MonoBehaviour
     public TextMeshProUGUI robotsStats;
     public TextMeshProUGUI copperWireStats;
     public TextMeshProUGUI metalStats;
-    public TextMeshProUGUI deadBatteriesStats;
 
     private Dictionary<string, string> textDictionary = new Dictionary<string, string>();
     public bool isEngineChangingSpeed;
@@ -85,7 +83,6 @@ public class StatsManager : MonoBehaviour
         textDictionary.Add("robots", "Robotics");
         textDictionary.Add("copper wire", "Copper Wire");
         textDictionary.Add("metal", "Processed Metal");
-        textDictionary.Add("dead battery", "Dead Batteries");
 
         // how often to update distance to titan
         distanceChangeDelay = 10.0f; // update every x seconds
@@ -105,7 +102,6 @@ public class StatsManager : MonoBehaviour
         SetStatValue(robotsStats, "robots", robotsAmount);
         SetStatValue(copperWireStats, "copper wire", copperWireAmount);
         SetStatValue(metalStats, "metal", metalAmount);
-        SetStatValue(deadBatteriesStats, "dead battery", deadBatteryAmount);
         SetRocketThrust(rocketThurstValue);
         UpdateShipSpeedBasedOnRocketThrust(rocketThurstValue);
         SetShipMass(shipMassValue);
@@ -163,8 +159,6 @@ public class StatsManager : MonoBehaviour
         SetStatValue(copperWireStats, "copper wire", copperWireAmount);
         metalAmount = 0;
         SetStatValue(metalStats, "metal", metalAmount);
-        deadBatteryAmount = 0;
-        SetStatValue(deadBatteriesStats, "dead battery", deadBatteryAmount);
         shipMassValue = 420.0f; // 420,000 kg (ISS) = 420 Mg
         SetShipMass(shipMassValue);
         rocketThurstValue = 0.0f;
@@ -248,7 +242,6 @@ public class StatsManager : MonoBehaviour
         robotsAmount += textValues.robotCost;
         copperWireAmount += textValues.copperWireCost;
         metalAmount += textValues.metalCost;
-        deadBatteryAmount += textValues.deadBatteryCost;
     }
 
     public void UpdateEventValues(TextToDisplayEvents textValues)
@@ -268,7 +261,6 @@ public class StatsManager : MonoBehaviour
         robotsAmount = robotsAmount + textValues.robotCost < 0 ? 0 : robotsAmount + textValues.robotCost;
         copperWireAmount = copperWireAmount + textValues.copperWireCost < 0 ? 0 : copperWireAmount + textValues.copperWireCost;
         metalAmount = metalAmount + textValues.metalCost < 0 ? 0 : metalAmount + textValues.metalCost;
-        deadBatteryAmount = deadBatteryAmount + textValues.deadBatteryCost < 0 ? 0 : deadBatteryAmount + textValues.deadBatteryCost;
     }
 
     public bool DoesNotHaveResources(TextToDisplay textValues)
@@ -288,7 +280,6 @@ public class StatsManager : MonoBehaviour
         IsValueZeroOrNegative(robotsAmount + textValues.robotCost, textDictionary["robots"]);
         IsValueZeroOrNegative(copperWireAmount + textValues.copperWireCost, textDictionary["copper wire"]);
         IsValueZeroOrNegative(metalAmount + textValues.metalCost, textDictionary["metal"]);
-        IsValueZeroOrNegative(deadBatteryAmount + textValues.deadBatteryCost, textDictionary["dead battery"]);
 
         return notEnoughResourcesTriggered;
     }
